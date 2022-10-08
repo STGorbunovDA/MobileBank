@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\DataBaseConnection.cs" />
+    <Compile Include="Classes\DataStorage.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
