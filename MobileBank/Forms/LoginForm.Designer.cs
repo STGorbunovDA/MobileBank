@@ -39,7 +39,7 @@
             this.chB_visibilityPassword = new System.Windows.Forms.CheckBox();
             this.btn_EnterLoginForm = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lbL_CreateAccount = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_closeLoginForm
@@ -54,6 +54,7 @@
             this.btn_closeLoginForm.TabIndex = 0;
             this.btn_closeLoginForm.Text = "X";
             this.btn_closeLoginForm.UseVisualStyleBackColor = false;
+            this.btn_closeLoginForm.Click += new System.EventHandler(this.Btn_closeLoginForm_Click);
             // 
             // label1
             // 
@@ -71,7 +72,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(12, 85);
+            this.label2.Location = new System.Drawing.Point(12, 96);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(157, 16);
             this.label2.TabIndex = 2;
@@ -82,7 +83,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(12, 159);
+            this.label3.Location = new System.Drawing.Point(12, 174);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(101, 16);
             this.label3.TabIndex = 3;
@@ -151,7 +152,7 @@
             this.btn_EnterLoginForm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_EnterLoginForm.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_EnterLoginForm.ForeColor = System.Drawing.Color.Gray;
-            this.btn_EnterLoginForm.Location = new System.Drawing.Point(12, 266);
+            this.btn_EnterLoginForm.Location = new System.Drawing.Point(12, 283);
             this.btn_EnterLoginForm.Name = "btn_EnterLoginForm";
             this.btn_EnterLoginForm.Size = new System.Drawing.Size(380, 38);
             this.btn_EnterLoginForm.TabIndex = 9;
@@ -163,22 +164,24 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(81, 319);
+            this.label4.Location = new System.Drawing.Point(81, 336);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(129, 16);
             this.label4.TabIndex = 10;
             this.label4.Text = "Нет учётной записи?";
             // 
-            // label5
+            // lbL_CreateAccount
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(216, 319);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(104, 16);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Создать аккаунт";
+            this.lbL_CreateAccount.AutoSize = true;
+            this.lbL_CreateAccount.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbL_CreateAccount.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbL_CreateAccount.Location = new System.Drawing.Point(216, 336);
+            this.lbL_CreateAccount.Name = "lbL_CreateAccount";
+            this.lbL_CreateAccount.Size = new System.Drawing.Size(104, 16);
+            this.lbL_CreateAccount.TabIndex = 11;
+            this.lbL_CreateAccount.Text = "Создать аккаунт";
+            this.lbL_CreateAccount.MouseEnter += new System.EventHandler(this.LbL_CreateAccount_MouseEnter);
+            this.lbL_CreateAccount.MouseLeave += new System.EventHandler(this.LbL_CreateAccount_MouseLeave);
             // 
             // LoginForm
             // 
@@ -186,7 +189,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(404, 381);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lbL_CreateAccount);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btn_EnterLoginForm);
             this.Controls.Add(this.chB_visibilityPassword);
@@ -200,7 +203,7 @@
             this.Controls.Add(this.btn_closeLoginForm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LoginForm";
-            this.Text = "Form1";
+            this.Text = "Вход";
             this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -220,7 +223,7 @@
         private System.Windows.Forms.CheckBox chB_visibilityPassword;
         private System.Windows.Forms.Button btn_EnterLoginForm;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lbL_CreateAccount;
     }
 }
 

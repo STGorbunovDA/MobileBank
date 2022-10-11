@@ -91,6 +91,7 @@
   <ItemGroup>
     <Compile Include="Classes\DataBaseConnection.cs" />
     <Compile Include="Classes\DataStorage.cs" />
+    <Compile Include="Classes\FormClose.cs" />
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>

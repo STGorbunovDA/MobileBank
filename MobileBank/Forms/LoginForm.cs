@@ -41,5 +41,20 @@ namespace MobileBank
             if(chB_visibilityPassword.Checked) txB_enterPassword.UseSystemPasswordChar = true;
             else txB_enterPassword.UseSystemPasswordChar = false;
         }
+
+        void LbL_CreateAccount_MouseEnter(object sender, EventArgs e)
+        {
+            lbL_CreateAccount.ForeColor = Color.GreenYellow;
+        }
+
+        void LbL_CreateAccount_MouseLeave(object sender, EventArgs e)
+        {
+            lbL_CreateAccount.ForeColor = Color.White;
+        }
+
+        void Btn_closeLoginForm_Click(object sender, EventArgs e)
+        {
+            System.Environment.Exit(1);
+        }
     }
 }
