@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MobileBank.Classes;
+using MobileBank.Forms;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -6,6 +8,7 @@ namespace MobileBank
 {
     public partial class LoginForm : Form
     {
+        DataBaseConnection dataBase = new DataBaseConnection();
         private bool dragging = false;
         private Point dragCursorPoint;
         private Point dragFormPoint;
@@ -13,11 +16,29 @@ namespace MobileBank
         public LoginForm()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
         }
+
+
+        #region перетаскивание формы без бордера метод CyberDanger
+
+        //public const int WM_NCLBUTTONDOWN = 0xA1;
+        //public const int HT_CAPTION = 0x2;
+
+        //[System.Runtime.InteropServices.DllImport("user32.dll")]
+
+        //public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int IParam);
+
+        //[System.Runtime.InteropServices.DllImport("user32.dll")]
+
+        //public static extern bool ReleaseCapture();
+
+        #endregion
 
         void LoginForm_Load(object sender, EventArgs e)
         {
             txB_enterPassword.UseSystemPasswordChar = true;
+            txB_enterNumberPhone.Select();
         }
 
         void ChB_visibilityPassword_Click(object sender, EventArgs e)
@@ -64,6 +85,12 @@ namespace MobileBank
         void LoginForm_MouseUp(object sender, MouseEventArgs e)
         {
             dragging = false;
+        }
+
+        private void LbL_CreateAccount_Click(object sender, EventArgs e)
+        {
+            RegistrationForm registrationForm = new RegistrationForm();
+            registrationForm.ShowDialog();
         }
     }
 }

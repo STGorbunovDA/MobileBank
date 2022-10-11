@@ -182,6 +182,7 @@
             this.lbL_CreateAccount.Size = new System.Drawing.Size(104, 16);
             this.lbL_CreateAccount.TabIndex = 11;
             this.lbL_CreateAccount.Text = "Создать аккаунт";
+            this.lbL_CreateAccount.Click += new System.EventHandler(this.LbL_CreateAccount_Click);
             this.lbL_CreateAccount.MouseEnter += new System.EventHandler(this.LbL_CreateAccount_MouseEnter);
             this.lbL_CreateAccount.MouseLeave += new System.EventHandler(this.LbL_CreateAccount_MouseLeave);
             // 
