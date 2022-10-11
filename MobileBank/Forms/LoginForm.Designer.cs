@@ -205,6 +205,9 @@
             this.Name = "LoginForm";
             this.Text = "Вход";
             this.Load += new System.EventHandler(this.LoginForm_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LoginForm_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LoginForm_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.LoginForm_MouseUp);
             this.ResumeLayout(false);
             this.PerformLayout();
 
