@@ -37,7 +37,9 @@
             this.lbL_enterNumberPhone = new System.Windows.Forms.Label();
             this.lbL_enterPassword = new System.Windows.Forms.Label();
             this.chB_visibilityPassword = new System.Windows.Forms.CheckBox();
-            this.btn_Enter = new System.Windows.Forms.Button();
+            this.btn_EnterLoginForm = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_closeLoginForm
@@ -143,18 +145,40 @@
             this.chB_visibilityPassword.UseVisualStyleBackColor = true;
             this.chB_visibilityPassword.Click += new System.EventHandler(this.ChB_visibilityPassword_Click);
             // 
-            // btn_Enter
+            // btn_EnterLoginForm
             // 
-            this.btn_Enter.BackColor = System.Drawing.Color.GreenYellow;
-            this.btn_Enter.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Enter.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_Enter.ForeColor = System.Drawing.Color.Gray;
-            this.btn_Enter.Location = new System.Drawing.Point(12, 266);
-            this.btn_Enter.Name = "btn_Enter";
-            this.btn_Enter.Size = new System.Drawing.Size(380, 38);
-            this.btn_Enter.TabIndex = 9;
-            this.btn_Enter.Text = "Войти";
-            this.btn_Enter.UseVisualStyleBackColor = false;
+            this.btn_EnterLoginForm.BackColor = System.Drawing.Color.GreenYellow;
+            this.btn_EnterLoginForm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_EnterLoginForm.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_EnterLoginForm.ForeColor = System.Drawing.Color.Gray;
+            this.btn_EnterLoginForm.Location = new System.Drawing.Point(12, 266);
+            this.btn_EnterLoginForm.Name = "btn_EnterLoginForm";
+            this.btn_EnterLoginForm.Size = new System.Drawing.Size(380, 38);
+            this.btn_EnterLoginForm.TabIndex = 9;
+            this.btn_EnterLoginForm.Text = "Войти";
+            this.btn_EnterLoginForm.UseVisualStyleBackColor = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label4.Location = new System.Drawing.Point(81, 319);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(129, 16);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Нет учётной записи?";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label5.Location = new System.Drawing.Point(216, 319);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(104, 16);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Создать аккаунт";
             // 
             // LoginForm
             // 
@@ -162,7 +186,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(404, 381);
-            this.Controls.Add(this.btn_Enter);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.btn_EnterLoginForm);
             this.Controls.Add(this.chB_visibilityPassword);
             this.Controls.Add(this.lbL_enterPassword);
             this.Controls.Add(this.lbL_enterNumberPhone);
@@ -192,7 +218,9 @@
         private System.Windows.Forms.Label lbL_enterNumberPhone;
         private System.Windows.Forms.Label lbL_enterPassword;
         private System.Windows.Forms.CheckBox chB_visibilityPassword;
-        private System.Windows.Forms.Button btn_Enter;
+        private System.Windows.Forms.Button btn_EnterLoginForm;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }
 
