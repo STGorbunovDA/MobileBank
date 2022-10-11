@@ -16,5 +16,36 @@ namespace MobileBank
         {
             InitializeComponent();
         }
+
+        void Form1_Load(object sender, EventArgs e)
+        {
+            txB_enterNumberPhone.Visible = false;
+            txB_enterPassword.Visible = false;
+            txB_enterPassword.PasswordChar = '*';
+        }
+
+        void LbL_enterNumberPhone_Click(object sender, EventArgs e)
+        {
+            txB_enterNumberPhone.Visible = true;
+            lbL_enterNumberPhone.Visible = false;
+        }
+
+        void LbL_enterPassword_Click(object sender, EventArgs e)
+        {
+            txB_enterPassword.Visible = true;
+            lbL_enterPassword.Visible = false;
+        }
+
+        void ChB_visibilityPassword_Click(object sender, EventArgs e)
+        {
+            if(chB_visibilityPassword.Checked)
+            {
+                txB_enterPassword.UseSystemPasswordChar = true;
+            }
+            else
+            {
+                txB_enterPassword.UseSystemPasswordChar = false;
+            }
+        }
     }
 }

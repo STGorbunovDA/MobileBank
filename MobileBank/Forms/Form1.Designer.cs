@@ -32,10 +32,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txB_enterNumberPhone = new System.Windows.Forms.TextBox();
+            this.txB_enterPassword = new System.Windows.Forms.TextBox();
             this.lbL_enterNumberPhone = new System.Windows.Forms.Label();
             this.lbL_enterPassword = new System.Windows.Forms.Label();
+            this.chB_visibilityPassword = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btn_closeLoginForm
@@ -84,21 +85,23 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Введите пароль";
             // 
-            // textBox1
+            // txB_enterNumberPhone
             // 
-            this.textBox1.Location = new System.Drawing.Point(15, 48);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(380, 34);
-            this.textBox1.TabIndex = 4;
+            this.txB_enterNumberPhone.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txB_enterNumberPhone.Location = new System.Drawing.Point(12, 115);
+            this.txB_enterNumberPhone.Multiline = true;
+            this.txB_enterNumberPhone.Name = "txB_enterNumberPhone";
+            this.txB_enterNumberPhone.Size = new System.Drawing.Size(380, 34);
+            this.txB_enterNumberPhone.TabIndex = 4;
             // 
-            // textBox2
+            // txB_enterPassword
             // 
-            this.textBox2.Location = new System.Drawing.Point(12, 262);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(380, 34);
-            this.textBox2.TabIndex = 5;
+            this.txB_enterPassword.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txB_enterPassword.Location = new System.Drawing.Point(12, 193);
+            this.txB_enterPassword.Multiline = true;
+            this.txB_enterPassword.Name = "txB_enterPassword";
+            this.txB_enterPassword.Size = new System.Drawing.Size(380, 34);
+            this.txB_enterPassword.TabIndex = 5;
             // 
             // lbL_enterNumberPhone
             // 
@@ -111,18 +114,33 @@
             this.lbL_enterNumberPhone.TabIndex = 6;
             this.lbL_enterNumberPhone.Text = "................................................................................." +
     "..............";
+            this.lbL_enterNumberPhone.Click += new System.EventHandler(this.LbL_enterNumberPhone_Click);
             // 
             // lbL_enterPassword
             // 
             this.lbL_enterPassword.AutoSize = true;
             this.lbL_enterPassword.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbL_enterPassword.ForeColor = System.Drawing.Color.GreenYellow;
-            this.lbL_enterPassword.Location = new System.Drawing.Point(12, 203);
+            this.lbL_enterPassword.Location = new System.Drawing.Point(12, 196);
             this.lbL_enterPassword.Name = "lbL_enterPassword";
             this.lbL_enterPassword.Size = new System.Drawing.Size(387, 16);
             this.lbL_enterPassword.TabIndex = 7;
             this.lbL_enterPassword.Text = "................................................................................." +
     "..............";
+            this.lbL_enterPassword.Click += new System.EventHandler(this.LbL_enterPassword_Click);
+            // 
+            // chB_visibilityPassword
+            // 
+            this.chB_visibilityPassword.AutoSize = true;
+            this.chB_visibilityPassword.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.chB_visibilityPassword.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.chB_visibilityPassword.Location = new System.Drawing.Point(280, 233);
+            this.chB_visibilityPassword.Name = "chB_visibilityPassword";
+            this.chB_visibilityPassword.Size = new System.Drawing.Size(112, 17);
+            this.chB_visibilityPassword.TabIndex = 8;
+            this.chB_visibilityPassword.Text = "показать пароль";
+            this.chB_visibilityPassword.UseVisualStyleBackColor = true;
+            this.chB_visibilityPassword.Click += new System.EventHandler(this.ChB_visibilityPassword_Click);
             // 
             // Form1
             // 
@@ -130,10 +148,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(404, 381);
+            this.Controls.Add(this.chB_visibilityPassword);
             this.Controls.Add(this.lbL_enterPassword);
             this.Controls.Add(this.lbL_enterNumberPhone);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txB_enterPassword);
+            this.Controls.Add(this.txB_enterNumberPhone);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -141,6 +160,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,10 +172,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txB_enterNumberPhone;
+        private System.Windows.Forms.TextBox txB_enterPassword;
         private System.Windows.Forms.Label lbL_enterNumberPhone;
         private System.Windows.Forms.Label lbL_enterPassword;
+        private System.Windows.Forms.CheckBox chB_visibilityPassword;
     }
 }
 
