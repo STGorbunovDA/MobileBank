@@ -1,6 +1,6 @@
 ﻿namespace MobileBank
 {
-    partial class Form1
+    partial class LoginForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -37,14 +37,15 @@
             this.lbL_enterNumberPhone = new System.Windows.Forms.Label();
             this.lbL_enterPassword = new System.Windows.Forms.Label();
             this.chB_visibilityPassword = new System.Windows.Forms.CheckBox();
+            this.btn_Enter = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_closeLoginForm
             // 
             this.btn_closeLoginForm.BackColor = System.Drawing.Color.GreenYellow;
             this.btn_closeLoginForm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_closeLoginForm.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_closeLoginForm.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_closeLoginForm.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_closeLoginForm.ForeColor = System.Drawing.Color.Gray;
             this.btn_closeLoginForm.Location = new System.Drawing.Point(368, 13);
             this.btn_closeLoginForm.Name = "btn_closeLoginForm";
             this.btn_closeLoginForm.Size = new System.Drawing.Size(24, 23);
@@ -142,12 +143,26 @@
             this.chB_visibilityPassword.UseVisualStyleBackColor = true;
             this.chB_visibilityPassword.Click += new System.EventHandler(this.ChB_visibilityPassword_Click);
             // 
-            // Form1
+            // btn_Enter
+            // 
+            this.btn_Enter.BackColor = System.Drawing.Color.GreenYellow;
+            this.btn_Enter.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_Enter.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_Enter.ForeColor = System.Drawing.Color.Gray;
+            this.btn_Enter.Location = new System.Drawing.Point(12, 266);
+            this.btn_Enter.Name = "btn_Enter";
+            this.btn_Enter.Size = new System.Drawing.Size(380, 38);
+            this.btn_Enter.TabIndex = 9;
+            this.btn_Enter.Text = "Войти";
+            this.btn_Enter.UseVisualStyleBackColor = false;
+            // 
+            // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(404, 381);
+            this.Controls.Add(this.btn_Enter);
             this.Controls.Add(this.chB_visibilityPassword);
             this.Controls.Add(this.lbL_enterPassword);
             this.Controls.Add(this.lbL_enterNumberPhone);
@@ -158,9 +173,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_closeLoginForm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
+            this.Name = "LoginForm";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,6 +192,7 @@
         private System.Windows.Forms.Label lbL_enterNumberPhone;
         private System.Windows.Forms.Label lbL_enterPassword;
         private System.Windows.Forms.CheckBox chB_visibilityPassword;
+        private System.Windows.Forms.Button btn_Enter;
     }
 }
 
