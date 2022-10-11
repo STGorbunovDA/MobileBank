@@ -72,7 +72,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(12, 96);
+            this.label2.Location = new System.Drawing.Point(12, 81);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(157, 16);
             this.label2.TabIndex = 2;
@@ -83,7 +83,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(12, 174);
+            this.label3.Location = new System.Drawing.Point(12, 154);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(101, 16);
             this.label3.TabIndex = 3;
@@ -91,20 +91,24 @@
             // 
             // txB_enterNumberPhone
             // 
-            this.txB_enterNumberPhone.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txB_enterNumberPhone.Location = new System.Drawing.Point(12, 115);
-            this.txB_enterNumberPhone.Multiline = true;
+            this.txB_enterNumberPhone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txB_enterNumberPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txB_enterNumberPhone.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txB_enterNumberPhone.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txB_enterNumberPhone.Location = new System.Drawing.Point(15, 100);
             this.txB_enterNumberPhone.Name = "txB_enterNumberPhone";
-            this.txB_enterNumberPhone.Size = new System.Drawing.Size(380, 34);
+            this.txB_enterNumberPhone.Size = new System.Drawing.Size(377, 20);
             this.txB_enterNumberPhone.TabIndex = 4;
             // 
             // txB_enterPassword
             // 
-            this.txB_enterPassword.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txB_enterPassword.Location = new System.Drawing.Point(12, 193);
-            this.txB_enterPassword.Multiline = true;
+            this.txB_enterPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txB_enterPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txB_enterPassword.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txB_enterPassword.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txB_enterPassword.Location = new System.Drawing.Point(15, 173);
             this.txB_enterPassword.Name = "txB_enterPassword";
-            this.txB_enterPassword.Size = new System.Drawing.Size(380, 34);
+            this.txB_enterPassword.Size = new System.Drawing.Size(377, 20);
             this.txB_enterPassword.TabIndex = 5;
             // 
             // lbL_enterNumberPhone
@@ -112,13 +116,12 @@
             this.lbL_enterNumberPhone.AutoSize = true;
             this.lbL_enterNumberPhone.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbL_enterNumberPhone.ForeColor = System.Drawing.Color.GreenYellow;
-            this.lbL_enterNumberPhone.Location = new System.Drawing.Point(12, 118);
+            this.lbL_enterNumberPhone.Location = new System.Drawing.Point(12, 123);
             this.lbL_enterNumberPhone.Name = "lbL_enterNumberPhone";
             this.lbL_enterNumberPhone.Size = new System.Drawing.Size(387, 16);
             this.lbL_enterNumberPhone.TabIndex = 6;
             this.lbL_enterNumberPhone.Text = "................................................................................." +
     "..............";
-            this.lbL_enterNumberPhone.Click += new System.EventHandler(this.LbL_enterNumberPhone_Click);
             // 
             // lbL_enterPassword
             // 
@@ -131,14 +134,13 @@
             this.lbL_enterPassword.TabIndex = 7;
             this.lbL_enterPassword.Text = "................................................................................." +
     "..............";
-            this.lbL_enterPassword.Click += new System.EventHandler(this.LbL_enterPassword_Click);
             // 
             // chB_visibilityPassword
             // 
             this.chB_visibilityPassword.AutoSize = true;
             this.chB_visibilityPassword.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.chB_visibilityPassword.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.chB_visibilityPassword.Location = new System.Drawing.Point(280, 233);
+            this.chB_visibilityPassword.Location = new System.Drawing.Point(280, 225);
             this.chB_visibilityPassword.Name = "chB_visibilityPassword";
             this.chB_visibilityPassword.Size = new System.Drawing.Size(112, 17);
             this.chB_visibilityPassword.TabIndex = 8;
@@ -152,7 +154,7 @@
             this.btn_EnterLoginForm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_EnterLoginForm.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_EnterLoginForm.ForeColor = System.Drawing.Color.Gray;
-            this.btn_EnterLoginForm.Location = new System.Drawing.Point(12, 283);
+            this.btn_EnterLoginForm.Location = new System.Drawing.Point(12, 264);
             this.btn_EnterLoginForm.Name = "btn_EnterLoginForm";
             this.btn_EnterLoginForm.Size = new System.Drawing.Size(380, 38);
             this.btn_EnterLoginForm.TabIndex = 9;
@@ -164,7 +166,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(81, 336);
+            this.label4.Location = new System.Drawing.Point(81, 317);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(129, 16);
             this.label4.TabIndex = 10;
@@ -175,7 +177,7 @@
             this.lbL_CreateAccount.AutoSize = true;
             this.lbL_CreateAccount.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbL_CreateAccount.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbL_CreateAccount.Location = new System.Drawing.Point(216, 336);
+            this.lbL_CreateAccount.Location = new System.Drawing.Point(216, 317);
             this.lbL_CreateAccount.Name = "lbL_CreateAccount";
             this.lbL_CreateAccount.Size = new System.Drawing.Size(104, 16);
             this.lbL_CreateAccount.TabIndex = 11;
@@ -188,7 +190,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(404, 381);
+            this.ClientSize = new System.Drawing.Size(404, 355);
             this.Controls.Add(this.lbL_CreateAccount);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btn_EnterLoginForm);
