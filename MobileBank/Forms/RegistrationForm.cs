@@ -81,7 +81,6 @@ namespace MobileBank.Forms
             {
                 txB_client_phone_number.Text = "+79";
                 txB_client_phone_number.SelectionStart = txB_client_phone_number.Text.Length;
-               // txB_client_phone_number.SelectionLength = 0;
             }
         }
 
