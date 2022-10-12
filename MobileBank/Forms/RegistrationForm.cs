@@ -169,13 +169,13 @@ namespace MobileBank.Forms
             }
             if (!Regex.IsMatch(txB_client_password.Text, "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$^&*-]).{8,}$"))
             {
-                MessageBox.Show("Пожалуйста введите пароль!\n(не менее 8-ми символов и без кириллицы)", caption, btn, ico);
+                MessageBox.Show("Пожалуйста введите пароль!\n(Не менее 8-ми символов, без кириллицы, хотя-бы одна заглавная и с символами #?!@$^&*-)", caption, btn, ico);
                 txB_client_middle_name.Select();
                 return;
             }
             if (!Regex.IsMatch(txB_client_password_replay.Text, "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$^&*-]).{8,}$"))
             {
-                MessageBox.Show("Пожалуйста введите пароль!\n(не менее 8-ми символов и без кириллицы)", caption, btn, ico);
+                MessageBox.Show("Пожалуйста введите пароль!\n(Не менее 8-ми символов, без кириллицы, хотя-бы одна заглавная и с символами #?!@$^&*-)", caption, btn, ico);
                 txB_client_password_replay.Select();
                 return;
             }
@@ -183,6 +183,18 @@ namespace MobileBank.Forms
             {
                 MessageBox.Show("Ваш пароль и пароль подтверждения не совпадают!", caption, btn, ico);
                 txB_client_password_replay.Select();
+                return;
+            }
+            if (!Regex.IsMatch(txb_client_email.Text, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
+            {
+                MessageBox.Show("Пожалуйста введите вашу почту", caption, btn, ico);
+                txB_client_password_replay.Select();
+                return;
+            }
+            if (!Regex.IsMatch(txB_client_phone_number.Text, "^[+][7][9][0-9]"))
+            {
+                MessageBox.Show("Пожалуйста введите номер телефона коректно!", caption, btn, ico);
+                txB_client_phone_number.Select();
                 return;
             }
         }
