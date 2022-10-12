@@ -1,6 +1,8 @@
 ﻿using MobileBank.Classes;
 using MobileBank.Forms;
+using MySql.Data.MySqlClient;
 using System;
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -8,7 +10,6 @@ namespace MobileBank
 {
     public partial class LoginForm : Form
     {
-        DataBaseConnection dataBase = new DataBaseConnection();
         private bool dragging = false;
         private Point dragCursorPoint;
         private Point dragFormPoint;
@@ -99,14 +100,14 @@ namespace MobileBank
             {
                 if (InternetСheck.CheackSkyNET())
                 {
-                    var loginUser = txB_enterNumberPhone.Text;
+                    var loginUserPhone = txB_enterNumberPhone.Text;
                     var passUser = md5.hashPassword(txB_enterPassword.Text);
 
-                    string querystring = $"SELECT id, login, pass, is_admin	FROM users WHERE login = '{loginUser}' AND pass = '{passUser}'";
+                    string querystring = $"SELECT id_client, client_phone_number, client_password FROM client WHERE client_phone_number = '{loginUserPhone}' AND client_password = '{passUser}'";
 
-                    using (MySqlCommand command = new MySqlCommand(querystring, DB.GetInstance.GetConnection()))
+                    using (MySqlCommand command = new MySqlCommand(querystring, DataBaseConnection.GetInstance.GetConnection()))
                     {
-                        DB.GetInstance.OpenConnection();
+                        DataBaseConnection.GetInstance.OpenConnection();
                         using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
                         {
                             DataTable table = new DataTable();
@@ -114,19 +115,13 @@ namespace MobileBank
                             adapter.Fill(table);
 
                             if (table.Rows.Count == 1)
-                            {
-                                var user = new cheakUser(table.Rows[0].ItemArray[1].ToString(), table.Rows[0].ItemArray[3].ToString());
-                                using (Menu menu = new Menu(user))
-                                {
-                                    this.Hide();
-                                    menu.ShowDialog();
-                                    DB.GetInstance.CloseConnection();
-                                }
+                            { 
+                                
                             }
                             else
                             {
                                 MessageBox.Show("Неверный логин и пароль");
-                                DB.GetInstance.CloseConnection();
+                                DataBaseConnection.GetInstance.CloseConnection();
                             }
                         }
                     }

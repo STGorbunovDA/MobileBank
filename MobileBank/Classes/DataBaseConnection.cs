@@ -22,7 +22,7 @@ namespace MobileBank.Classes
             }
         }
 
-        readonly MySqlConnection connection = new MySqlConnection("server=31.31.198.62;port=3306;username=u1748936_MBank_1;password=mRv-pEc-Gyf-3RS;database=u1748936_mobilebank;charset=utf8");
+        readonly MySqlConnection connection = new MySqlConnection("server=31.31.198.62;port=3306;username=u1748936_mbank_1;password=mRvpEcGyf3RS;database=u1748936_mobilebank;charset=utf8");
 
         public MySqlConnection GetConnection()
         {
