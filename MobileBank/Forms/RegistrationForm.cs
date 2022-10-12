@@ -1,5 +1,6 @@
 ﻿using MobileBank.Classes;
 using System.Drawing;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace MobileBank.Forms
@@ -133,6 +134,32 @@ namespace MobileBank.Forms
             catch
             {
                 MessageBox.Show("Ошибка метода ctrl+c+v (ProcessKbdCtrlShortcuts)");
+            }
+        }
+
+        void Btn_save_client_Click(object sender, System.EventArgs e)
+        {
+            MessageBoxButtons btn = MessageBoxButtons.OK;
+            MessageBoxIcon ico = MessageBoxIcon.Information;
+
+            string caption = "Дата сохранения";
+            if(!Regex.IsMatch(txB_client_last_name.Text, "[А-Яa-я]+$" ))
+            {
+                MessageBox.Show("Пожалуйста введите фамилию повторно!", caption, btn, ico);
+                txB_client_last_name.Select();
+                return;
+            }
+            if (!Regex.IsMatch(txB_client_first_name.Text, "[А-Яa-я]+$"))
+            {
+                MessageBox.Show("Пожалуйста введите имя повторно!", caption, btn, ico);
+                txB_client_first_name.Select();
+                return;
+            }
+            if (!Regex.IsMatch(txB_client_middle_name.Text, "[А-Яa-я]+$"))
+            {
+                MessageBox.Show("Пожалуйста введите отчество повторно!", caption, btn, ico);
+                txB_client_middle_name.Select();
+                return;
             }
         }
     }

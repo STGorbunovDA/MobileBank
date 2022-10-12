@@ -398,6 +398,7 @@
             this.btn_save_client.TabIndex = 32;
             this.btn_save_client.Text = "Сохранить";
             this.btn_save_client.UseVisualStyleBackColor = false;
+            this.btn_save_client.Click += new System.EventHandler(this.Btn_save_client_Click);
             // 
             // btn_clear_registrationForm
             // 
