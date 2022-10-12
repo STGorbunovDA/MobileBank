@@ -161,6 +161,30 @@ namespace MobileBank.Forms
                 txB_client_middle_name.Select();
                 return;
             }
+            if (string.IsNullOrEmpty(cmb_client_gender.SelectedItem.ToString()))
+            {
+                MessageBox.Show("Пожалуйста выберите пол!", caption, btn, ico);
+                cmb_client_gender.Select();
+                return;
+            }
+            if (!Regex.IsMatch(txB_client_password.Text, "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$^&*-]).{8,}$"))
+            {
+                MessageBox.Show("Пожалуйста введите пароль!\n(не менее 8-ми символов и без кириллицы)", caption, btn, ico);
+                txB_client_middle_name.Select();
+                return;
+            }
+            if (!Regex.IsMatch(txB_client_password_replay.Text, "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$^&*-]).{8,}$"))
+            {
+                MessageBox.Show("Пожалуйста введите пароль!\n(не менее 8-ми символов и без кириллицы)", caption, btn, ico);
+                txB_client_password_replay.Select();
+                return;
+            }
+            if(txB_client_password.Text != txB_client_password_replay.Text)
+            {
+                MessageBox.Show("Ваш пароль и пароль подтверждения не совпадают!", caption, btn, ico);
+                txB_client_password_replay.Select();
+                return;
+            }
         }
     }
 }
