@@ -104,6 +104,22 @@ namespace MobileBank
                     var passUser = md5.hashPassword(txB_enterPassword.Text);
 
                     string querystring = $"SELECT id_client, client_phone_number, client_password FROM client WHERE client_phone_number = '{loginUserPhone}' AND client_password = '{passUser}'";
+                    string queryGetId = $"SELECT id_client FROM client where client_phone_number = '{loginUserPhone}'";
+
+                    using (MySqlCommand command = new MySqlCommand(queryGetId, DataBaseConnection.GetInstance.GetConnection()))
+                    {
+                        DataBaseConnection.GetInstance.OpenConnection();
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                DataStorage.idClient = reader[0].ToString();
+                            }
+                            reader.Close();
+                        }
+                        DataBaseConnection.GetInstance.CloseConnection();
+
+                    }
 
                     using (MySqlCommand command = new MySqlCommand(querystring, DataBaseConnection.GetInstance.GetConnection()))
                     {
