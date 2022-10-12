@@ -93,6 +93,49 @@ namespace MobileBank
             registrationForm.ShowDialog();
         }
 
-       
+        void Btn_EnterLoginForm_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (InternetСheck.CheackSkyNET())
+                {
+                    var loginUser = txB_enterNumberPhone.Text;
+                    var passUser = md5.hashPassword(txB_enterPassword.Text);
+
+                    string querystring = $"SELECT id, login, pass, is_admin	FROM users WHERE login = '{loginUser}' AND pass = '{passUser}'";
+
+                    using (MySqlCommand command = new MySqlCommand(querystring, DB.GetInstance.GetConnection()))
+                    {
+                        DB.GetInstance.OpenConnection();
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                        {
+                            DataTable table = new DataTable();
+
+                            adapter.Fill(table);
+
+                            if (table.Rows.Count == 1)
+                            {
+                                var user = new cheakUser(table.Rows[0].ItemArray[1].ToString(), table.Rows[0].ItemArray[3].ToString());
+                                using (Menu menu = new Menu(user))
+                                {
+                                    this.Hide();
+                                    menu.ShowDialog();
+                                    DB.GetInstance.CloseConnection();
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Неверный логин и пароль");
+                                DB.GetInstance.CloseConnection();
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Системная ошибка авторизации!");
+            }
+        }
     }
 }

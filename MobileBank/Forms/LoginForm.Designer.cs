@@ -162,6 +162,7 @@
             this.btn_EnterLoginForm.TabIndex = 9;
             this.btn_EnterLoginForm.Text = "Войти";
             this.btn_EnterLoginForm.UseVisualStyleBackColor = false;
+            this.btn_EnterLoginForm.Click += new System.EventHandler(this.Btn_EnterLoginForm_Click);
             // 
             // label4
             // 
