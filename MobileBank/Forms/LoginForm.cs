@@ -118,7 +118,6 @@ namespace MobileBank
                             reader.Close();
                         }
                         DataBaseConnection.GetInstance.CloseConnection();
-
                     }
 
                     using (MySqlCommand command = new MySqlCommand(querystring, DataBaseConnection.GetInstance.GetConnection()))
@@ -131,8 +130,20 @@ namespace MobileBank
                             adapter.Fill(table);
 
                             if (table.Rows.Count == 1)
-                            { 
-                                
+                            {
+                                txB_enterNumberPhone.Clear();
+                                txB_enterPassword.Clear();
+                                chB_visibilityPassword.Checked = false;
+                                Hide();
+
+                                MainForm mainForm = new MainForm();
+                                mainForm.ShowDialog();
+                                mainForm = null;
+
+                                Show();
+
+                                txB_enterNumberPhone.Select();
+
                             }
                             else
                             {
