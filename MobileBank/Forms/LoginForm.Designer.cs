@@ -40,6 +40,8 @@
             this.btn_EnterLoginForm = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.lbL_CreateAccount = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_closeLoginForm
@@ -72,7 +74,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(12, 81);
+            this.label2.Location = new System.Drawing.Point(12, 64);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(157, 16);
             this.label2.TabIndex = 2;
@@ -83,7 +85,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(12, 154);
+            this.label3.Location = new System.Drawing.Point(13, 144);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(101, 16);
             this.label3.TabIndex = 3;
@@ -95,9 +97,9 @@
             this.txB_enterNumberPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txB_enterNumberPhone.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.txB_enterNumberPhone.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txB_enterNumberPhone.Location = new System.Drawing.Point(15, 100);
+            this.txB_enterNumberPhone.Location = new System.Drawing.Point(16, 92);
             this.txB_enterNumberPhone.Name = "txB_enterNumberPhone";
-            this.txB_enterNumberPhone.Size = new System.Drawing.Size(377, 20);
+            this.txB_enterNumberPhone.Size = new System.Drawing.Size(373, 20);
             this.txB_enterNumberPhone.TabIndex = 4;
             // 
             // txB_enterPassword
@@ -116,12 +118,12 @@
             this.lbL_enterNumberPhone.AutoSize = true;
             this.lbL_enterNumberPhone.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbL_enterNumberPhone.ForeColor = System.Drawing.Color.GreenYellow;
-            this.lbL_enterNumberPhone.Location = new System.Drawing.Point(12, 123);
+            this.lbL_enterNumberPhone.Location = new System.Drawing.Point(13, 115);
             this.lbL_enterNumberPhone.Name = "lbL_enterNumberPhone";
-            this.lbL_enterNumberPhone.Size = new System.Drawing.Size(387, 16);
+            this.lbL_enterNumberPhone.Size = new System.Drawing.Size(379, 16);
             this.lbL_enterNumberPhone.TabIndex = 6;
             this.lbL_enterNumberPhone.Text = "................................................................................." +
-    "..............";
+    "............";
             // 
             // lbL_enterPassword
             // 
@@ -186,33 +188,43 @@
             this.lbL_CreateAccount.MouseEnter += new System.EventHandler(this.LbL_CreateAccount_MouseEnter);
             this.lbL_CreateAccount.MouseLeave += new System.EventHandler(this.LbL_CreateAccount_MouseLeave);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lbL_CreateAccount);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.btn_EnterLoginForm);
+            this.panel1.Controls.Add(this.chB_visibilityPassword);
+            this.panel1.Controls.Add(this.lbL_enterPassword);
+            this.panel1.Controls.Add(this.lbL_enterNumberPhone);
+            this.panel1.Controls.Add(this.txB_enterPassword);
+            this.panel1.Controls.Add(this.txB_enterNumberPhone);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.btn_closeLoginForm);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(404, 355);
+            this.panel1.TabIndex = 12;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseMove);
+            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseUp);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(404, 355);
-            this.Controls.Add(this.lbL_CreateAccount);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.btn_EnterLoginForm);
-            this.Controls.Add(this.chB_visibilityPassword);
-            this.Controls.Add(this.lbL_enterPassword);
-            this.Controls.Add(this.lbL_enterNumberPhone);
-            this.Controls.Add(this.txB_enterPassword);
-            this.Controls.Add(this.txB_enterNumberPhone);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btn_closeLoginForm);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LoginForm";
             this.Text = "Вход";
             this.Load += new System.EventHandler(this.LoginForm_Load);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LoginForm_MouseDown);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LoginForm_MouseMove);
-            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.LoginForm_MouseUp);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -230,6 +242,7 @@
         private System.Windows.Forms.Button btn_EnterLoginForm;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbL_CreateAccount;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

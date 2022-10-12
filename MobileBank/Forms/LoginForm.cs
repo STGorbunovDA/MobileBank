@@ -66,14 +66,14 @@ namespace MobileBank
             System.Environment.Exit(1);
         }
 
-        void LoginForm_MouseDown(object sender, MouseEventArgs e)
+        void Panel1_MouseDown(object sender, MouseEventArgs e)
         {
             dragging = true;
             dragCursorPoint = Cursor.Position;
             dragFormPoint = this.Location;
         }
 
-        void LoginForm_MouseMove(object sender, MouseEventArgs e)
+        void Panel1_MouseMove(object sender, MouseEventArgs e)
         {
             if (dragging)
             {
@@ -82,7 +82,7 @@ namespace MobileBank
             }
         }
 
-        void LoginForm_MouseUp(object sender, MouseEventArgs e)
+        void Panel1_MouseUp(object sender, MouseEventArgs e)
         {
             dragging = false;
         }
@@ -92,5 +92,7 @@ namespace MobileBank
             RegistrationForm registrationForm = new RegistrationForm();
             registrationForm.ShowDialog();
         }
+
+       
     }
 }
