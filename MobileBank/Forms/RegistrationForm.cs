@@ -92,6 +92,7 @@ namespace MobileBank.Forms
                     control.Text = "";
                 }
             }
+            txB_client_last_name.Select();
         }
 
         void txB_client_phone_number_Click(object sender, System.EventArgs e)
