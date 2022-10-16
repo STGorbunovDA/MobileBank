@@ -94,6 +94,7 @@
     <Compile Include="Classes\FormClose.cs" />
     <Compile Include="Classes\InternetСheck.cs" />
     <Compile Include="Classes\md5.cs" />
+    <Compile Include="Classes\SettingMethod.cs" />
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>

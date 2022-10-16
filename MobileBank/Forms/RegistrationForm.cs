@@ -197,6 +197,19 @@ namespace MobileBank.Forms
                 txB_client_phone_number.Select();
                 return;
             }
+
+            if(!SettingMethod.CheackUser(txB_client_phone_number.Text))
+            {
+
+            }
+            else 
+            {
+                MessageBox.Show("Номер телефона уже существует. Невозможно зарегистрировать аккаунт", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txB_client_phone_number.SelectAll();
+                return;
+            }
+
+
         }
     }
 }
