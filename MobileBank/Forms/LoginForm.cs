@@ -101,8 +101,8 @@ namespace MobileBank
                 if (InternetСheck.CheackSkyNET())
                 {
                     var loginUserPhone = txB_enterNumberPhone.Text;
-                    //var passUser = md5.hashPassword(txB_enterPassword.Text);
-                    var passUser = txB_enterPassword.Text;
+                    var passUser = md5.hashPassword(txB_enterPassword.Text);
+                    //var passUser = txB_enterPassword.Text;
 
                     string querystring = $"SELECT id_client, client_phone_number, client_password FROM client WHERE client_phone_number = '{loginUserPhone}' AND client_password = '{passUser}'";
                     string queryGetId = $"SELECT id_client FROM client where client_phone_number = '{loginUserPhone}'";
