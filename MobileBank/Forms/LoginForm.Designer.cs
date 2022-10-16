@@ -101,6 +101,7 @@
             this.txB_enterNumberPhone.Name = "txB_enterNumberPhone";
             this.txB_enterNumberPhone.Size = new System.Drawing.Size(373, 20);
             this.txB_enterNumberPhone.TabIndex = 4;
+            this.txB_enterNumberPhone.Click += new System.EventHandler(this.TxB_enterNumberPhone_Click);
             // 
             // txB_enterPassword
             // 
