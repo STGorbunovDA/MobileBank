@@ -21,7 +21,26 @@ namespace MobileBank.Forms
         {
             InitializeComponent();
         }
+        void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            dragging = true;
+            dragCursorPoint = Cursor.Position;
+            dragFormPoint = this.Location;
+        }
 
+        void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging)
+            {
+                Point dif = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
+                this.Location = Point.Add(dragFormPoint, new Size(dif));
+            }
+        }
+
+        void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            dragging = false;
+        }
         void MainForm_MouseDown(object sender, MouseEventArgs e)
         {
             dragging = true;
@@ -50,7 +69,8 @@ namespace MobileBank.Forms
 
         void MainForm_Load(object sender, EventArgs e)
         {
-            
+            if (InternetСheck.CheackSkyNET())
+                SettingMethod.CourseCurrency(lbL_сourse_euro, lbL_сourse_dollar);
         }
     }
 }

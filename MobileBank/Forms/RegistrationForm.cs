@@ -216,38 +216,38 @@ namespace MobileBank.Forms
                 txB_client_phone_number.Select();
                 return;
             }
-
-            if (!SettingMethod.CheackUser(txB_client_phone_number.Text))
+            if (InternetСheck.CheackSkyNET())
             {
-                DialogResult result = MessageBox.Show("Вы хотите сохранить запись?", "Сохранение данных", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
+                if (!SettingMethod.CheackUser(txB_client_phone_number.Text))
                 {
-                    var passUser = md5.hashPassword(txB_client_password.Text);
-                    string MySqlRequest = $"INSERT INTO client (client_last_name, client_first_name, client_middle_name, client_gender," +
-                        $"client_password, client_email, client_phone_number) VALUES ('{txB_client_last_name.Text}', '{txB_client_first_name.Text}'," +
-                        $"'{txB_client_middle_name.Text}', '{cmb_client_gender.Text}', '{passUser}', '{txb_client_email.Text}'," +
-                        $"'{txB_client_phone_number.Text}')";
-                    DataBaseConnection.GetInstance.OpenConnection();
-                    using (MySqlCommand commandAddNewUser = new MySqlCommand(MySqlRequest, DataBaseConnection.GetInstance.GetConnection()))
+                    DialogResult result = MessageBox.Show("Вы хотите сохранить запись?", "Сохранение данных", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
                     {
-                        if (commandAddNewUser.ExecuteNonQuery() == 1)
+                        var passUser = md5.hashPassword(txB_client_password.Text);
+                        string MySqlRequest = $"INSERT INTO client (client_last_name, client_first_name, client_middle_name, client_gender," +
+                            $"client_password, client_email, client_phone_number) VALUES ('{txB_client_last_name.Text}', '{txB_client_first_name.Text}'," +
+                            $"'{txB_client_middle_name.Text}', '{cmb_client_gender.Text}', '{passUser}', '{txb_client_email.Text}'," +
+                            $"'{txB_client_phone_number.Text}')";
+                        DataBaseConnection.GetInstance.OpenConnection();
+                        using (MySqlCommand commandAddNewUser = new MySqlCommand(MySqlRequest, DataBaseConnection.GetInstance.GetConnection()))
                         {
-                            MessageBox.Show("Запись успешно сохранена", "Данные сохранены", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            Btn_clear_registrationForm_Click(sender, e);
-                            DataBaseConnection.GetInstance.CloseConnection();
-                            this.Close();
+                            if (commandAddNewUser.ExecuteNonQuery() == 1)
+                            {
+                                MessageBox.Show("Запись успешно сохранена", "Данные сохранены", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                Btn_clear_registrationForm_Click(sender, e);
+                                DataBaseConnection.GetInstance.CloseConnection();
+                                this.Close();
+                            }
                         }
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Номер телефона уже существует. Невозможно зарегистрировать аккаунт", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txB_client_phone_number.SelectAll();
+                    return;
+                }
             }
-            else
-            {
-                MessageBox.Show("Номер телефона уже существует. Невозможно зарегистрировать аккаунт", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txB_client_phone_number.SelectAll();
-                return;
-            }
-
-
         }
     }
 }
