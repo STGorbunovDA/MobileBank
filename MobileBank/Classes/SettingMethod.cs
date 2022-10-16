@@ -41,16 +41,11 @@ namespace MobileBank.Classes
             WebClient client = new WebClient();
             string page = client.DownloadString("https://cbr.ru/");
 
-            SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
-
-            if (sfd.ShowDialog() == DialogResult.OK)
-            {
-                using (StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.Unicode))
-                {
-                    sw.Write(page);
-                }
-            }
+            const string key = "<div class=\"col-md-2 col-xs-9 _right mono-num\">";
+            int index = page.IndexOf(key);
+            string rateStr = page.Substring(index + key.Length);
+            index = rateStr.IndexOf("</ div >");
+            rateStr = rateStr.Substring(0, index).Trim();
         }
 
 
