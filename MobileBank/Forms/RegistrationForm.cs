@@ -1,5 +1,6 @@
 ﻿using MobileBank.Classes;
 using MySql.Data.MySqlClient;
+using System;
 using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -9,7 +10,7 @@ namespace MobileBank.Forms
     public partial class RegistrationForm : Form
     {
         DataBaseConnection dataBase = new DataBaseConnection();
-        
+
         private bool dragging = false;
         private Point dragCursorPoint;
         private Point dragFormPoint;
@@ -49,7 +50,23 @@ namespace MobileBank.Forms
         void Panel1_MouseUp(object sender, MouseEventArgs e)
         {
             dragging = false;
-        } 
+        }
+        void ChB_generatePassword_Click(object sender, System.EventArgs e)
+        {
+            if (chB_generatePassword.Checked)
+            {
+                string abc = "0123456789#?!@$^&*-qwertyuiopasdfghjklzxcvbnm0123456789#?!@$^&*-QWERTYUIOPASDFGHJKLZXCVBNM#?!@$^&*-0123456789"; //набор символов
+                int kol = 9; // кол-во символов
+                string result = "";
+
+                Random rnd = new Random();
+                int lng = abc.Length - 1;
+                for (int i = 0; i < kol; i++)
+                    result += abc[rnd.Next(lng)];
+                txB_client_password.Text = result;
+                txB_client_password_replay.Text = result;
+            }
+        }
 
         void ChB_visibilityPassword_Click(object sender, System.EventArgs e)
         {
@@ -78,7 +95,7 @@ namespace MobileBank.Forms
 
         void txB_client_phone_number_Click(object sender, System.EventArgs e)
         {
-            if(txB_client_phone_number.Text == "")
+            if (txB_client_phone_number.Text == "")
             {
                 txB_client_phone_number.Text = "+79";
                 txB_client_phone_number.SelectionStart = txB_client_phone_number.Text.Length;
@@ -144,7 +161,7 @@ namespace MobileBank.Forms
             MessageBoxIcon ico = MessageBoxIcon.Information;
 
             string caption = "Дата сохранения";
-            if(!Regex.IsMatch(txB_client_last_name.Text, "[А-Яa-я]+$" ))
+            if (!Regex.IsMatch(txB_client_last_name.Text, "[А-Яa-я]+$"))
             {
                 MessageBox.Show("Пожалуйста введите фамилию повторно!", caption, btn, ico);
                 txB_client_last_name.Select();
@@ -180,7 +197,7 @@ namespace MobileBank.Forms
                 txB_client_password_replay.Select();
                 return;
             }
-            if(txB_client_password.Text != txB_client_password_replay.Text)
+            if (txB_client_password.Text != txB_client_password_replay.Text)
             {
                 MessageBox.Show("Ваш пароль и пароль подтверждения не совпадают!", caption, btn, ico);
                 txB_client_password_replay.Select();
@@ -199,10 +216,10 @@ namespace MobileBank.Forms
                 return;
             }
 
-            if(!SettingMethod.CheackUser(txB_client_phone_number.Text))
+            if (!SettingMethod.CheackUser(txB_client_phone_number.Text))
             {
-                DialogResult result  = MessageBox.Show("Вы хотите сохранить запись?", "Сохранение данных", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if(result == DialogResult.Yes)
+                DialogResult result = MessageBox.Show("Вы хотите сохранить запись?", "Сохранение данных", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
                 {
                     var passUser = md5.hashPassword(txB_client_password.Text);
                     string MySqlRequest = $"INSERT INTO client (client_last_name, client_first_name, client_middle_name, client_gender," +
@@ -222,7 +239,7 @@ namespace MobileBank.Forms
                     }
                 }
             }
-            else 
+            else
             {
                 MessageBox.Show("Номер телефона уже существует. Невозможно зарегистрировать аккаунт", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txB_client_phone_number.SelectAll();

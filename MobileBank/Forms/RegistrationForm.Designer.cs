@@ -58,6 +58,7 @@
             this.btn_save_client = new System.Windows.Forms.Button();
             this.btn_clear_registrationForm = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.chB_generatePassword = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -305,7 +306,7 @@
             this.chB_visibilityPassword.AutoSize = true;
             this.chB_visibilityPassword.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.chB_visibilityPassword.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.chB_visibilityPassword.Location = new System.Drawing.Point(264, 470);
+            this.chB_visibilityPassword.Location = new System.Drawing.Point(264, 461);
             this.chB_visibilityPassword.Name = "chB_visibilityPassword";
             this.chB_visibilityPassword.Size = new System.Drawing.Size(112, 17);
             this.chB_visibilityPassword.TabIndex = 25;
@@ -318,7 +319,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label13.ForeColor = System.Drawing.Color.GreenYellow;
-            this.label13.Location = new System.Drawing.Point(13, 531);
+            this.label13.Location = new System.Drawing.Point(13, 536);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(367, 16);
             this.label13.TabIndex = 28;
@@ -331,7 +332,7 @@
             this.txb_client_email.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txb_client_email.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.txb_client_email.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txb_client_email.Location = new System.Drawing.Point(16, 513);
+            this.txb_client_email.Location = new System.Drawing.Point(16, 518);
             this.txb_client_email.MaxLength = 50;
             this.txb_client_email.Name = "txb_client_email";
             this.txb_client_email.Size = new System.Drawing.Size(363, 20);
@@ -342,7 +343,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label14.Location = new System.Drawing.Point(14, 489);
+            this.label14.Location = new System.Drawing.Point(14, 494);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(170, 14);
             this.label14.TabIndex = 26;
@@ -353,7 +354,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label15.ForeColor = System.Drawing.Color.GreenYellow;
-            this.label15.Location = new System.Drawing.Point(10, 601);
+            this.label15.Location = new System.Drawing.Point(10, 606);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(367, 16);
             this.label15.TabIndex = 31;
@@ -366,7 +367,7 @@
             this.txB_client_phone_number.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txB_client_phone_number.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.txB_client_phone_number.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txB_client_phone_number.Location = new System.Drawing.Point(13, 583);
+            this.txB_client_phone_number.Location = new System.Drawing.Point(13, 588);
             this.txB_client_phone_number.MaxLength = 12;
             this.txB_client_phone_number.Name = "txB_client_phone_number";
             this.txB_client_phone_number.Size = new System.Drawing.Size(363, 20);
@@ -380,7 +381,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label16.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label16.Location = new System.Drawing.Point(11, 559);
+            this.label16.Location = new System.Drawing.Point(11, 564);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(155, 14);
             this.label16.TabIndex = 29;
@@ -392,7 +393,7 @@
             this.btn_save_client.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_save_client.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_save_client.ForeColor = System.Drawing.Color.Gray;
-            this.btn_save_client.Location = new System.Drawing.Point(13, 638);
+            this.btn_save_client.Location = new System.Drawing.Point(13, 643);
             this.btn_save_client.Name = "btn_save_client";
             this.btn_save_client.Size = new System.Drawing.Size(155, 40);
             this.btn_save_client.TabIndex = 32;
@@ -406,7 +407,7 @@
             this.btn_clear_registrationForm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_clear_registrationForm.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_clear_registrationForm.ForeColor = System.Drawing.Color.Gray;
-            this.btn_clear_registrationForm.Location = new System.Drawing.Point(221, 638);
+            this.btn_clear_registrationForm.Location = new System.Drawing.Point(221, 643);
             this.btn_clear_registrationForm.Name = "btn_clear_registrationForm";
             this.btn_clear_registrationForm.Size = new System.Drawing.Size(155, 40);
             this.btn_clear_registrationForm.TabIndex = 33;
@@ -416,6 +417,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.chB_generatePassword);
             this.panel1.Controls.Add(this.txB_client_phone_number);
             this.panel1.Controls.Add(this.label16);
             this.panel1.Controls.Add(this.label15);
@@ -448,18 +450,31 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(390, 704);
+            this.panel1.Size = new System.Drawing.Size(390, 714);
             this.panel1.TabIndex = 34;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseUp);
+            // 
+            // chB_generatePassword
+            // 
+            this.chB_generatePassword.AutoSize = true;
+            this.chB_generatePassword.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.chB_generatePassword.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.chB_generatePassword.Location = new System.Drawing.Point(15, 461);
+            this.chB_generatePassword.Name = "chB_generatePassword";
+            this.chB_generatePassword.Size = new System.Drawing.Size(141, 17);
+            this.chB_generatePassword.TabIndex = 34;
+            this.chB_generatePassword.Text = "сгенерировать пароль";
+            this.chB_generatePassword.UseVisualStyleBackColor = true;
+            this.chB_generatePassword.Click += new System.EventHandler(this.ChB_generatePassword_Click);
             // 
             // RegistrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(390, 704);
+            this.ClientSize = new System.Drawing.Size(390, 714);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RegistrationForm";
@@ -503,5 +518,6 @@
         private System.Windows.Forms.Button btn_save_client;
         private System.Windows.Forms.Button btn_clear_registrationForm;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.CheckBox chB_generatePassword;
     }
 }
