@@ -4,7 +4,6 @@ using System;
 using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using System.Collections.Generic;
 
 namespace MobileBank.Forms
 {

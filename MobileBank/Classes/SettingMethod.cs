@@ -1,7 +1,11 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Data;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Text;
+using System.Windows.Forms;
 
 namespace MobileBank.Classes
 {
@@ -31,6 +35,25 @@ namespace MobileBank.Classes
                 }
             }
         }
-        
+
+        internal static void CourseCurrency()
+        {
+            WebClient client = new WebClient();
+            string page = client.DownloadString("https://cbr.ru/");
+
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                using (StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.Unicode))
+                {
+                    sw.Write(page);
+                }
+            }
+        }
+
+
+
     }
 }

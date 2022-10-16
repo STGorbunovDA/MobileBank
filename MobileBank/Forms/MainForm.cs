@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MobileBank.Classes;
 
 namespace MobileBank.Forms
 {
@@ -45,6 +46,11 @@ namespace MobileBank.Forms
         void Btn_closeLoginForm_Click(object sender, EventArgs e)
         {
             System.Environment.Exit(1);
+        }
+
+        void MainForm_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }
