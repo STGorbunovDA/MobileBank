@@ -216,7 +216,7 @@
             this.btn_save_client.TabIndex = 33;
             this.btn_save_client.Text = "Создать";
             this.btn_save_client.UseVisualStyleBackColor = false;
-            this.btn_save_client.Click += new System.EventHandler(this.Btn_save_client_Click);
+            this.btn_save_client.Click += new System.EventHandler(this.Btn_save_and_client_new_card_Click);
             // 
             // panel1
             // 
