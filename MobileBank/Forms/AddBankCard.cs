@@ -45,5 +45,10 @@ namespace MobileBank.Forms
         {
             dragging = false;
         }
+
+        void Btn_save_client_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

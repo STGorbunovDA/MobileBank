@@ -102,6 +102,10 @@
             this.cmB_currency.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cmB_currency.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.cmB_currency.FormattingEnabled = true;
+            this.cmB_currency.Items.AddRange(new object[] {
+            "RUB",
+            "USD",
+            "EUR"});
             this.cmB_currency.Location = new System.Drawing.Point(15, 155);
             this.cmB_currency.Name = "cmB_currency";
             this.cmB_currency.Size = new System.Drawing.Size(280, 27);
@@ -135,6 +139,9 @@
             this.cmB_payment_system.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cmB_payment_system.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.cmB_payment_system.FormattingEnabled = true;
+            this.cmB_payment_system.Items.AddRange(new object[] {
+            "VISA",
+            "Mastercard"});
             this.cmB_payment_system.Location = new System.Drawing.Point(15, 238);
             this.cmB_payment_system.Name = "cmB_payment_system";
             this.cmB_payment_system.Size = new System.Drawing.Size(280, 27);
@@ -209,6 +216,7 @@
             this.btn_save_client.TabIndex = 33;
             this.btn_save_client.Text = "Создать";
             this.btn_save_client.UseVisualStyleBackColor = false;
+            this.btn_save_client.Click += new System.EventHandler(this.Btn_save_client_Click);
             // 
             // panel1
             // 
