@@ -228,6 +228,9 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(303, 445);
             this.panel1.TabIndex = 34;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseMove);
+            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseUp);
             // 
             // AddBankCard
             // 
