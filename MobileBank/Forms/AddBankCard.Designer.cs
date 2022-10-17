@@ -88,6 +88,9 @@
             this.cmB_type_card.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cmB_type_card.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.cmB_type_card.FormattingEnabled = true;
+            this.cmB_type_card.Items.AddRange(new object[] {
+            "Дебетовая",
+            "Кредитная"});
             this.cmB_type_card.Location = new System.Drawing.Point(15, 73);
             this.cmB_type_card.Name = "cmB_type_card";
             this.cmB_type_card.Size = new System.Drawing.Size(280, 27);
