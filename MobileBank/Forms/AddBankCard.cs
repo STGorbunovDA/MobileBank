@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MobileBank.Forms
@@ -15,6 +8,16 @@ namespace MobileBank.Forms
         public AddBankCard()
         {
             InitializeComponent();
+        }
+
+        void Btn_closeLoginForm_Click(object sender, EventArgs e)
+        {
+            System.Environment.Exit(1);
+        }
+
+        void AddBankCard_Load(object sender, EventArgs e)
+        {
+            cmB_PIN_code.Text = cmB_PIN_code.Items[0].ToString();
         }
     }
 }

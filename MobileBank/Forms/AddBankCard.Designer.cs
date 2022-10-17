@@ -42,6 +42,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.btn_save_client = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_closeLoginForm
@@ -56,6 +58,7 @@
             this.btn_closeLoginForm.TabIndex = 2;
             this.btn_closeLoginForm.Text = "X";
             this.btn_closeLoginForm.UseVisualStyleBackColor = false;
+            this.btn_closeLoginForm.Click += new System.EventHandler(this.Btn_closeLoginForm_Click);
             // 
             // label2
             // 
@@ -83,6 +86,7 @@
             // 
             this.cmB_type_card.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cmB_type_card.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cmB_type_card.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.cmB_type_card.FormattingEnabled = true;
             this.cmB_type_card.Location = new System.Drawing.Point(15, 73);
             this.cmB_type_card.Name = "cmB_type_card";
@@ -93,6 +97,7 @@
             // 
             this.cmB_currency.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cmB_currency.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cmB_currency.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.cmB_currency.FormattingEnabled = true;
             this.cmB_currency.Location = new System.Drawing.Point(15, 155);
             this.cmB_currency.Name = "cmB_currency";
@@ -125,6 +130,7 @@
             // 
             this.cmB_payment_system.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cmB_payment_system.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cmB_payment_system.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.cmB_payment_system.FormattingEnabled = true;
             this.cmB_payment_system.Location = new System.Drawing.Point(15, 238);
             this.cmB_payment_system.Name = "cmB_payment_system";
@@ -157,7 +163,10 @@
             // 
             this.cmB_PIN_code.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cmB_PIN_code.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cmB_PIN_code.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.cmB_PIN_code.FormattingEnabled = true;
+            this.cmB_PIN_code.Items.AddRange(new object[] {
+            "0"});
             this.cmB_PIN_code.Location = new System.Drawing.Point(15, 319);
             this.cmB_PIN_code.Name = "cmB_PIN_code";
             this.cmB_PIN_code.Size = new System.Drawing.Size(280, 27);
@@ -198,31 +207,42 @@
             this.btn_save_client.Text = "Создать";
             this.btn_save_client.UseVisualStyleBackColor = false;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btn_save_client);
+            this.panel1.Controls.Add(this.cmB_PIN_code);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.cmB_payment_system);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.cmB_currency);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.cmB_type_card);
+            this.panel1.Controls.Add(this.lbL_enterNumberPhone);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.btn_closeLoginForm);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(303, 445);
+            this.panel1.TabIndex = 34;
+            // 
             // AddBankCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(303, 445);
-            this.Controls.Add(this.btn_save_client);
-            this.Controls.Add(this.cmB_PIN_code);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.cmB_payment_system);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.cmB_currency);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.cmB_type_card);
-            this.Controls.Add(this.lbL_enterNumberPhone);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.btn_closeLoginForm);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddBankCard";
             this.Text = "AddBankCard";
+            this.Load += new System.EventHandler(this.AddBankCard_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -242,5 +262,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btn_save_client;
+        private System.Windows.Forms.Panel panel1;
     }
 }
