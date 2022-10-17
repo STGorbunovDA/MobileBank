@@ -48,6 +48,9 @@ namespace MobileBank.Forms
 
         void Btn_save_and_client_new_card_Click(object sender, EventArgs e)
         {
+            var type_card = cmB_type_card.GetItemText(cmB_type_card.SelectedItem);
+            var currency = cmB_currency.GetItemText(cmB_currency.SelectedItem);
+            var payment_system = cmB_payment_system.GetItemText(cmB_payment_system.SelectedItem);
 
         }
     }
