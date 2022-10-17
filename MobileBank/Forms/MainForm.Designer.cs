@@ -35,6 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lbL_сourse_dollar = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.btn_adding_card = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -126,12 +127,27 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "/";
             // 
+            // btn_adding_card
+            // 
+            this.btn_adding_card.BackColor = System.Drawing.Color.GreenYellow;
+            this.btn_adding_card.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_adding_card.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_adding_card.ForeColor = System.Drawing.Color.Gray;
+            this.btn_adding_card.Location = new System.Drawing.Point(544, 160);
+            this.btn_adding_card.Name = "btn_adding_card";
+            this.btn_adding_card.Size = new System.Drawing.Size(109, 27);
+            this.btn_adding_card.TabIndex = 10;
+            this.btn_adding_card.Text = "Добавить";
+            this.btn_adding_card.UseVisualStyleBackColor = false;
+            this.btn_adding_card.Click += new System.EventHandler(this.Btn_adding_card_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_adding_card);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
@@ -155,5 +171,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btn_adding_card;
     }
 }

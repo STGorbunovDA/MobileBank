@@ -72,5 +72,14 @@ namespace MobileBank.Forms
             if (InternetСheck.CheackSkyNET())
                 SettingMethod.CourseCurrency(lbL_сourse_euro, lbL_сourse_dollar);
         }
+
+        void Btn_adding_card_Click(object sender, EventArgs e)
+        {
+            AddBankCard addBankCard = new AddBankCard();
+            if (Application.OpenForms["AddBankCard"] == null)
+            {
+                addBankCard.Show();
+            }
+        }
     }
 }

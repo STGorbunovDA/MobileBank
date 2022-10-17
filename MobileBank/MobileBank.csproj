@@ -95,6 +95,12 @@
     <Compile Include="Classes\InternetСheck.cs" />
     <Compile Include="Classes\md5.cs" />
     <Compile Include="Classes\SettingMethod.cs" />
+    <Compile Include="Forms\AddBankCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddBankCard.Designer.cs">
+      <DependentUpon>AddBankCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\AddBankCard.resx">
+      <DependentUpon>AddBankCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
