@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MobileBank.Classes;
+using MySql.Data.MySqlClient;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -68,7 +70,28 @@ namespace MobileBank.Forms
                 cvvCode += Convert.ToString(rand.Next(0, 10));
             }
 
-
+            do
+            {
+                if (payment_system == "Visa")
+                {
+                    cardNumber += "4";
+                    for (int i = 0; i < 15; i++)
+                    {
+                        cardNumber += Convert.ToString(rand.Next(0, 10));
+                    }
+                }
+                else
+                {
+                    cardNumber += "5";
+                    for (int i = 0; i < 15; i++)
+                    {
+                        cardNumber += Convert.ToString(rand.Next(0, 10));
+                    }
+                }
+                if (SettingMethod.CheackBankCardNumber(cardNumber))
+                    isCardFree = true;
+            }
+            while (isCardFree == false);
 
 
         }

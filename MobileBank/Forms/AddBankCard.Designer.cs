@@ -130,7 +130,7 @@
             this.cmB_payment_system.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.cmB_payment_system.FormattingEnabled = true;
             this.cmB_payment_system.Items.AddRange(new object[] {
-            "VISA",
+            "Visa",
             "Mastercard"});
             this.cmB_payment_system.Location = new System.Drawing.Point(15, 238);
             this.cmB_payment_system.Name = "cmB_payment_system";

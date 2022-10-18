@@ -37,6 +37,31 @@ namespace MobileBank.Classes
             }
         }
 
+        internal static Boolean CheackBankCardNumber(string cardNumber)
+        {
+            var queryCheckCardNumber = $"SELECT * FROM bank_card WHERE bank_card_number = '{cardNumber}'";
+
+            using (MySqlCommand command = new MySqlCommand(queryCheckCardNumber, DataBaseConnection.GetInstance.GetConnection()))
+            {
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                {
+                    DataTable table = new DataTable();
+
+                    adapter.Fill(table);
+
+                    if (table.Rows.Count == 0)
+                    {
+                        return true;
+                    }
+
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+
         internal static void CourseCurrency(Label lbL_сourse_euro, Label lbL_сourse_dollar)
         {
             WebClient client = new WebClient();
