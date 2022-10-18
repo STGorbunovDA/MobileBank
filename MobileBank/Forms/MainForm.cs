@@ -94,13 +94,13 @@ namespace MobileBank.Forms
                             adapter.Fill(card_number);
                             if (card_number.Rows.Count > 0)
                             {
-                                cmb_card_number.DataSource = card_number;
-                                cmb_card_number.ValueMember = "id_bank_card";
-                                cmb_card_number.DisplayMember = "bank_card_number";
+                                cmb_card.DataSource = card_number;
+                                cmb_card.ValueMember = "id_bank_card";
+                                cmb_card.DisplayMember = "bank_card_number";
                             }
                             else
                             {
-                                cmb_card_number.Text = "У Вас отсутсвуют банковские карты";
+                                cmb_card.Text = "У Вас отсутсвуют банковские карты";
                             }
                             DataBaseConnection.GetInstance.CloseConnection();
                         }
@@ -121,7 +121,7 @@ namespace MobileBank.Forms
                 lbL_client_FIO.Text = "";
                 picB_visa.Visible = false;
                 picB_masterCard.Visible = false;
-                selectBankCard();
+                SettingMethod.SelectBankCardMainForm(lbL_client_FIO, lbL_card_number, cmb_card, lbL_cardCvv, lbL_cardDate, lbL_balanceCard, lbl_currency, picB_masterCard, picB_visa);
 
             }
             catch (Exception)
@@ -131,11 +131,6 @@ namespace MobileBank.Forms
 
         }
 
-        void selectBankCard()
-        {
-            string payment_system = "";
-            string querySelectCard = $"";
-        }
 
         void Btn_adding_card_Click(object sender, EventArgs e)
         {

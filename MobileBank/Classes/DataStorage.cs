@@ -13,6 +13,6 @@ namespace MobileBank.Classes
         public static string idClient;
         public static string phoneNumber;
         public static string cardNumber;
-        public static string cardCW;
+        public static string cardCVV;
     }
 }
