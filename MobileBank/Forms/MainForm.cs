@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MobileBank.Classes;
+using MySql.Data.MySqlClient;
 
 namespace MobileBank.Forms
 {
@@ -78,7 +79,38 @@ namespace MobileBank.Forms
             {
                 MessageBox.Show("Ошибка загрузки курсы валют с сайта Центробанка", "Системная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-           
+            try
+            {
+                if (InternetСheck.CheackSkyNET())
+                {
+                    string querystring = $"SELECT bank_card_number FROM bank_card WHERE id_client = {DataStorage.idClient}";
+                    using (MySqlCommand command = new MySqlCommand(querystring, DataBaseConnection.GetInstance.GetConnection()))
+                    {
+                        DataBaseConnection.GetInstance.OpenConnection();
+                        DataTable card_number = new DataTable();
+
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                        {
+                            adapter.Fill(card_number);
+                            if (card_number.Rows.Count > 0)
+                            {
+                                cmb_card_number.DataSource = card_number;
+                                cmb_card_number.DisplayMember = "bank_card_number";
+                            }
+                            else
+                            {
+                                cmb_card_number.Text = "У Вас отсутсвуют банковские карты";
+                            }
+                            DataBaseConnection.GetInstance.CloseConnection();
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка загрузки номера банковской карты клиента", "Системная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         void Btn_adding_card_Click(object sender, EventArgs e)
