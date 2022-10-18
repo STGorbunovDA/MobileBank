@@ -20,7 +20,7 @@ namespace MobileBank.Forms
 
         void Btn_closeLoginForm_Click(object sender, EventArgs e)
         {
-            System.Environment.Exit(1);
+            this.Close();
         }
 
         void AddBankCard_Load(object sender, EventArgs e)
@@ -67,7 +67,9 @@ namespace MobileBank.Forms
                     var cvvCode = "";
                     bool isCardFree = false;
                     DateTime dateTime = DateTime.Now;
-                    var cardDate = dateTime.AddYears(4);
+                    var cardDate = dateTime.AddYears(4).ToString("yyyy-mm-dd");
+                    //var cardDate = cardDateP.ToString("yyyy-mm-dd hh:mm:ss");
+                   // cardDate = cardDate.ToString("yyyyy-mm-dd");
 
                     for (int i = 0; i < 3; i++)
                     {
@@ -97,9 +99,9 @@ namespace MobileBank.Forms
                     } while (isCardFree == false);
 
                     var queryAddNewCard = $"INSERT INTO bank_card (bank_card_type, bank_card_number, " +
-                        $"bank_card_cvv_code, bank_card_currency, bank_card_paymentSystem, bank_card_date, " +
-                        $"id_client, bank_card_pin) VALUES ('{type_card}', '{cardNumber}', '{cvvCode}', " +
-                        $"'{currency}', '{payment_system}', '{cardDate}', '{cardDate}', '{DataStorage.idClient}', '{cardPin}')";
+                        $"bank_card_cvv_code, bank_card_balance, bank_card_currency, bank_card_paymentSystem, bank_card_date, " +
+                        $"bank_card_pin, id_client) VALUES ('{type_card}', '{cardNumber}', '{cvvCode}', '{0.00}', " +
+                        $"'{currency}', '{payment_system}', '{cardDate}', '{cardPin}', '{DataStorage.idClient}')";
 
                     DataBaseConnection.GetInstance.OpenConnection();
                     using (MySqlCommand commandAddNewUser = new MySqlCommand(queryAddNewCard, DataBaseConnection.GetInstance.GetConnection()))
