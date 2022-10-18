@@ -33,17 +33,18 @@
             this.lbL_enterNumberPhone = new System.Windows.Forms.Label();
             this.cmB_type_card = new System.Windows.Forms.ComboBox();
             this.cmB_currency = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cmB_payment_system = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.cmB_PIN_code = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.btn_save_client = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.numericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_closeLoginForm
@@ -76,11 +77,11 @@
             this.lbL_enterNumberPhone.AutoSize = true;
             this.lbL_enterNumberPhone.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbL_enterNumberPhone.ForeColor = System.Drawing.Color.GreenYellow;
-            this.lbL_enterNumberPhone.Location = new System.Drawing.Point(16, 103);
+            this.lbL_enterNumberPhone.Location = new System.Drawing.Point(12, 103);
             this.lbL_enterNumberPhone.Name = "lbL_enterNumberPhone";
-            this.lbL_enterNumberPhone.Size = new System.Drawing.Size(279, 16);
+            this.lbL_enterNumberPhone.Size = new System.Drawing.Size(287, 16);
             this.lbL_enterNumberPhone.TabIndex = 10;
-            this.lbL_enterNumberPhone.Text = "....................................................................";
+            this.lbL_enterNumberPhone.Text = "......................................................................";
             // 
             // cmB_type_card
             // 
@@ -111,17 +112,6 @@
             this.cmB_currency.Size = new System.Drawing.Size(280, 27);
             this.cmB_currency.TabIndex = 14;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.Color.GreenYellow;
-            this.label1.Location = new System.Drawing.Point(16, 185);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(279, 16);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "....................................................................";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -147,51 +137,16 @@
             this.cmB_payment_system.Size = new System.Drawing.Size(280, 27);
             this.cmB_payment_system.TabIndex = 17;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.ForeColor = System.Drawing.Color.GreenYellow;
-            this.label4.Location = new System.Drawing.Point(16, 268);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(279, 16);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "....................................................................";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(12, 212);
+            this.label5.Location = new System.Drawing.Point(13, 210);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(121, 14);
             this.label5.TabIndex = 15;
             this.label5.Text = "Платёжная система";
-            // 
-            // cmB_PIN_code
-            // 
-            this.cmB_PIN_code.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.cmB_PIN_code.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cmB_PIN_code.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.cmB_PIN_code.FormattingEnabled = true;
-            this.cmB_PIN_code.Items.AddRange(new object[] {
-            "0"});
-            this.cmB_PIN_code.Location = new System.Drawing.Point(15, 319);
-            this.cmB_PIN_code.Name = "cmB_PIN_code";
-            this.cmB_PIN_code.Size = new System.Drawing.Size(280, 27);
-            this.cmB_PIN_code.TabIndex = 20;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.ForeColor = System.Drawing.Color.GreenYellow;
-            this.label6.Location = new System.Drawing.Point(16, 349);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(279, 16);
-            this.label6.TabIndex = 19;
-            this.label6.Text = "....................................................................";
             // 
             // label7
             // 
@@ -220,15 +175,15 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btn_save_client);
-            this.panel1.Controls.Add(this.cmB_PIN_code);
             this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.numericUpDown);
+            this.panel1.Controls.Add(this.btn_save_client);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.cmB_payment_system);
-            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.cmB_currency);
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.cmB_type_card);
             this.panel1.Controls.Add(this.lbL_enterNumberPhone);
@@ -243,6 +198,49 @@
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseUp);
             // 
+            // numericUpDown
+            // 
+            this.numericUpDown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.numericUpDown.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.numericUpDown.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.numericUpDown.Location = new System.Drawing.Point(15, 319);
+            this.numericUpDown.Name = "numericUpDown";
+            this.numericUpDown.Size = new System.Drawing.Size(280, 27);
+            this.numericUpDown.TabIndex = 34;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.Color.GreenYellow;
+            this.label1.Location = new System.Drawing.Point(13, 185);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(287, 16);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "......................................................................";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.ForeColor = System.Drawing.Color.GreenYellow;
+            this.label4.Location = new System.Drawing.Point(12, 268);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(287, 16);
+            this.label4.TabIndex = 36;
+            this.label4.Text = "......................................................................";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.ForeColor = System.Drawing.Color.GreenYellow;
+            this.label6.Location = new System.Drawing.Point(13, 349);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(287, 16);
+            this.label6.TabIndex = 37;
+            this.label6.Text = "......................................................................";
+            // 
             // AddBankCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -256,6 +254,7 @@
             this.Load += new System.EventHandler(this.AddBankCard_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -267,15 +266,15 @@
         private System.Windows.Forms.Label lbL_enterNumberPhone;
         private System.Windows.Forms.ComboBox cmB_type_card;
         private System.Windows.Forms.ComboBox cmB_currency;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cmB_payment_system;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cmB_PIN_code;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btn_save_client;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown numericUpDown;
     }
 }

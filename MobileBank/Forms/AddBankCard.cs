@@ -22,7 +22,11 @@ namespace MobileBank.Forms
 
         void AddBankCard_Load(object sender, EventArgs e)
         {
-            cmB_PIN_code.Text = cmB_PIN_code.Items[0].ToString();
+            cmB_type_card.Text = cmB_type_card.Items[0].ToString();
+            cmB_currency.Text = cmB_currency.Items[0].ToString();
+            cmB_payment_system.Text = cmB_payment_system.Items[0].ToString();
+
+            //cmB_PIN_code.Text = cmB_PIN_code.Items[0].ToString();
         }
 
         void panel1_MouseDown(object sender, MouseEventArgs e)
@@ -51,6 +55,12 @@ namespace MobileBank.Forms
             var type_card = cmB_type_card.GetItemText(cmB_type_card.SelectedItem);
             var currency = cmB_currency.GetItemText(cmB_currency.SelectedItem);
             var payment_system = cmB_payment_system.GetItemText(cmB_payment_system.SelectedItem);
+            var cardNumber = "";
+            var cardPin = numericUpDown.Value;
+            var cvvCode = "";
+
+
+
 
         }
     }
