@@ -83,7 +83,7 @@ namespace MobileBank.Forms
             {
                 if (InternetСheck.CheackSkyNET())
                 {
-                    string querystring = $"SELECT bank_card_number FROM bank_card WHERE id_client = {DataStorage.idClient}";
+                    string querystring = $"SELECT id_bank_card, bank_card_number FROM bank_card WHERE id_client = {DataStorage.idClient}";
                     using (MySqlCommand command = new MySqlCommand(querystring, DataBaseConnection.GetInstance.GetConnection()))
                     {
                         DataBaseConnection.GetInstance.OpenConnection();
@@ -95,6 +95,7 @@ namespace MobileBank.Forms
                             if (card_number.Rows.Count > 0)
                             {
                                 cmb_card_number.DataSource = card_number;
+                                cmb_card_number.ValueMember = "id_bank_card";
                                 cmb_card_number.DisplayMember = "bank_card_number";
                             }
                             else
@@ -120,6 +121,7 @@ namespace MobileBank.Forms
                 lbL_client_FIO.Text = "";
                 picB_visa.Visible = false;
                 picB_masterCard.Visible = false;
+                selectBankCard();
 
             }
             catch (Exception)
@@ -127,6 +129,12 @@ namespace MobileBank.Forms
                 MessageBox.Show("Ошибка загрузки label кредитной карты", "Системная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        void selectBankCard()
+        {
+            string payment_system = "";
+            string querySelectCard = $"";
         }
 
         void Btn_adding_card_Click(object sender, EventArgs e)
