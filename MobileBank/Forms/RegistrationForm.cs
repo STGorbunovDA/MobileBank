@@ -9,8 +9,6 @@ namespace MobileBank.Forms
 {
     public partial class RegistrationForm : Form
     {
-        DataBaseConnection dataBase = new DataBaseConnection();
-
         private bool dragging = false;
         private Point dragCursorPoint;
         private Point dragFormPoint;

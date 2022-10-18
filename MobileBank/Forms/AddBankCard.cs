@@ -9,6 +9,7 @@ namespace MobileBank.Forms
         private bool dragging = false;
         private Point dragCursorPoint;
         private Point dragFormPoint;
+        Random rand = new Random();
 
         public AddBankCard()
         {
@@ -58,6 +59,14 @@ namespace MobileBank.Forms
             var cardNumber = "";
             var cardPin = numericUpDown.Value;
             var cvvCode = "";
+            bool isCardFree = false;
+            DateTime dateTime = DateTime.Now;
+            var cardDate = dateTime.AddYears(4);
+
+            for (int i = 0; i < 3; i++)
+            {
+                cvvCode += Convert.ToString(rand.Next(0, 10));
+            }
 
 
 
