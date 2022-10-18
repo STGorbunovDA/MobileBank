@@ -69,8 +69,16 @@ namespace MobileBank.Forms
 
         void MainForm_Load(object sender, EventArgs e)
         {
-            if (InternetСheck.CheackSkyNET())
-                SettingMethod.CourseCurrency(lbL_сourse_euro, lbL_сourse_dollar);
+            try
+            {
+                if (InternetСheck.CheackSkyNET())
+                    SettingMethod.CourseCurrency(lbL_сourse_euro, lbL_сourse_dollar);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка загрузки курсы валют с сайта Центробанка", "Системная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
         }
 
         void Btn_adding_card_Click(object sender, EventArgs e)

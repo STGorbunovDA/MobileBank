@@ -55,45 +55,73 @@ namespace MobileBank.Forms
 
         void Btn_save_and_client_new_card_Click(object sender, EventArgs e)
         {
-            var type_card = cmB_type_card.GetItemText(cmB_type_card.SelectedItem);
-            var currency = cmB_currency.GetItemText(cmB_currency.SelectedItem);
-            var payment_system = cmB_payment_system.GetItemText(cmB_payment_system.SelectedItem);
-            var cardNumber = "";
-            var cardPin = numericUpDown.Value;
-            var cvvCode = "";
-            bool isCardFree = false;
-            DateTime dateTime = DateTime.Now;
-            var cardDate = dateTime.AddYears(4);
-
-            for (int i = 0; i < 3; i++)
+            try
             {
-                cvvCode += Convert.ToString(rand.Next(0, 10));
-            }
-
-            do
-            {
-                if (payment_system == "Visa")
+                if (InternetСheck.CheackSkyNET())
                 {
-                    cardNumber += "4";
-                    for (int i = 0; i < 15; i++)
+                    var type_card = cmB_type_card.GetItemText(cmB_type_card.SelectedItem);
+                    var currency = cmB_currency.GetItemText(cmB_currency.SelectedItem);
+                    var payment_system = cmB_payment_system.GetItemText(cmB_payment_system.SelectedItem);
+                    var cardNumber = "";
+                    var cardPin = numericUpDown.Value;
+                    var cvvCode = "";
+                    bool isCardFree = false;
+                    DateTime dateTime = DateTime.Now;
+                    var cardDate = dateTime.AddYears(4);
+
+                    for (int i = 0; i < 3; i++)
                     {
-                        cardNumber += Convert.ToString(rand.Next(0, 10));
+                        cvvCode += Convert.ToString(rand.Next(0, 10));
+                    }
+
+                    do
+                    {
+                        if (payment_system == "Visa")
+                        {
+                            cardNumber += "4";
+                            for (int i = 0; i < 15; i++)
+                            {
+                                cardNumber += Convert.ToString(rand.Next(0, 10));
+                            }
+                        }
+                        else
+                        {
+                            cardNumber += "5";
+                            for (int i = 0; i < 15; i++)
+                            {
+                                cardNumber += Convert.ToString(rand.Next(0, 10));
+                            }
+                        }
+                        if (SettingMethod.CheackBankCardNumber(cardNumber))
+                            isCardFree = true;
+                    } while (isCardFree == false);
+
+                    var queryAddNewCard = $"INSERT INTO bank_card (bank_card_type, bank_card_number, " +
+                        $"bank_card_cvv_code, bank_card_currency, bank_card_paymentSystem, bank_card_date, " +
+                        $"id_client, bank_card_pin) VALUES ('{type_card}', '{cardNumber}', '{cvvCode}', " +
+                        $"'{currency}', '{payment_system}', '{cardDate}', '{cardDate}', '{DataStorage.idClient}', '{cardPin}')";
+
+                    DataBaseConnection.GetInstance.OpenConnection();
+                    using (MySqlCommand commandAddNewUser = new MySqlCommand(queryAddNewCard, DataBaseConnection.GetInstance.GetConnection()))
+                    {
+                        if (commandAddNewUser.ExecuteNonQuery() == 1)
+                        {
+                            DataBaseConnection.GetInstance.CloseConnection();
+                            MessageBox.Show("Карта успешно создана", "Данные сохранены", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Карта не создана", "Данные не сохранены", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
                 }
-                else
-                {
-                    cardNumber += "5";
-                    for (int i = 0; i < 15; i++)
-                    {
-                        cardNumber += Convert.ToString(rand.Next(0, 10));
-                    }
-                }
-                if (SettingMethod.CheackBankCardNumber(cardNumber))
-                    isCardFree = true;
             }
-            while (isCardFree == false);
-
-
+            catch (Exception)
+            {
+                MessageBox.Show("Btn_save_and_client_new_card_Click", "Ошибка метода", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+         
         }
     }
 }
