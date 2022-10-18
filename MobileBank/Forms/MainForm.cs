@@ -110,6 +110,22 @@ namespace MobileBank.Forms
             {
                 MessageBox.Show("Ошибка загрузки номера банковской карты клиента", "Системная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            try
+            {
+                lbL_card_number.BringToFront();
+                lbL_card_number.Text = "";
+                lbL_cardDate.BringToFront();
+                lbL_cardDate.Text = "";
+                lbL_client_FIO.BringToFront();
+                lbL_client_FIO.Text = "";
+                picB_visa.Visible = false;
+                picB_masterCard.Visible = false;
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка загрузки label кредитной карты", "Системная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 
