@@ -38,7 +38,9 @@
             this.btn_adding_card = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.cmb_card_number = new System.Windows.Forms.ComboBox();
+            this.picB_update = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picB_update)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -135,9 +137,9 @@
             this.btn_adding_card.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_adding_card.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_adding_card.ForeColor = System.Drawing.Color.Gray;
-            this.btn_adding_card.Location = new System.Drawing.Point(455, 103);
+            this.btn_adding_card.Location = new System.Drawing.Point(453, 69);
             this.btn_adding_card.Name = "btn_adding_card";
-            this.btn_adding_card.Size = new System.Drawing.Size(120, 27);
+            this.btn_adding_card.Size = new System.Drawing.Size(103, 27);
             this.btn_adding_card.TabIndex = 10;
             this.btn_adding_card.Text = "Добавить";
             this.btn_adding_card.UseVisualStyleBackColor = false;
@@ -148,7 +150,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(153, 104);
+            this.label4.Location = new System.Drawing.Point(155, 69);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 23);
             this.label4.TabIndex = 11;
@@ -165,17 +167,29 @@
             this.cmb_card_number.Items.AddRange(new object[] {
             "МУЖ",
             "ЖЕН"});
-            this.cmb_card_number.Location = new System.Drawing.Point(230, 103);
+            this.cmb_card_number.Location = new System.Drawing.Point(225, 68);
             this.cmb_card_number.Name = "cmb_card_number";
-            this.cmb_card_number.Size = new System.Drawing.Size(219, 27);
+            this.cmb_card_number.Size = new System.Drawing.Size(222, 27);
             this.cmb_card_number.TabIndex = 19;
+            // 
+            // picB_update
+            // 
+            this.picB_update.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.picB_update.BackColor = System.Drawing.Color.Transparent;
+            this.picB_update.Location = new System.Drawing.Point(198, 112);
+            this.picB_update.Name = "picB_update";
+            this.picB_update.Size = new System.Drawing.Size(319, 190);
+            this.picB_update.TabIndex = 20;
+            this.picB_update.TabStop = false;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(722, 450);
+            this.ClientSize = new System.Drawing.Size(722, 498);
+            this.Controls.Add(this.picB_update);
             this.Controls.Add(this.cmb_card_number);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btn_adding_card);
@@ -189,6 +203,7 @@
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseUp);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picB_update)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -206,5 +221,6 @@
         private System.Windows.Forms.Button btn_adding_card;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmb_card_number;
+        private System.Windows.Forms.PictureBox picB_update;
     }
 }
