@@ -150,35 +150,42 @@ namespace MobileBank.Forms
             MoneyTransferCardForm moneyTransferCardForm = new MoneyTransferCardForm();
             if (Application.OpenForms["MoneyTransferCardForm"] == null)
             {
+                txB_NumberTransferCardMoney.Text = txB_NumberTransferCardMoney.Text.Replace(" ", "");
                 DataStorage.NumberTransferCard = txB_NumberTransferCardMoney.Text;
-
                 DataStorage.cardNumberUser = cmb_card.GetItemText(cmb_card.SelectedItem);
-                DataStorage.cardDate = lbL_cardDate.Text;
-                DataStorage.dolar = lbL_сourse_dollar.Text;
-                DataStorage.euro = lbL_сourse_euro.Text;
+                DataStorage.cardDate = lbL_cardDate.Text.Trim();
+                DataStorage.cardCVV = lbL_cardCvv.Text.Trim();
+                DataStorage.dolar = lbL_сourse_dollar.Text.Trim();
+                DataStorage.euro = lbL_сourse_euro.Text.Trim();
                 moneyTransferCardForm.Show();
+                txB_NumberTransferCardMoney.Text = "";
             }
 
 
         }
 
         #region Key-press Key-UP
-        
-        int i = 0;
+
+        int spaceTxB_NumberTransferCardMoney = 0;
         void TxB_NumberTransferCardMoney_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+
             if ((e.KeyChar >= '0' && e.KeyChar <= '9') || e.KeyChar == (char)Keys.Back)
             {
-                if (i < 4)
+                if (txB_NumberTransferCardMoney.TextLength < 19)
                 {
-                    i++;
+                    if (spaceTxB_NumberTransferCardMoney < 4)
+                    {
+                        spaceTxB_NumberTransferCardMoney++;
+                    }
+                    else
+                    {
+                        spaceTxB_NumberTransferCardMoney = 1;
+                        txB_NumberTransferCardMoney.Text += ' ';
+                        txB_NumberTransferCardMoney.SelectionStart = txB_NumberTransferCardMoney.Text.Length;
+                    }
                 }
-                else
-                {
-                    i = 0;
-                    txB_NumberTransferCardMoney.Text += ' ';
-                }
+                else spaceTxB_NumberTransferCardMoney = 0;
             }
             else
             {
@@ -231,6 +238,6 @@ namespace MobileBank.Forms
 
         #endregion
 
-        
+
     }
 }

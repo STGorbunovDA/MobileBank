@@ -95,7 +95,7 @@
             this.btn_Transfer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Transfer.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_Transfer.ForeColor = System.Drawing.Color.Black;
-            this.btn_Transfer.Location = new System.Drawing.Point(238, 416);
+            this.btn_Transfer.Location = new System.Drawing.Point(257, 416);
             this.btn_Transfer.Name = "btn_Transfer";
             this.btn_Transfer.Size = new System.Drawing.Size(202, 45);
             this.btn_Transfer.TabIndex = 49;
@@ -108,7 +108,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label8.Location = new System.Drawing.Point(69, 445);
+            this.label8.Location = new System.Drawing.Point(88, 445);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(139, 16);
             this.label8.TabIndex = 42;
@@ -120,7 +120,7 @@
             this.txB_sum.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txB_sum.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.txB_sum.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txB_sum.Location = new System.Drawing.Point(72, 416);
+            this.txB_sum.Location = new System.Drawing.Point(91, 416);
             this.txB_sum.Name = "txB_sum";
             this.txB_sum.Size = new System.Drawing.Size(130, 26);
             this.txB_sum.TabIndex = 42;
@@ -132,7 +132,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(68, 390);
+            this.label7.Location = new System.Drawing.Point(87, 390);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(64, 23);
             this.label7.TabIndex = 48;
@@ -144,7 +144,7 @@
             this.panel3.Controls.Add(this.txB_NumberTransferCardMoney);
             this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.label12);
-            this.panel3.Location = new System.Drawing.Point(72, 277);
+            this.panel3.Location = new System.Drawing.Point(91, 277);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(368, 99);
             this.panel3.TabIndex = 47;
@@ -191,7 +191,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.Location = new System.Drawing.Point(68, 241);
+            this.label6.Location = new System.Drawing.Point(87, 241);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(168, 23);
             this.label6.TabIndex = 13;
@@ -202,7 +202,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(68, 12);
+            this.label4.Location = new System.Drawing.Point(87, 12);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(86, 23);
             this.label4.TabIndex = 12;
@@ -219,7 +219,7 @@
             this.panel2.Controls.Add(this.txB_card_numberUser);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(72, 48);
+            this.panel2.Location = new System.Drawing.Point(91, 48);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(368, 180);
             this.panel2.TabIndex = 3;
@@ -272,7 +272,7 @@
             this.txB_cardDate.Name = "txB_cardDate";
             this.txB_cardDate.Size = new System.Drawing.Size(50, 23);
             this.txB_cardDate.TabIndex = 43;
-            this.txB_cardDate.Text = "7/26";
+            this.txB_cardDate.Text = "07/26";
             this.txB_cardDate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxB_cardDate_KeyPress);
             this.txB_cardDate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxB_cardDate_KeyUp);
             // 

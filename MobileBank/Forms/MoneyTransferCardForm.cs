@@ -65,19 +65,21 @@ namespace MobileBank.Forms
                 tmp += 4;
                 tmp1 += 4;
             }
-
-            txB_NumberTransferCardMoney.Text = "";
-            int one = 0;
-            int two = 4;
-            for (int m = 0; m < 4; m++)
+            if(txB_NumberTransferCardMoney.Text != "")
             {
-                for (int n = one; n < two; n++)
+                txB_NumberTransferCardMoney.Text = "";
+                int one = 0;
+                int two = 4;
+                for (int m = 0; m < 4; m++)
                 {
-                    txB_NumberTransferCardMoney.Text += DataStorage.NumberTransferCard[n].ToString();
+                    for (int n = one; n < two; n++)
+                    {
+                        txB_NumberTransferCardMoney.Text += DataStorage.NumberTransferCard[n].ToString();
+                    }
+                    txB_NumberTransferCardMoney.Text += " ";
+                    one += 4;
+                    two += 4;
                 }
-                txB_NumberTransferCardMoney.Text += " ";
-                one += 4;
-                two += 4;
             }
 
                 txB_cardDate.Text = DataStorage.cardDate;
@@ -213,10 +215,16 @@ namespace MobileBank.Forms
 
             if (txB_cardCvv.Text != "")
             {
-                if (!Regex.IsMatch(txB_cardDate.Text, @"^(0[1-9]|1[0-2])/(([0-9]{4}|[0-9]{2})$)"))
+                if (!Regex.IsMatch(txB_cardDate.Text, @"^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])"))
                 {
                     MessageBox.Show("Введите корректно месяц и дату[mm/yy]", caption, btn, ico);
                     txB_cardDate.Select();
+                    return;
+                }
+                if(DataStorage.cardCVV != txB_cardCvv.Text)
+                {
+                    MessageBox.Show("Вы ввели не корректный CVV-код", caption, btn, ico);
+                    txB_cardCvv.Select();
                     return;
                 }
             }
