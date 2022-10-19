@@ -216,7 +216,7 @@
             this.label5.BackColor = System.Drawing.Color.DimGray;
             this.label5.Font = new System.Drawing.Font("Tahoma", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(409, 301);
+            this.label5.Location = new System.Drawing.Point(416, 301);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 10);
             this.label5.TabIndex = 7;
@@ -228,7 +228,7 @@
             this.label6.BackColor = System.Drawing.Color.DimGray;
             this.label6.Font = new System.Drawing.Font("Tahoma", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.Location = new System.Drawing.Point(371, 312);
+            this.label6.Location = new System.Drawing.Point(378, 312);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(30, 10);
             this.label6.TabIndex = 22;
@@ -240,7 +240,7 @@
             this.label7.BackColor = System.Drawing.Color.DimGray;
             this.label7.Font = new System.Drawing.Font("Tahoma", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(371, 322);
+            this.label7.Location = new System.Drawing.Point(378, 322);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(28, 10);
             this.label7.TabIndex = 23;
@@ -252,7 +252,7 @@
             this.lbL_cardDate.BackColor = System.Drawing.Color.DimGray;
             this.lbL_cardDate.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbL_cardDate.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbL_cardDate.Location = new System.Drawing.Point(413, 312);
+            this.lbL_cardDate.Location = new System.Drawing.Point(420, 312);
             this.lbL_cardDate.Name = "lbL_cardDate";
             this.lbL_cardDate.Size = new System.Drawing.Size(57, 23);
             this.lbL_cardDate.TabIndex = 24;

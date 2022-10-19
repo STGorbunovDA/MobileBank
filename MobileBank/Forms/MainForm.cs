@@ -83,9 +83,8 @@ namespace MobileBank.Forms
             try
             {
                 if (InternetСheck.CheackSkyNET())
-                {
                     SettingMethod.Loading_cmb_card_MainForm(cmb_card);
-                }
+
             }
             catch (Exception)
             {
@@ -102,12 +101,16 @@ namespace MobileBank.Forms
                 picB_visa.Visible = false;
                 picB_masterCard.Visible = false;
                 if (cmb_card.Text != "У Вас отсутсвуют банковские карты")
-                    SettingMethod.SelectBankCardMainForm(lbL_client_FIO, lbL_card_number, cmb_card, lbL_cardCvv, lbL_cardDate, lbL_balanceCard, lbl_currency, picB_masterCard, picB_visa);
+                {
+                    if (InternetСheck.CheackSkyNET())
+                        SettingMethod.SelectBankCardMainForm(lbL_client_FIO, lbL_card_number, cmb_card, lbL_cardCvv, lbL_cardDate, lbL_balanceCard, lbl_currency, picB_masterCard, picB_visa);
+
+                }
 
             }
             catch (Exception)
             {
-                MessageBox.Show("Ошибка загрузки label кредитной карты", "Системная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ошибка загрузки label-ов кредитной карты", "Системная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -138,7 +141,8 @@ namespace MobileBank.Forms
 
         void Cmb_card_SelectionChangeCommitted(object sender, EventArgs e)
         {
-
+            if (cmb_card.Text != "У Вас отсутсвуют банковские карты")
+                SettingMethod.SelectBankCardMainForm(lbL_client_FIO, lbL_card_number, cmb_card, lbL_cardCvv, lbL_cardDate, lbL_balanceCard, lbl_currency, picB_masterCard, picB_visa);
         }
     }
 }
