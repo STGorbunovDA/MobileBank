@@ -82,7 +82,7 @@ namespace MobileBank.Forms
                 }
             }
 
-                txB_cardDate.Text = DataStorage.cardDate;
+            txB_cardDate.Text = DataStorage.cardDate;
             txB_cardCvv.Text = "";
             txB_cardCvv.Select();
         }

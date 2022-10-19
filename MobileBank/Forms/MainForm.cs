@@ -154,7 +154,6 @@ namespace MobileBank.Forms
                 DataStorage.NumberTransferCard = txB_NumberTransferCardMoney.Text;
                 DataStorage.cardNumberUser = cmb_card.GetItemText(cmb_card.SelectedItem);
                 DataStorage.cardDate = lbL_cardDate.Text.Trim();
-                DataStorage.cardCVV = lbL_cardCvv.Text.Trim();
                 DataStorage.dolar = lbL_сourse_dollar.Text.Trim();
                 DataStorage.euro = lbL_сourse_euro.Text.Trim();
                 moneyTransferCardForm.Show();
