@@ -51,7 +51,7 @@
             this.btn_close.BackColor = System.Drawing.Color.GreenYellow;
             this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_close.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_close.ForeColor = System.Drawing.Color.Gray;
+            this.btn_close.ForeColor = System.Drawing.Color.Black;
             this.btn_close.Location = new System.Drawing.Point(267, 12);
             this.btn_close.Name = "btn_close";
             this.btn_close.Size = new System.Drawing.Size(24, 23);
@@ -166,7 +166,7 @@
             this.btn_save_client.BackColor = System.Drawing.Color.GreenYellow;
             this.btn_save_client.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_save_client.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_save_client.ForeColor = System.Drawing.Color.Gray;
+            this.btn_save_client.ForeColor = System.Drawing.Color.Black;
             this.btn_save_client.Location = new System.Drawing.Point(15, 374);
             this.btn_save_client.Name = "btn_save_client";
             this.btn_save_client.Size = new System.Drawing.Size(280, 46);

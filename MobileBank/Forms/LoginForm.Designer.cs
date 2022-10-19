@@ -49,7 +49,7 @@
             this.btn_closeLoginForm.BackColor = System.Drawing.Color.GreenYellow;
             this.btn_closeLoginForm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_closeLoginForm.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_closeLoginForm.ForeColor = System.Drawing.Color.Gray;
+            this.btn_closeLoginForm.ForeColor = System.Drawing.Color.Black;
             this.btn_closeLoginForm.Location = new System.Drawing.Point(368, 13);
             this.btn_closeLoginForm.Name = "btn_closeLoginForm";
             this.btn_closeLoginForm.Size = new System.Drawing.Size(24, 23);
@@ -156,7 +156,7 @@
             this.btn_EnterLoginForm.BackColor = System.Drawing.Color.GreenYellow;
             this.btn_EnterLoginForm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_EnterLoginForm.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_EnterLoginForm.ForeColor = System.Drawing.Color.Gray;
+            this.btn_EnterLoginForm.ForeColor = System.Drawing.Color.Black;
             this.btn_EnterLoginForm.Location = new System.Drawing.Point(12, 264);
             this.btn_EnterLoginForm.Name = "btn_EnterLoginForm";
             this.btn_EnterLoginForm.Size = new System.Drawing.Size(380, 38);

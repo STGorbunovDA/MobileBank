@@ -146,7 +146,7 @@
             this.btn_close.BackColor = System.Drawing.Color.GreenYellow;
             this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_close.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_close.ForeColor = System.Drawing.Color.Gray;
+            this.btn_close.ForeColor = System.Drawing.Color.Black;
             this.btn_close.Location = new System.Drawing.Point(686, 12);
             this.btn_close.Name = "btn_close";
             this.btn_close.Size = new System.Drawing.Size(24, 23);
@@ -160,7 +160,7 @@
             this.btn_adding_card.BackColor = System.Drawing.Color.GreenYellow;
             this.btn_adding_card.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_adding_card.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_adding_card.ForeColor = System.Drawing.Color.Gray;
+            this.btn_adding_card.ForeColor = System.Drawing.Color.Black;
             this.btn_adding_card.Location = new System.Drawing.Point(470, 88);
             this.btn_adding_card.Name = "btn_adding_card";
             this.btn_adding_card.Size = new System.Drawing.Size(90, 27);
@@ -383,7 +383,7 @@
             this.btn_MoneyTransferCard.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_MoneyTransferCard.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_MoneyTransferCard.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_MoneyTransferCard.ForeColor = System.Drawing.Color.Gray;
+            this.btn_MoneyTransferCard.ForeColor = System.Drawing.Color.Black;
             this.btn_MoneyTransferCard.Location = new System.Drawing.Point(282, 44);
             this.btn_MoneyTransferCard.Name = "btn_MoneyTransferCard";
             this.btn_MoneyTransferCard.Size = new System.Drawing.Size(30, 30);
@@ -396,7 +396,7 @@
             // 
             this.txB_NumberTransferCardMoney.BackColor = System.Drawing.Color.DimGray;
             this.txB_NumberTransferCardMoney.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txB_NumberTransferCardMoney.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txB_NumberTransferCardMoney.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.txB_NumberTransferCardMoney.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txB_NumberTransferCardMoney.Location = new System.Drawing.Point(10, 48);
             this.txB_NumberTransferCardMoney.Name = "txB_NumberTransferCardMoney";
