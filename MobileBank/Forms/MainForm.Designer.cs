@@ -53,10 +53,18 @@
             this.lbL_balanceCard = new System.Windows.Forms.Label();
             this.lbl_currency = new System.Windows.Forms.Label();
             this.btn_udpate = new System.Windows.Forms.Button();
+            this.panel_MoneyTransferCard = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txB_MoneyTransferCard = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.btn_MoneyTransferCard = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picB_bancCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picB_visa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picB_masterCard)).BeginInit();
+            this.panel_MoneyTransferCard.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -278,7 +286,7 @@
             this.picB_visa.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picB_visa.BackgroundImage")));
             this.picB_visa.Location = new System.Drawing.Point(486, 298);
             this.picB_visa.Name = "picB_visa";
-            this.picB_visa.Size = new System.Drawing.Size(51, 50);
+            this.picB_visa.Size = new System.Drawing.Size(50, 50);
             this.picB_visa.TabIndex = 26;
             this.picB_visa.TabStop = false;
             // 
@@ -288,9 +296,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.picB_masterCard.BackColor = System.Drawing.Color.DimGray;
             this.picB_masterCard.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picB_masterCard.BackgroundImage")));
-            this.picB_masterCard.Location = new System.Drawing.Point(486, 298);
+            this.picB_masterCard.Location = new System.Drawing.Point(488, 298);
             this.picB_masterCard.Name = "picB_masterCard";
-            this.picB_masterCard.Size = new System.Drawing.Size(51, 50);
+            this.picB_masterCard.Size = new System.Drawing.Size(50, 50);
             this.picB_masterCard.TabIndex = 27;
             this.picB_masterCard.TabStop = false;
             // 
@@ -357,12 +365,85 @@
             this.btn_udpate.UseVisualStyleBackColor = false;
             this.btn_udpate.Click += new System.EventHandler(this.Btn_udpate_Click);
             // 
+            // panel_MoneyTransferCard
+            // 
+            this.panel_MoneyTransferCard.BackColor = System.Drawing.Color.DimGray;
+            this.panel_MoneyTransferCard.Controls.Add(this.btn_MoneyTransferCard);
+            this.panel_MoneyTransferCard.Controls.Add(this.txB_MoneyTransferCard);
+            this.panel_MoneyTransferCard.Controls.Add(this.label10);
+            this.panel_MoneyTransferCard.Controls.Add(this.label9);
+            this.panel_MoneyTransferCard.Controls.Add(this.pictureBox1);
+            this.panel_MoneyTransferCard.Location = new System.Drawing.Point(12, 385);
+            this.panel_MoneyTransferCard.Name = "panel_MoneyTransferCard";
+            this.panel_MoneyTransferCard.Size = new System.Drawing.Size(324, 108);
+            this.panel_MoneyTransferCard.TabIndex = 32;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(33, 34);
+            this.pictureBox1.TabIndex = 34;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.DimGray;
+            this.label9.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label9.Location = new System.Drawing.Point(42, 9);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(155, 22);
+            this.label9.TabIndex = 34;
+            this.label9.Text = "Перевод на карту";
+            // 
+            // txB_MoneyTransferCard
+            // 
+            this.txB_MoneyTransferCard.BackColor = System.Drawing.Color.DimGray;
+            this.txB_MoneyTransferCard.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txB_MoneyTransferCard.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txB_MoneyTransferCard.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txB_MoneyTransferCard.Location = new System.Drawing.Point(10, 48);
+            this.txB_MoneyTransferCard.Name = "txB_MoneyTransferCard";
+            this.txB_MoneyTransferCard.Size = new System.Drawing.Size(251, 26);
+            this.txB_MoneyTransferCard.TabIndex = 40;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label10.Location = new System.Drawing.Point(7, 77);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(259, 16);
+            this.label10.TabIndex = 39;
+            this.label10.Text = "...............................................................";
+            // 
+            // btn_MoneyTransferCard
+            // 
+            this.btn_MoneyTransferCard.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_MoneyTransferCard.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_MoneyTransferCard.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_MoneyTransferCard.ForeColor = System.Drawing.Color.Gray;
+            this.btn_MoneyTransferCard.Location = new System.Drawing.Point(282, 44);
+            this.btn_MoneyTransferCard.Name = "btn_MoneyTransferCard";
+            this.btn_MoneyTransferCard.Size = new System.Drawing.Size(30, 30);
+            this.btn_MoneyTransferCard.TabIndex = 7;
+            this.btn_MoneyTransferCard.Text = ">";
+            this.btn_MoneyTransferCard.UseVisualStyleBackColor = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(722, 498);
+            this.ClientSize = new System.Drawing.Size(722, 716);
+            this.Controls.Add(this.panel_MoneyTransferCard);
             this.Controls.Add(this.btn_udpate);
             this.Controls.Add(this.lbl_currency);
             this.Controls.Add(this.lbL_balanceCard);
@@ -393,6 +474,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.picB_bancCard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picB_visa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picB_masterCard)).EndInit();
+            this.panel_MoneyTransferCard.ResumeLayout(false);
+            this.panel_MoneyTransferCard.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -424,5 +508,11 @@
         private System.Windows.Forms.Label lbL_balanceCard;
         private System.Windows.Forms.Label lbl_currency;
         private System.Windows.Forms.Button btn_udpate;
+        private System.Windows.Forms.Panel panel_MoneyTransferCard;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btn_MoneyTransferCard;
+        private System.Windows.Forms.TextBox txB_MoneyTransferCard;
+        private System.Windows.Forms.Label label10;
     }
 }
