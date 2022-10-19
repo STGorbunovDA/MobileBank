@@ -101,6 +101,7 @@ namespace MobileBank.Classes
                 DataBaseConnection.GetInstance.OpenConnection();
                 using (MySqlDataReader reader = command.ExecuteReader())
                 {
+                    lbL_client_FIO.Text = "";
                     while (reader.Read())
                     {
                         lbL_client_FIO.Text += reader[0].ToString() + " " + reader[1].ToString() + " " + reader[2].ToString();
@@ -157,6 +158,32 @@ namespace MobileBank.Classes
 
                 }
                 DataBaseConnection.GetInstance.CloseConnection();
+            }
+        }
+
+        internal static void Loading_cmb_card_MainForm(ComboBox cmb_card)
+        {
+            string querystring = $"SELECT id_bank_card, bank_card_number FROM bank_card WHERE id_client = {DataStorage.idClient}";
+            using (MySqlCommand command = new MySqlCommand(querystring, DataBaseConnection.GetInstance.GetConnection()))
+            {
+                DataBaseConnection.GetInstance.OpenConnection();
+                DataTable card_number = new DataTable();
+
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                {
+                    adapter.Fill(card_number);
+                    if (card_number.Rows.Count > 0)
+                    {
+                        cmb_card.DataSource = card_number;
+                        cmb_card.ValueMember = "id_bank_card";
+                        cmb_card.DisplayMember = "bank_card_number";
+                    }
+                    else
+                    {
+                        cmb_card.Text = "У Вас отсутсвуют банковские карты";
+                    }
+                    DataBaseConnection.GetInstance.CloseConnection();
+                }
             }
         }
 

@@ -39,12 +39,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btn_save_client = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.numericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.txB_cardPin = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_closeLoginForm
@@ -96,6 +95,7 @@
             this.cmB_type_card.Name = "cmB_type_card";
             this.cmB_type_card.Size = new System.Drawing.Size(280, 27);
             this.cmB_type_card.TabIndex = 11;
+            this.cmB_type_card.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CmB_type_card_KeyPress);
             // 
             // cmB_currency
             // 
@@ -111,6 +111,7 @@
             this.cmB_currency.Name = "cmB_currency";
             this.cmB_currency.Size = new System.Drawing.Size(280, 27);
             this.cmB_currency.TabIndex = 14;
+            this.cmB_currency.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CmB_currency_KeyPress);
             // 
             // label3
             // 
@@ -136,6 +137,7 @@
             this.cmB_payment_system.Name = "cmB_payment_system";
             this.cmB_payment_system.Size = new System.Drawing.Size(280, 27);
             this.cmB_payment_system.TabIndex = 17;
+            this.cmB_payment_system.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CmB_payment_system_KeyPress);
             // 
             // label5
             // 
@@ -165,9 +167,9 @@
             this.btn_save_client.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_save_client.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_save_client.ForeColor = System.Drawing.Color.Gray;
-            this.btn_save_client.Location = new System.Drawing.Point(15, 380);
+            this.btn_save_client.Location = new System.Drawing.Point(15, 374);
             this.btn_save_client.Name = "btn_save_client";
-            this.btn_save_client.Size = new System.Drawing.Size(280, 40);
+            this.btn_save_client.Size = new System.Drawing.Size(280, 46);
             this.btn_save_client.TabIndex = 33;
             this.btn_save_client.Text = "Создать";
             this.btn_save_client.UseVisualStyleBackColor = false;
@@ -175,10 +177,10 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.txB_cardPin);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.numericUpDown);
             this.panel1.Controls.Add(this.btn_save_client);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.cmB_payment_system);
@@ -198,26 +200,29 @@
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseUp);
             // 
-            // numericUpDown
+            // txB_cardPin
             // 
-            this.numericUpDown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.numericUpDown.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.numericUpDown.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.numericUpDown.Location = new System.Drawing.Point(15, 319);
-            this.numericUpDown.Name = "numericUpDown";
-            this.numericUpDown.Size = new System.Drawing.Size(280, 27);
-            this.numericUpDown.TabIndex = 34;
+            this.txB_cardPin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txB_cardPin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txB_cardPin.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txB_cardPin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txB_cardPin.Location = new System.Drawing.Point(16, 320);
+            this.txB_cardPin.Name = "txB_cardPin";
+            this.txB_cardPin.Size = new System.Drawing.Size(279, 20);
+            this.txB_cardPin.TabIndex = 38;
+            this.txB_cardPin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxB_cardPin_KeyPress);
+            this.txB_cardPin.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txB_cardPin_KeyUp);
             // 
-            // label1
+            // label6
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.Color.GreenYellow;
-            this.label1.Location = new System.Drawing.Point(13, 185);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(287, 16);
-            this.label1.TabIndex = 35;
-            this.label1.Text = "......................................................................";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.ForeColor = System.Drawing.Color.GreenYellow;
+            this.label6.Location = new System.Drawing.Point(13, 340);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(287, 16);
+            this.label6.TabIndex = 37;
+            this.label6.Text = "......................................................................";
             // 
             // label4
             // 
@@ -230,16 +235,16 @@
             this.label4.TabIndex = 36;
             this.label4.Text = "......................................................................";
             // 
-            // label6
+            // label1
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.ForeColor = System.Drawing.Color.GreenYellow;
-            this.label6.Location = new System.Drawing.Point(13, 349);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(287, 16);
-            this.label6.TabIndex = 37;
-            this.label6.Text = "......................................................................";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.Color.GreenYellow;
+            this.label1.Location = new System.Drawing.Point(13, 185);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(287, 16);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "......................................................................";
             // 
             // AddBankCard
             // 
@@ -254,7 +259,6 @@
             this.Load += new System.EventHandler(this.AddBankCard_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -275,6 +279,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown numericUpDown;
+        private System.Windows.Forms.TextBox txB_cardPin;
     }
 }

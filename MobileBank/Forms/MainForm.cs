@@ -14,7 +14,6 @@ namespace MobileBank.Forms
 {
     public partial class MainForm : Form
     {
-        string _lbL_cardCVV = "";
         private bool dragging = false;
         private Point dragCursorPoint;
         private Point dragFormPoint;
@@ -85,28 +84,7 @@ namespace MobileBank.Forms
             {
                 if (InternetСheck.CheackSkyNET())
                 {
-                    string querystring = $"SELECT id_bank_card, bank_card_number FROM bank_card WHERE id_client = {DataStorage.idClient}";
-                    using (MySqlCommand command = new MySqlCommand(querystring, DataBaseConnection.GetInstance.GetConnection()))
-                    {
-                        DataBaseConnection.GetInstance.OpenConnection();
-                        DataTable card_number = new DataTable();
-
-                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
-                        {
-                            adapter.Fill(card_number);
-                            if (card_number.Rows.Count > 0)
-                            {
-                                cmb_card.DataSource = card_number;
-                                cmb_card.ValueMember = "id_bank_card";
-                                cmb_card.DisplayMember = "bank_card_number";
-                            }
-                            else
-                            {
-                                cmb_card.Text = "У Вас отсутсвуют банковские карты";
-                            }
-                            DataBaseConnection.GetInstance.CloseConnection();
-                        }
-                    }
+                    SettingMethod.Loading_cmb_card_MainForm(cmb_card);
                 }
             }
             catch (Exception)
@@ -152,7 +130,8 @@ namespace MobileBank.Forms
 
         void Btn_udpate_Click(object sender, EventArgs e)
         {
-
+            SettingMethod.Loading_cmb_card_MainForm(cmb_card);
+            SettingMethod.SelectBankCardMainForm(lbL_client_FIO, lbL_card_number, cmb_card, lbL_cardCvv, lbL_cardDate, lbL_balanceCard, lbl_currency, picB_masterCard, picB_visa);
         }
     }
 }

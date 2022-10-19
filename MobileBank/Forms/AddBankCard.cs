@@ -63,7 +63,7 @@ namespace MobileBank.Forms
                     var currency = cmB_currency.GetItemText(cmB_currency.SelectedItem);
                     var payment_system = cmB_payment_system.GetItemText(cmB_payment_system.SelectedItem);
                     var cardNumber = "";
-                    var cardPin = numericUpDown.Value;
+                    var cardPin = txB_cardPin.Text;
                     var cvvCode = "";
                     bool isCardFree = false;
                     DateTime dateTime = DateTime.Now;
@@ -125,5 +125,74 @@ namespace MobileBank.Forms
             }
          
         }
+        void TxB_cardPin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= '0' && e.KeyChar <= '9') || e.KeyChar == (char)Keys.Back)
+            {
+
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        void txB_cardPin_KeyUp(object sender, KeyEventArgs e)
+        {
+            ProcessKbdCtrlShortcuts(sender, e);
+        }
+
+        void ProcessKbdCtrlShortcuts(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                TextBox t = (TextBox)sender;
+                if (e.KeyData == (Keys.C | Keys.Control))
+                {
+                    t.Copy();
+                    e.Handled = true;
+                }
+                else if (e.KeyData == (Keys.X | Keys.Control))
+                {
+                    t.Cut();
+                    e.Handled = true;
+                }
+                else if (e.KeyData == (Keys.V | Keys.Control))
+                {
+                    t.Paste();
+                    e.Handled = true;
+                }
+                else if (e.KeyData == (Keys.A | Keys.Control))
+                {
+                    t.SelectAll();
+                    e.Handled = true;
+                }
+                else if (e.KeyData == (Keys.Z | Keys.Control))
+                {
+                    t.Undo();
+                    e.Handled = true;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка метода ctrl+c+v (ProcessKbdCtrlShortcuts)");
+            }
+        }
+
+        void CmB_type_card_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        void CmB_currency_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        void CmB_payment_system_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 }
+    
