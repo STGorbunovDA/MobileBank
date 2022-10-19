@@ -152,10 +152,71 @@ namespace MobileBank.Forms
             {
                 DataStorage.bankCard = txB_NumberTransferCardMoney.Text;
                 DataStorage.cardNumber = cmb_card.GetItemText(cmb_card.SelectedItem);
+                DataStorage.cardDate = lbL_cardDate.Text;
+                DataStorage.dolar = lbL_сourse_dollar.Text;
+                DataStorage.euro = lbL_сourse_euro.Text;
                 moneyTransferCardForm.Show();
             }
 
 
         }
+
+        #region Key-press Key-UP
+
+        void TxB_NumberTransferCardMoney_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= '0' && e.KeyChar <= '9') || e.KeyChar == (char)Keys.Back)
+            {
+
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        void TxB_NumberTransferCardMoney_KeyUp(object sender, KeyEventArgs e)
+        {
+            ProcessKbdCtrlShortcuts(sender, e);
+        }
+
+        void ProcessKbdCtrlShortcuts(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                TextBox t = (TextBox)sender;
+                if (e.KeyData == (Keys.C | Keys.Control))
+                {
+                    t.Copy();
+                    e.Handled = true;
+                }
+                else if (e.KeyData == (Keys.X | Keys.Control))
+                {
+                    t.Cut();
+                    e.Handled = true;
+                }
+                else if (e.KeyData == (Keys.V | Keys.Control))
+                {
+                    t.Paste();
+                    e.Handled = true;
+                }
+                else if (e.KeyData == (Keys.A | Keys.Control))
+                {
+                    t.SelectAll();
+                    e.Handled = true;
+                }
+                else if (e.KeyData == (Keys.Z | Keys.Control))
+                {
+                    t.Undo();
+                    e.Handled = true;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка метода ctrl+c+v (ProcessKbdCtrlShortcuts)");
+            }
+        }
+
+        #endregion
     }
 }

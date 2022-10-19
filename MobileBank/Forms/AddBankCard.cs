@@ -137,7 +137,7 @@ namespace MobileBank.Forms
             }
         }
 
-        void txB_cardPin_KeyUp(object sender, KeyEventArgs e)
+        void TxB_cardPin_KeyUp(object sender, KeyEventArgs e)
         {
             ProcessKbdCtrlShortcuts(sender, e);
         }

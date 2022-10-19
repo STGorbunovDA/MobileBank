@@ -211,7 +211,7 @@
             this.txB_cardPin.Size = new System.Drawing.Size(279, 20);
             this.txB_cardPin.TabIndex = 38;
             this.txB_cardPin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxB_cardPin_KeyPress);
-            this.txB_cardPin.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txB_cardPin_KeyUp);
+            this.txB_cardPin.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxB_cardPin_KeyUp);
             // 
             // label6
             // 

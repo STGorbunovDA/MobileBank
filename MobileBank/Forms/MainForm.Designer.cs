@@ -399,9 +399,12 @@
             this.txB_NumberTransferCardMoney.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.txB_NumberTransferCardMoney.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txB_NumberTransferCardMoney.Location = new System.Drawing.Point(10, 48);
+            this.txB_NumberTransferCardMoney.MaxLength = 16;
             this.txB_NumberTransferCardMoney.Name = "txB_NumberTransferCardMoney";
             this.txB_NumberTransferCardMoney.Size = new System.Drawing.Size(251, 26);
             this.txB_NumberTransferCardMoney.TabIndex = 40;
+            this.txB_NumberTransferCardMoney.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxB_NumberTransferCardMoney_KeyPress);
+            this.txB_NumberTransferCardMoney.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxB_NumberTransferCardMoney_KeyUp);
             // 
             // label10
             // 
