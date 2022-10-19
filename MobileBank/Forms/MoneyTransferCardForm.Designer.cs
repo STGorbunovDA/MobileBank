@@ -70,7 +70,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.panel1.Controls.Add(this.btn_Transfer);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.txB_sum);
@@ -156,7 +156,7 @@
             this.txB_NumberTransferCardMoney.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.txB_NumberTransferCardMoney.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txB_NumberTransferCardMoney.Location = new System.Drawing.Point(18, 42);
-            this.txB_NumberTransferCardMoney.MaxLength = 16;
+            this.txB_NumberTransferCardMoney.MaxLength = 32;
             this.txB_NumberTransferCardMoney.Name = "txB_NumberTransferCardMoney";
             this.txB_NumberTransferCardMoney.Size = new System.Drawing.Size(308, 26);
             this.txB_NumberTransferCardMoney.TabIndex = 41;

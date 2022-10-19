@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -51,9 +52,35 @@ namespace MobileBank.Forms
 
         void MoneyTransferCardForm_Load(object sender, EventArgs e)
         {
-            txB_card_numberUser.Text = DataStorage.cardNumber;
-            txB_NumberTransferCardMoney.Text = DataStorage.bankCard;
-            txB_cardDate.Text = DataStorage.cardDate;
+            txB_card_numberUser.Text = "";
+            int tmp = 0;
+            int tmp1 = 4;
+            for (int m = 0; m < 4; m++)
+            {
+                for (int n = tmp; n < tmp1; n++)
+                {
+                    txB_card_numberUser.Text += DataStorage.cardNumberUser[n].ToString();
+                }
+                txB_card_numberUser.Text += " ";
+                tmp += 4;
+                tmp1 += 4;
+            }
+
+            txB_NumberTransferCardMoney.Text = "";
+            int one = 0;
+            int two = 4;
+            for (int m = 0; m < 4; m++)
+            {
+                for (int n = one; n < two; n++)
+                {
+                    txB_NumberTransferCardMoney.Text += DataStorage.NumberTransferCard[n].ToString();
+                }
+                txB_NumberTransferCardMoney.Text += " ";
+                one += 4;
+                two += 4;
+            }
+
+                txB_cardDate.Text = DataStorage.cardDate;
             txB_cardCvv.Text = "";
             txB_cardCvv.Select();
         }
@@ -179,9 +206,19 @@ namespace MobileBank.Forms
 
         void Btn_Transfer_Click(object sender, EventArgs e)
         {
+            MessageBoxButtons btn = MessageBoxButtons.OK;
+            MessageBoxIcon ico = MessageBoxIcon.Information;
+
+            string caption = "Ошибка";
+
             if (txB_cardCvv.Text != "")
             {
-
+                if (!Regex.IsMatch(txB_cardDate.Text, @"^(0[1-9]|1[0-2])/(([0-9]{4}|[0-9]{2})$)"))
+                {
+                    MessageBox.Show("Введите корректно месяц и дату[mm/yy]", caption, btn, ico);
+                    txB_cardDate.Select();
+                    return;
+                }
             }
             else
             {

@@ -161,7 +161,7 @@ namespace MobileBank.Forms
                 MessageBoxButtons btn = MessageBoxButtons.OK;
                 MessageBoxIcon ico = MessageBoxIcon.Information;
 
-                string caption = "Дата сохранения";
+                string caption = "Ошибка";
                 if (!Regex.IsMatch(txB_client_last_name.Text, "[А-Яa-я]+$"))
                 {
                     MessageBox.Show("Пожалуйста введите фамилию повторно!", caption, btn, ico);

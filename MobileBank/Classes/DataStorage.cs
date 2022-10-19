@@ -9,10 +9,10 @@ namespace MobileBank.Classes
     class DataStorage
     {
         public static int attempts;
-        public static string bankCard;
+        public static string NumberTransferCard;
         public static string idClient;
         public static string phoneNumber;
-        public static string cardNumber;
+        public static string cardNumberUser;
         public static string cardCVV;
         public static string dolar;
         public static string euro;

@@ -150,8 +150,9 @@ namespace MobileBank.Forms
             MoneyTransferCardForm moneyTransferCardForm = new MoneyTransferCardForm();
             if (Application.OpenForms["MoneyTransferCardForm"] == null)
             {
-                DataStorage.bankCard = txB_NumberTransferCardMoney.Text;
-                DataStorage.cardNumber = cmb_card.GetItemText(cmb_card.SelectedItem);
+                DataStorage.NumberTransferCard = txB_NumberTransferCardMoney.Text;
+
+                DataStorage.cardNumberUser = cmb_card.GetItemText(cmb_card.SelectedItem);
                 DataStorage.cardDate = lbL_cardDate.Text;
                 DataStorage.dolar = lbL_сourse_dollar.Text;
                 DataStorage.euro = lbL_сourse_euro.Text;
@@ -162,12 +163,22 @@ namespace MobileBank.Forms
         }
 
         #region Key-press Key-UP
-
+        
+        int i = 0;
         void TxB_NumberTransferCardMoney_KeyPress(object sender, KeyPressEventArgs e)
         {
+            
             if ((e.KeyChar >= '0' && e.KeyChar <= '9') || e.KeyChar == (char)Keys.Back)
             {
-
+                if (i < 4)
+                {
+                    i++;
+                }
+                else
+                {
+                    i = 0;
+                    txB_NumberTransferCardMoney.Text += ' ';
+                }
             }
             else
             {
@@ -217,6 +228,9 @@ namespace MobileBank.Forms
             }
         }
 
+
         #endregion
+
+        
     }
 }
