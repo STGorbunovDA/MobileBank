@@ -149,5 +149,10 @@ namespace MobileBank.Forms
                 lbL_cardCvv.Text = DataStorage.cardCVV;
             else lbL_cardCvv.Text = "***";
         }
+
+        void Btn_udpate_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
