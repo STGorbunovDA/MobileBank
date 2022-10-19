@@ -101,7 +101,8 @@ namespace MobileBank.Forms
                 lbL_client_FIO.Text = "";
                 picB_visa.Visible = false;
                 picB_masterCard.Visible = false;
-                SettingMethod.SelectBankCardMainForm(lbL_client_FIO, lbL_card_number, cmb_card, lbL_cardCvv, lbL_cardDate, lbL_balanceCard, lbl_currency, picB_masterCard, picB_visa);
+                if (cmb_card.Text != "У Вас отсутсвуют банковские карты")
+                    SettingMethod.SelectBankCardMainForm(lbL_client_FIO, lbL_card_number, cmb_card, lbL_cardCvv, lbL_cardDate, lbL_balanceCard, lbl_currency, picB_masterCard, picB_visa);
 
             }
             catch (Exception)
@@ -131,7 +132,13 @@ namespace MobileBank.Forms
         void Btn_udpate_Click(object sender, EventArgs e)
         {
             SettingMethod.Loading_cmb_card_MainForm(cmb_card);
-            SettingMethod.SelectBankCardMainForm(lbL_client_FIO, lbL_card_number, cmb_card, lbL_cardCvv, lbL_cardDate, lbL_balanceCard, lbl_currency, picB_masterCard, picB_visa);
+            if (cmb_card.Text != "У Вас отсутсвуют банковские карты")
+                SettingMethod.SelectBankCardMainForm(lbL_client_FIO, lbL_card_number, cmb_card, lbL_cardCvv, lbL_cardDate, lbL_balanceCard, lbl_currency, picB_masterCard, picB_visa);
+        }
+
+        void Cmb_card_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+
         }
     }
 }

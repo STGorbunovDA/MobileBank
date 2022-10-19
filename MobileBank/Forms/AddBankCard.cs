@@ -67,9 +67,9 @@ namespace MobileBank.Forms
                     var cvvCode = "";
                     bool isCardFree = false;
                     DateTime dateTime = DateTime.Now;
-                    var cardDate = dateTime.AddYears(4).ToString("yyyy-mm-dd");
-                    //var cardDate = cardDateP.ToString("yyyy-mm-dd hh:mm:ss");
-                   // cardDate = cardDate.ToString("yyyyy-mm-dd");
+                    DateTime cardDate1 = dateTime.AddYears(4);
+                    var cardDate = cardDate1.ToString("yyyy-MM-dd");
+                    
 
                     for (int i = 0; i < 3; i++)
                     {

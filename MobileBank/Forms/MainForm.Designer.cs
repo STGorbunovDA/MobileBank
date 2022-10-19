@@ -180,13 +180,11 @@
             this.cmb_card.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cmb_card.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.cmb_card.FormattingEnabled = true;
-            this.cmb_card.Items.AddRange(new object[] {
-            "МУЖ",
-            "ЖЕН"});
             this.cmb_card.Location = new System.Drawing.Point(229, 87);
             this.cmb_card.Name = "cmb_card";
             this.cmb_card.Size = new System.Drawing.Size(235, 27);
             this.cmb_card.TabIndex = 19;
+            this.cmb_card.SelectionChangeCommitted += new System.EventHandler(this.Cmb_card_SelectionChangeCommitted);
             // 
             // picB_bancCard
             // 
