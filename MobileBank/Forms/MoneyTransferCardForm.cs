@@ -227,6 +227,10 @@ namespace MobileBank.Forms
                     txB_cardCvv.Select();
                     return;
                 }
+
+                var reg = new Regex(",");
+                double dolar = Convert.ToDouble(reg.Replace(DataStorage.dolar.ToString(), "."));
+                double euro = Convert.ToDouble(reg.Replace(DataStorage.euro.ToString(), "."));
             }
             else
             {
