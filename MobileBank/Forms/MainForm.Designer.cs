@@ -217,7 +217,7 @@
             this.label5.BackColor = System.Drawing.Color.DimGray;
             this.label5.Font = new System.Drawing.Font("Tahoma", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(487, 212);
+            this.label5.Location = new System.Drawing.Point(410, 273);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 10);
             this.label5.TabIndex = 7;
@@ -229,7 +229,7 @@
             this.label6.BackColor = System.Drawing.Color.DimGray;
             this.label6.Font = new System.Drawing.Font("Tahoma", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.Location = new System.Drawing.Point(449, 223);
+            this.label6.Location = new System.Drawing.Point(372, 284);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(30, 10);
             this.label6.TabIndex = 22;
@@ -241,7 +241,7 @@
             this.label7.BackColor = System.Drawing.Color.DimGray;
             this.label7.Font = new System.Drawing.Font("Tahoma", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(449, 233);
+            this.label7.Location = new System.Drawing.Point(372, 294);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(28, 10);
             this.label7.TabIndex = 23;
@@ -253,7 +253,7 @@
             this.lbL_cardDate.BackColor = System.Drawing.Color.DimGray;
             this.lbL_cardDate.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbL_cardDate.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbL_cardDate.Location = new System.Drawing.Point(491, 223);
+            this.lbL_cardDate.Location = new System.Drawing.Point(414, 284);
             this.lbL_cardDate.Name = "lbL_cardDate";
             this.lbL_cardDate.Size = new System.Drawing.Size(57, 23);
             this.lbL_cardDate.TabIndex = 24;
@@ -265,7 +265,7 @@
             this.lbL_client_FIO.BackColor = System.Drawing.Color.DimGray;
             this.lbL_client_FIO.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbL_client_FIO.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbL_client_FIO.Location = new System.Drawing.Point(168, 256);
+            this.lbL_client_FIO.Location = new System.Drawing.Point(176, 226);
             this.lbL_client_FIO.Name = "lbL_client_FIO";
             this.lbL_client_FIO.Size = new System.Drawing.Size(215, 23);
             this.lbL_client_FIO.TabIndex = 25;
@@ -277,7 +277,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.picB_visa.BackColor = System.Drawing.Color.DimGray;
             this.picB_visa.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picB_visa.BackgroundImage")));
-            this.picB_visa.Location = new System.Drawing.Point(510, 276);
+            this.picB_visa.Location = new System.Drawing.Point(487, 270);
             this.picB_visa.Name = "picB_visa";
             this.picB_visa.Size = new System.Drawing.Size(51, 50);
             this.picB_visa.TabIndex = 26;
@@ -289,7 +289,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.picB_masterCard.BackColor = System.Drawing.Color.DimGray;
             this.picB_masterCard.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picB_masterCard.BackgroundImage")));
-            this.picB_masterCard.Location = new System.Drawing.Point(510, 276);
+            this.picB_masterCard.Location = new System.Drawing.Point(487, 270);
             this.picB_masterCard.Name = "picB_masterCard";
             this.picB_masterCard.Size = new System.Drawing.Size(51, 50);
             this.picB_masterCard.TabIndex = 27;
@@ -306,6 +306,7 @@
             this.lbL_cardCvv.Size = new System.Drawing.Size(20, 10);
             this.lbL_cardCvv.TabIndex = 28;
             this.lbL_cardCvv.Text = "CVV";
+            this.lbL_cardCvv.Click += new System.EventHandler(this.LbL_cardCvv_Click);
             // 
             // label8
             // 
@@ -313,7 +314,7 @@
             this.label8.BackColor = System.Drawing.Color.DimGray;
             this.label8.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label8.Location = new System.Drawing.Point(169, 292);
+            this.label8.Location = new System.Drawing.Point(201, 279);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(60, 16);
             this.label8.TabIndex = 29;
@@ -325,7 +326,7 @@
             this.lbL_balanceCard.BackColor = System.Drawing.Color.DimGray;
             this.lbL_balanceCard.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbL_balanceCard.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbL_balanceCard.Location = new System.Drawing.Point(235, 290);
+            this.lbL_balanceCard.Location = new System.Drawing.Point(267, 277);
             this.lbL_balanceCard.Name = "lbL_balanceCard";
             this.lbL_balanceCard.Size = new System.Drawing.Size(41, 19);
             this.lbL_balanceCard.TabIndex = 30;
@@ -337,7 +338,7 @@
             this.lbl_currency.BackColor = System.Drawing.Color.DimGray;
             this.lbl_currency.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbl_currency.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbl_currency.Location = new System.Drawing.Point(187, 308);
+            this.lbl_currency.Location = new System.Drawing.Point(219, 295);
             this.lbl_currency.Name = "lbl_currency";
             this.lbl_currency.Size = new System.Drawing.Size(27, 13);
             this.lbl_currency.TabIndex = 31;
