@@ -26,7 +26,7 @@ namespace MobileBank.Forms
             txB_client_password_replay.UseSystemPasswordChar = true;
         }
 
-        void Btn_closeRegistrationForm_Click(object sender, System.EventArgs e)
+        void Btn_close_Click(object sender, System.EventArgs e)
         {
             this.Close();
         }

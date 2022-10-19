@@ -64,7 +64,7 @@ namespace MobileBank.Forms
             dragging = false;
         }
 
-        void Btn_closeLoginForm_Click(object sender, EventArgs e)
+        void Btn_close_Click(object sender, EventArgs e)
         {
             System.Environment.Exit(1);
         }
@@ -143,6 +143,19 @@ namespace MobileBank.Forms
         {
             if (cmb_card.Text != "У Вас отсутсвуют банковские карты")
                 SettingMethod.SelectBankCardMainForm(lbL_client_FIO, lbL_card_number, cmb_card, lbL_cardCvv, lbL_cardDate, lbL_balanceCard, lbl_currency, picB_masterCard, picB_visa);
+        }
+
+        void Btn_MoneyTransferCard_Click(object sender, EventArgs e)
+        {
+            MoneyTransferCardForm moneyTransferCardForm = new MoneyTransferCardForm();
+            if (Application.OpenForms["MoneyTransferCardForm"] == null)
+            {
+                DataStorage.bankCard = txB_NumberTransferCardMoney.Text;
+                DataStorage.cardNumber = cmb_card.GetItemText(cmb_card.SelectedItem);
+                moneyTransferCardForm.Show();
+            }
+
+
         }
     }
 }

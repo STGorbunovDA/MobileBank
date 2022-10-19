@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_closeLoginForm = new System.Windows.Forms.Button();
+            this.btn_close = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.lbL_enterNumberPhone = new System.Windows.Forms.Label();
             this.cmB_type_card = new System.Windows.Forms.ComboBox();
@@ -46,19 +46,19 @@
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btn_closeLoginForm
+            // btn_close
             // 
-            this.btn_closeLoginForm.BackColor = System.Drawing.Color.GreenYellow;
-            this.btn_closeLoginForm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_closeLoginForm.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_closeLoginForm.ForeColor = System.Drawing.Color.Gray;
-            this.btn_closeLoginForm.Location = new System.Drawing.Point(267, 12);
-            this.btn_closeLoginForm.Name = "btn_closeLoginForm";
-            this.btn_closeLoginForm.Size = new System.Drawing.Size(24, 23);
-            this.btn_closeLoginForm.TabIndex = 2;
-            this.btn_closeLoginForm.Text = "X";
-            this.btn_closeLoginForm.UseVisualStyleBackColor = false;
-            this.btn_closeLoginForm.Click += new System.EventHandler(this.Btn_closeLoginForm_Click);
+            this.btn_close.BackColor = System.Drawing.Color.GreenYellow;
+            this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_close.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_close.ForeColor = System.Drawing.Color.Gray;
+            this.btn_close.Location = new System.Drawing.Point(267, 12);
+            this.btn_close.Name = "btn_close";
+            this.btn_close.Size = new System.Drawing.Size(24, 23);
+            this.btn_close.TabIndex = 2;
+            this.btn_close.Text = "X";
+            this.btn_close.UseVisualStyleBackColor = false;
+            this.btn_close.Click += new System.EventHandler(this.Btn_close_Click);
             // 
             // label2
             // 
@@ -190,7 +190,7 @@
             this.panel1.Controls.Add(this.cmB_type_card);
             this.panel1.Controls.Add(this.lbL_enterNumberPhone);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.btn_closeLoginForm);
+            this.panel1.Controls.Add(this.btn_close);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -265,7 +265,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btn_closeLoginForm;
+        private System.Windows.Forms.Button btn_close;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbL_enterNumberPhone;
         private System.Windows.Forms.ComboBox cmB_type_card;

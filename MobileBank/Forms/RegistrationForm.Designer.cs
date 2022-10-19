@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_closeRegistrationForm = new System.Windows.Forms.Button();
+            this.btn_close = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.lbL_enterNumberPhone = new System.Windows.Forms.Label();
             this.txB_client_last_name = new System.Windows.Forms.TextBox();
@@ -73,19 +73,19 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Регистрация";
             // 
-            // btn_closeRegistrationForm
+            // btn_close
             // 
-            this.btn_closeRegistrationForm.BackColor = System.Drawing.Color.GreenYellow;
-            this.btn_closeRegistrationForm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_closeRegistrationForm.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_closeRegistrationForm.ForeColor = System.Drawing.Color.Gray;
-            this.btn_closeRegistrationForm.Location = new System.Drawing.Point(354, 12);
-            this.btn_closeRegistrationForm.Name = "btn_closeRegistrationForm";
-            this.btn_closeRegistrationForm.Size = new System.Drawing.Size(24, 23);
-            this.btn_closeRegistrationForm.TabIndex = 2;
-            this.btn_closeRegistrationForm.Text = "X";
-            this.btn_closeRegistrationForm.UseVisualStyleBackColor = false;
-            this.btn_closeRegistrationForm.Click += new System.EventHandler(this.Btn_closeRegistrationForm_Click);
+            this.btn_close.BackColor = System.Drawing.Color.GreenYellow;
+            this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_close.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_close.ForeColor = System.Drawing.Color.Gray;
+            this.btn_close.Location = new System.Drawing.Point(354, 12);
+            this.btn_close.Name = "btn_close";
+            this.btn_close.Size = new System.Drawing.Size(24, 23);
+            this.btn_close.TabIndex = 2;
+            this.btn_close.Text = "X";
+            this.btn_close.UseVisualStyleBackColor = false;
+            this.btn_close.Click += new System.EventHandler(this.Btn_close_Click);
             // 
             // label2
             // 
@@ -444,7 +444,7 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.lbL_enterNumberPhone);
             this.panel1.Controls.Add(this.txB_client_last_name);
-            this.panel1.Controls.Add(this.btn_closeRegistrationForm);
+            this.panel1.Controls.Add(this.btn_close);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -489,7 +489,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btn_closeRegistrationForm;
+        private System.Windows.Forms.Button btn_close;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbL_enterNumberPhone;
         private System.Windows.Forms.TextBox txB_client_last_name;

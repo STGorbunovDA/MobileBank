@@ -18,7 +18,7 @@ namespace MobileBank.Forms
             InitializeComponent();
         }
 
-        void Btn_closeLoginForm_Click(object sender, EventArgs e)
+        void Btn_close_Click(object sender, EventArgs e)
         {
             this.Close();
         }
