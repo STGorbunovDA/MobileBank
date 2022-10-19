@@ -82,6 +82,7 @@ namespace MobileBank.Forms
                     two += 4;
                 }
             }
+            lbl_currency.Text = DataStorage.currency;
             txB_card_numberUser.Text = txB_card_numberUser.Text.Trim();
             txB_NumberTransferCardMoney.Text = txB_NumberTransferCardMoney.Text.Trim();
             txB_cardDate.Text = DataStorage.cardDate;
@@ -167,8 +168,12 @@ namespace MobileBank.Forms
         {
             if ((e.KeyChar >= '0' && e.KeyChar <= '9') || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space)
             {
+                if (txB_NumberTransferCardMoney.TextLength == 0)
+                    spaceNumberTransferCardMoney = 0;
                 if (txB_NumberTransferCardMoney.TextLength < 19)
                 {
+                    if (e.KeyChar == (char)Keys.Back)
+                        spaceNumberTransferCardMoney--;
                     if (spaceNumberTransferCardMoney < 4)
                     {
                         spaceNumberTransferCardMoney++;
@@ -212,7 +217,7 @@ namespace MobileBank.Forms
             MessageBoxButtons btn = MessageBoxButtons.OK;
             MessageBoxIcon ico = MessageBoxIcon.Information;
 
-            string caption = "Ошибка";
+            string caption = "Ошибка. Невозможно осуществить перевод";
 
             if (txB_cardCvv.Text != "")
             {
@@ -230,7 +235,7 @@ namespace MobileBank.Forms
                 }
                 if (DataStorage.cardDate != txB_cardDate.Text)
                 {
-                    MessageBox.Show("Вы ввели не корректный дату", caption, btn, ico);
+                    MessageBox.Show("Вы ввели не корректный дату Вашей карты", caption, btn, ico);
                     txB_cardCvv.Select();
                     return;
                 }
@@ -243,11 +248,40 @@ namespace MobileBank.Forms
                     txB_cardCvv.Select();
                     return;
                 }
+                if (DataStorage.currency == "RUB")
+                {
+                    if (Convert.ToDouble(txB_sum.Text) < 50.00)
+                    {
+                        MessageBox.Show("Сумма перевода должна быть не меньше 50 RUB", caption, btn, ico);
+                        txB_sum.Select();
+                        return;
+                    }
+                }
+                if (DataStorage.currency == "USD")
+                {
+                    if (Convert.ToDouble(txB_sum.Text) < 1.00)
+                    {
+                        MessageBox.Show("Сумма перевода должна быть не меньше 1 USD", caption, btn, ico);
+                        txB_sum.Select();
+                        return;
+                    }
+                }
+                if (DataStorage.currency == "EUR")
+                {
+                    if (Convert.ToDouble(txB_sum.Text) < 1.00)
+                    {
+                        MessageBox.Show("Сумма перевода должна быть не меньше 1 EUR", caption, btn, ico);
+                        txB_sum.Select();
+                        return;
+                    }
+                }
+
 
                 var reg2 = new Regex(",");
                 double dolar = Convert.ToDouble(reg2.Replace(DataStorage.dolar.ToString(), "."));
                 double euro = Convert.ToDouble(reg2.Replace(DataStorage.euro.ToString(), "."));
 
+                txB_sum.Text += ".00";
 
                 var cardCVVUser = txB_cardCvv.Text;
                 var txB_cardDateUser = txB_cardDate.Text;
@@ -259,6 +293,11 @@ namespace MobileBank.Forms
                 var cardDateCheck = "";
                 double cardBalanceCheckUser = 0;
                 bool error = false;
+
+                //в самом конце
+
+                txB_sum.Text = "0";
+
             }
             else
             {

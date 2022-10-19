@@ -49,6 +49,7 @@
             this.txB_card_numberUser = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.lbl_currency = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -71,6 +72,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.panel1.Controls.Add(this.lbl_currency);
             this.panel1.Controls.Add(this.btn_Transfer);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.txB_sum);
@@ -323,6 +325,18 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "Номер карты";
             // 
+            // lbl_currency
+            // 
+            this.lbl_currency.AutoSize = true;
+            this.lbl_currency.BackColor = System.Drawing.Color.DimGray;
+            this.lbl_currency.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_currency.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_currency.Location = new System.Drawing.Point(194, 400);
+            this.lbl_currency.Name = "lbl_currency";
+            this.lbl_currency.Size = new System.Drawing.Size(27, 13);
+            this.lbl_currency.TabIndex = 50;
+            this.lbl_currency.Text = "RUB";
+            // 
             // MoneyTransferCardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -367,5 +381,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txB_sum;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lbl_currency;
     }
 }

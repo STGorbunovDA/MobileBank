@@ -158,6 +158,7 @@ namespace MobileBank.Forms
                     DataStorage.cardDate = lbL_cardDate.Text.Trim();
                     DataStorage.dolar = lbL_сourse_dollar.Text.Trim();
                     DataStorage.euro = lbL_сourse_euro.Text.Trim();
+                    DataStorage.currency = lbl_currency.Text.Trim();
                     moneyTransferCardForm.Show();
                     txB_NumberTransferCardMoney.Text = "";
                 }
@@ -174,8 +175,13 @@ namespace MobileBank.Forms
 
             if ((e.KeyChar >= '0' && e.KeyChar <= '9') || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space)
             {
+                if (txB_NumberTransferCardMoney.TextLength == 0)
+                    spaceTxB_NumberTransferCardMoney = 0;
+
                 if (txB_NumberTransferCardMoney.TextLength < 19)
                 {
+                    if (e.KeyChar == (char)Keys.Back)
+                        spaceTxB_NumberTransferCardMoney--;
                     if (spaceTxB_NumberTransferCardMoney < 4)
                     {
                         spaceTxB_NumberTransferCardMoney++;
