@@ -124,7 +124,7 @@
             this.txB_sum.Name = "txB_sum";
             this.txB_sum.Size = new System.Drawing.Size(130, 26);
             this.txB_sum.TabIndex = 42;
-            this.txB_sum.Text = "0.00";
+            this.txB_sum.Text = "0";
             this.txB_sum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxB_sum_KeyPress);
             // 
             // label7
@@ -156,7 +156,7 @@
             this.txB_NumberTransferCardMoney.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.txB_NumberTransferCardMoney.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txB_NumberTransferCardMoney.Location = new System.Drawing.Point(18, 42);
-            this.txB_NumberTransferCardMoney.MaxLength = 32;
+            this.txB_NumberTransferCardMoney.MaxLength = 19;
             this.txB_NumberTransferCardMoney.Name = "txB_NumberTransferCardMoney";
             this.txB_NumberTransferCardMoney.Size = new System.Drawing.Size(308, 26);
             this.txB_NumberTransferCardMoney.TabIndex = 41;
@@ -294,7 +294,7 @@
             this.txB_card_numberUser.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.txB_card_numberUser.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txB_card_numberUser.Location = new System.Drawing.Point(18, 42);
-            this.txB_card_numberUser.MaxLength = 16;
+            this.txB_card_numberUser.MaxLength = 19;
             this.txB_card_numberUser.Name = "txB_card_numberUser";
             this.txB_card_numberUser.Size = new System.Drawing.Size(308, 26);
             this.txB_card_numberUser.TabIndex = 41;

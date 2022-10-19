@@ -150,14 +150,17 @@ namespace MobileBank.Forms
             MoneyTransferCardForm moneyTransferCardForm = new MoneyTransferCardForm();
             if (Application.OpenForms["MoneyTransferCardForm"] == null)
             {
-                txB_NumberTransferCardMoney.Text = txB_NumberTransferCardMoney.Text.Replace(" ", "");
-                DataStorage.NumberTransferCard = txB_NumberTransferCardMoney.Text;
-                DataStorage.cardNumberUser = cmb_card.GetItemText(cmb_card.SelectedItem);
-                DataStorage.cardDate = lbL_cardDate.Text.Trim();
-                DataStorage.dolar = lbL_сourse_dollar.Text.Trim();
-                DataStorage.euro = lbL_сourse_euro.Text.Trim();
-                moneyTransferCardForm.Show();
-                txB_NumberTransferCardMoney.Text = "";
+                if (cmb_card.Text != "")
+                {
+                    txB_NumberTransferCardMoney.Text = txB_NumberTransferCardMoney.Text.Replace(" ", "");
+                    DataStorage.NumberTransferCard = txB_NumberTransferCardMoney.Text;
+                    DataStorage.cardNumberUser = cmb_card.GetItemText(cmb_card.SelectedItem).Trim();
+                    DataStorage.cardDate = lbL_cardDate.Text.Trim();
+                    DataStorage.dolar = lbL_сourse_dollar.Text.Trim();
+                    DataStorage.euro = lbL_сourse_euro.Text.Trim();
+                    moneyTransferCardForm.Show();
+                    txB_NumberTransferCardMoney.Text = "";
+                }
             }
 
 

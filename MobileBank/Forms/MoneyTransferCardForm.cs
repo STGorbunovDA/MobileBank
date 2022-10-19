@@ -52,6 +52,7 @@ namespace MobileBank.Forms
 
         void MoneyTransferCardForm_Load(object sender, EventArgs e)
         {
+            txB_NumberTransferCardMoney.Text = "";
             txB_card_numberUser.Text = "";
             int tmp = 0;
             int tmp1 = 4;
@@ -65,7 +66,7 @@ namespace MobileBank.Forms
                 tmp += 4;
                 tmp1 += 4;
             }
-            if(txB_NumberTransferCardMoney.Text != "")
+            if(DataStorage.NumberTransferCard != "")
             {
                 txB_NumberTransferCardMoney.Text = "";
                 int one = 0;
@@ -81,7 +82,7 @@ namespace MobileBank.Forms
                     two += 4;
                 }
             }
-
+            txB_card_numberUser.Text.Trim();
             txB_cardDate.Text = DataStorage.cardDate;
             txB_cardCvv.Text = "";
             txB_cardCvv.Select();
@@ -89,11 +90,25 @@ namespace MobileBank.Forms
 
         #region Key-press Key-UP
 
+        int spaceTxB_card_numberUser = 0;
         void TxB_card_numberUser_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((e.KeyChar >= '0' && e.KeyChar <= '9') || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space)
             {
-
+                if(txB_card_numberUser.TextLength < 19)
+                {
+                    if (spaceTxB_card_numberUser < 4)
+                    {
+                        spaceTxB_card_numberUser++;
+                    }
+                    else
+                    {
+                        spaceTxB_card_numberUser = 1;
+                        txB_card_numberUser.Text += ' ';
+                        txB_card_numberUser.SelectionStart = txB_card_numberUser.Text.Length;
+                    }
+                }
+                else spaceNumberTransferCardMoney = 0;
             }
             else
             {
@@ -177,11 +192,25 @@ namespace MobileBank.Forms
             ProcessKbdCtrlShortcuts(sender, e);
         }
 
+        int spaceNumberTransferCardMoney = 0;
         void TxB_NumberTransferCardMoney_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((e.KeyChar >= '0' && e.KeyChar <= '9') || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space)
             {
-
+                if (txB_NumberTransferCardMoney.TextLength < 19)
+                {
+                    if (spaceNumberTransferCardMoney < 4)
+                    {
+                        spaceNumberTransferCardMoney++;
+                    }
+                    else
+                    {
+                        spaceNumberTransferCardMoney = 1;
+                        txB_NumberTransferCardMoney.Text += ' ';
+                        txB_NumberTransferCardMoney.SelectionStart = txB_NumberTransferCardMoney.Text.Length;
+                    }
+                }
+                else spaceNumberTransferCardMoney = 0;
             }
             else
             {
@@ -227,10 +256,37 @@ namespace MobileBank.Forms
                     txB_cardCvv.Select();
                     return;
                 }
+                if (DataStorage.cardDate != txB_cardDate.Text)
+                {
+                    MessageBox.Show("Вы ввели не корректный дату", caption, btn, ico);
+                    txB_cardCvv.Select();
+                    return;
+                }
+                var reg = new Regex(" ");
+                var cardNumberUser = reg.Replace(txB_card_numberUser.Text, "");
 
-                var reg = new Regex(",");
-                double dolar = Convert.ToDouble(reg.Replace(DataStorage.dolar.ToString(), "."));
-                double euro = Convert.ToDouble(reg.Replace(DataStorage.euro.ToString(), "."));
+                if (DataStorage.cardNumberUser != cardNumberUser)
+                {
+                    MessageBox.Show("Вы ввели не корректный номер Вашей карты", caption, btn, ico);
+                    txB_cardCvv.Select();
+                    return;
+                }
+
+                var reg2 = new Regex(",");
+                double dolar = Convert.ToDouble(reg2.Replace(DataStorage.dolar.ToString(), "."));
+                double euro = Convert.ToDouble(reg2.Replace(DataStorage.euro.ToString(), "."));
+
+                
+                var cardCVVUser = txB_cardCvv.Text;
+                var txB_cardDateUser = txB_cardDate.Text;
+                var NumberTransferCardMoney = txB_NumberTransferCardMoney.Text;
+                var sum = txB_sum.Text;
+                var cardCurrencyUser = "";
+                var cardCurrencyTransfer = "";
+                var cardCVVCheck = "";
+                var cardDateCheck = "";
+                double cardBalanceCheckUser = 0;
+                bool error = false;
             }
             else
             {
