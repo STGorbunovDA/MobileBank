@@ -172,7 +172,7 @@ namespace MobileBank.Forms
         void TxB_NumberTransferCardMoney_KeyPress(object sender, KeyPressEventArgs e)
         {
 
-            if ((e.KeyChar >= '0' && e.KeyChar <= '9') || e.KeyChar == (char)Keys.Back)
+            if ((e.KeyChar >= '0' && e.KeyChar <= '9') || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space)
             {
                 if (txB_NumberTransferCardMoney.TextLength < 19)
                 {
@@ -187,6 +187,8 @@ namespace MobileBank.Forms
                         txB_NumberTransferCardMoney.SelectionStart = txB_NumberTransferCardMoney.Text.Length;
                     }
                 }
+                else if (txB_NumberTransferCardMoney.TextLength == 19)
+                    spaceTxB_NumberTransferCardMoney = 1;
                 else spaceTxB_NumberTransferCardMoney = 0;
             }
             else

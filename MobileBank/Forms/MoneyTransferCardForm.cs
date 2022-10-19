@@ -66,7 +66,7 @@ namespace MobileBank.Forms
                 tmp += 4;
                 tmp1 += 4;
             }
-            if(DataStorage.NumberTransferCard != "")
+            if (DataStorage.NumberTransferCard != "")
             {
                 txB_NumberTransferCardMoney.Text = "";
                 int one = 0;
@@ -82,44 +82,14 @@ namespace MobileBank.Forms
                     two += 4;
                 }
             }
-            txB_card_numberUser.Text.Trim();
+            txB_card_numberUser.Text = txB_card_numberUser.Text.Trim();
+            txB_NumberTransferCardMoney.Text = txB_NumberTransferCardMoney.Text.Trim();
             txB_cardDate.Text = DataStorage.cardDate;
             txB_cardCvv.Text = "";
             txB_cardCvv.Select();
         }
 
-        #region Key-press Key-UP
-
-        int spaceTxB_card_numberUser = 0;
-        void TxB_card_numberUser_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if ((e.KeyChar >= '0' && e.KeyChar <= '9') || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space)
-            {
-                if(txB_card_numberUser.TextLength < 19)
-                {
-                    if (spaceTxB_card_numberUser < 4)
-                    {
-                        spaceTxB_card_numberUser++;
-                    }
-                    else
-                    {
-                        spaceTxB_card_numberUser = 1;
-                        txB_card_numberUser.Text += ' ';
-                        txB_card_numberUser.SelectionStart = txB_card_numberUser.Text.Length;
-                    }
-                }
-                else spaceNumberTransferCardMoney = 0;
-            }
-            else
-            {
-                e.Handled = true;
-            }
-        }
-
-        void TxB_card_numberUser_KeyUp(object sender, KeyEventArgs e)
-        {
-            ProcessKbdCtrlShortcuts(sender, e);
-        }
+        #region Key-press Key-UP 
 
         void TxB_cardDate_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -210,6 +180,8 @@ namespace MobileBank.Forms
                         txB_NumberTransferCardMoney.SelectionStart = txB_NumberTransferCardMoney.Text.Length;
                     }
                 }
+                else if (txB_NumberTransferCardMoney.TextLength == 19)
+                    spaceNumberTransferCardMoney = 1;
                 else spaceNumberTransferCardMoney = 0;
             }
             else
@@ -250,7 +222,7 @@ namespace MobileBank.Forms
                     txB_cardDate.Select();
                     return;
                 }
-                if(DataStorage.cardCVV != txB_cardCvv.Text)
+                if (DataStorage.cardCVV != txB_cardCvv.Text)
                 {
                     MessageBox.Show("Вы ввели не корректный CVV-код", caption, btn, ico);
                     txB_cardCvv.Select();
@@ -276,7 +248,7 @@ namespace MobileBank.Forms
                 double dolar = Convert.ToDouble(reg2.Replace(DataStorage.dolar.ToString(), "."));
                 double euro = Convert.ToDouble(reg2.Replace(DataStorage.euro.ToString(), "."));
 
-                
+
                 var cardCVVUser = txB_cardCvv.Text;
                 var txB_cardDateUser = txB_cardDate.Text;
                 var NumberTransferCardMoney = txB_NumberTransferCardMoney.Text;

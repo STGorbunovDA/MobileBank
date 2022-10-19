@@ -296,11 +296,10 @@
             this.txB_card_numberUser.Location = new System.Drawing.Point(18, 42);
             this.txB_card_numberUser.MaxLength = 19;
             this.txB_card_numberUser.Name = "txB_card_numberUser";
+            this.txB_card_numberUser.ReadOnly = true;
             this.txB_card_numberUser.Size = new System.Drawing.Size(308, 26);
             this.txB_card_numberUser.TabIndex = 41;
             this.txB_card_numberUser.Text = "0000 0000 0000 0000";
-            this.txB_card_numberUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxB_card_numberUser_KeyPress);
-            this.txB_card_numberUser.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxB_card_numberUser_KeyUp);
             // 
             // label10
             // 
