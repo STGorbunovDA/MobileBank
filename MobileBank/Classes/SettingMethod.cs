@@ -87,9 +87,10 @@ namespace MobileBank.Classes
 
         }
 
-        internal static void SelectBankCardMainForm(Label lbL_client_FIO, Label lbL_card_number, ComboBox cmb_card, 
+        internal static string SelectBankCardMainForm(Label lbL_client_FIO, Label lbL_card_number, ComboBox cmb_card, 
             Label lbL_cardCvv, Label lbL_cardDate, Label lbL_balanceCard, Label lbl_currency, PictureBox picB_masterCard, PictureBox picB_visa)
         {
+            var lbL_cardCW = "";
             lbL_card_number.Text = "";
             string payment_system = "";
             string querySelectCard = $"SELECT bank_card_number, bank_card_cvv_code, bank_card_date, " +
@@ -129,7 +130,7 @@ namespace MobileBank.Classes
                             tmp += 4;
                             tmp1 += 4;
                         }
-                        lbL_cardCvv.Text = reader[1].ToString();
+                        lbL_cardCW = reader[1].ToString();
                         DateTime dateTime = (DateTime)reader[2];
                         var dateTimeMM = dateTime.ToString("MM");
                         var dateTimeYY = dateTime.ToString("yy");
@@ -138,7 +139,7 @@ namespace MobileBank.Classes
                         lbL_balanceCard.Text = Math.Round(Convert.ToDouble(reader[4]), 2).ToString();
                         lbl_currency.Text = reader[5].ToString();
                         DataStorage.cardCVV = lbL_cardCvv.Text;
-                        //lbL_cardCvv.Text = "***";
+                        lbL_cardCvv.Text = "***";
 
                     }
                     reader.Close();
@@ -157,6 +158,7 @@ namespace MobileBank.Classes
 
                 }
                 DataBaseConnection.GetInstance.CloseConnection();
+                return lbL_cardCW;
             }
         }
 

@@ -14,6 +14,7 @@ namespace MobileBank.Forms
 {
     public partial class MainForm : Form
     {
+        string _lbL_cardCVV = "";
         private bool dragging = false;
         private Point dragCursorPoint;
         private Point dragFormPoint;
@@ -21,6 +22,7 @@ namespace MobileBank.Forms
         public MainForm()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
         }
         void panel1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -121,7 +123,7 @@ namespace MobileBank.Forms
                 lbL_client_FIO.Text = "";
                 picB_visa.Visible = false;
                 picB_masterCard.Visible = false;
-                SettingMethod.SelectBankCardMainForm(lbL_client_FIO, lbL_card_number, cmb_card, lbL_cardCvv, lbL_cardDate, lbL_balanceCard, lbl_currency, picB_masterCard, picB_visa);
+                _lbL_cardCVV = SettingMethod.SelectBankCardMainForm(lbL_client_FIO, lbL_card_number, cmb_card, lbL_cardCvv, lbL_cardDate, lbL_balanceCard, lbl_currency, picB_masterCard, picB_visa);
 
             }
             catch (Exception)
@@ -139,6 +141,13 @@ namespace MobileBank.Forms
             {
                 addBankCard.Show();
             }
+        }
+
+        void LbL_cardCvv_Click(object sender, EventArgs e)
+        {
+            if (lbL_cardCvv.Text == "***")
+                lbL_cardCvv.Text = _lbL_cardCVV;
+            else lbL_cardCvv.Text = "***";
         }
     }
 }
