@@ -123,7 +123,7 @@ namespace MobileBank.Forms
                 lbL_client_FIO.Text = "";
                 picB_visa.Visible = false;
                 picB_masterCard.Visible = false;
-                _lbL_cardCVV = SettingMethod.SelectBankCardMainForm(lbL_client_FIO, lbL_card_number, cmb_card, lbL_cardCvv, lbL_cardDate, lbL_balanceCard, lbl_currency, picB_masterCard, picB_visa);
+                SettingMethod.SelectBankCardMainForm(lbL_client_FIO, lbL_card_number, cmb_card, lbL_cardCvv, lbL_cardDate, lbL_balanceCard, lbl_currency, picB_masterCard, picB_visa);
 
             }
             catch (Exception)
@@ -141,13 +141,6 @@ namespace MobileBank.Forms
             {
                 addBankCard.Show();
             }
-        }
-
-        void LbL_cardCvv_Click(object sender, EventArgs e)
-        {
-            if (lbL_cardCvv.Text == "***")
-                lbL_cardCvv.Text = _lbL_cardCVV;
-            else lbL_cardCvv.Text = "***";
         }
     }
 }

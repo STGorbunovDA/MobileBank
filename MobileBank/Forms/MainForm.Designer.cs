@@ -306,7 +306,6 @@
             this.lbL_cardCvv.Size = new System.Drawing.Size(20, 10);
             this.lbL_cardCvv.TabIndex = 28;
             this.lbL_cardCvv.Text = "CVV";
-            this.lbL_cardCvv.Click += new System.EventHandler(this.LbL_cardCvv_Click);
             // 
             // label8
             // 

@@ -87,7 +87,7 @@ namespace MobileBank.Classes
 
         }
 
-        internal static string SelectBankCardMainForm(Label lbL_client_FIO, Label lbL_card_number, ComboBox cmb_card, 
+        internal static void SelectBankCardMainForm(Label lbL_client_FIO, Label lbL_card_number, ComboBox cmb_card, 
             Label lbL_cardCvv, Label lbL_cardDate, Label lbL_balanceCard, Label lbl_currency, PictureBox picB_masterCard, PictureBox picB_visa)
         {
             var lbL_cardCW = "";
@@ -158,7 +158,6 @@ namespace MobileBank.Classes
 
                 }
                 DataBaseConnection.GetInstance.CloseConnection();
-                return lbL_cardCW;
             }
         }
 
