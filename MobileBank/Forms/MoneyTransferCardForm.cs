@@ -1,4 +1,5 @@
 ﻿using MobileBank.Classes;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -281,13 +282,19 @@ namespace MobileBank.Forms
                     txB_sum.Select();
                     return;
                 }
+                if(DataStorage.cardNumberUser == DataStorage.NumberTransferCard)
+                {
+                    MessageBox.Show($"Вы не можите перевести средства на данную карту", caption, btn, ico); ;
+                    txB_NumberTransferCardMoney.Select();
+                    return;
+                }
 
 
                 var reg2 = new Regex(",");
                 double dolar = Convert.ToDouble(reg2.Replace(DataStorage.dolar.ToString(), "."));
                 double euro = Convert.ToDouble(reg2.Replace(DataStorage.euro.ToString(), "."));
 
-                txB_sum.Text += ".00";
+                
 
                 var cardCVVUser = txB_cardCvv.Text;
                 var txB_cardDateUser = txB_cardDate.Text;
@@ -299,6 +306,35 @@ namespace MobileBank.Forms
                 var cardDateCheck = "";
                 double cardBalanceCheckUser = 0;
                 bool error = false;
+
+                if(!SettingMethod.CheackBankCardNumber(NumberTransferCardMoney))
+                {
+                    string querySelectClientCard = $"SELECT id_bank_card, bank_card_currency FROM bank_card WHERE bank_card_number = {NumberTransferCardMoney}";
+
+                    using (MySqlCommand command = new MySqlCommand(querySelectClientCard, DataBaseConnection.GetInstance.GetConnection()))
+                    {
+                        DataBaseConnection.GetInstance.OpenConnection();
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                cardCurrencyTransfer = reader[1].ToString();
+                            }
+                            reader.Close();
+                        }
+                    }
+                    txB_sum.Text += ".00";
+                }
+                else
+                {
+                    MessageBox.Show($"Данной карты нет в нашей платёжной системе", caption, btn, ico); ;
+                    txB_sum.Select();
+                    //txB_sum.Text = "0";
+                    return;
+                }
+
+
+                
 
                 //в самом конце
 
