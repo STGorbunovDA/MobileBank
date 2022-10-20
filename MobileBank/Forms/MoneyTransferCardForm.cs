@@ -83,6 +83,7 @@ namespace MobileBank.Forms
                     two += 4;
                 }
             }
+            DataStorage.attempts = 0;
             lbl_currency.Text = DataStorage.currency;
             txB_card_numberUser.Text = txB_card_numberUser.Text.Trim();
             txB_NumberTransferCardMoney.Text = txB_NumberTransferCardMoney.Text.Trim();
@@ -231,6 +232,14 @@ namespace MobileBank.Forms
                 if (DataStorage.cardCVV != txB_cardCvv.Text)
                 {
                     MessageBox.Show("Вы ввели не корректный CVV-код", caption, btn, ico);
+                    if (DataStorage.attempts < 3)
+                        DataStorage.attempts++;
+                    else
+                    {
+                        MessageBox.Show("Вы ввели неверный CVV-код более трёх раз", caption, btn, ico);
+                        txB_cardCvv.Select();
+                        this.Close();
+                    }
                     txB_cardCvv.Select();
                     return;
                 }
@@ -321,12 +330,6 @@ namespace MobileBank.Forms
                                 }
                                 reader.Close();
                             }
-                        }
-
-                        Validation validation = new Validation();
-                        if (Application.OpenForms["Validation"] == null)
-                        {
-                            validation.Show();
                         }
 
                         txB_sum.Text += ".00";
