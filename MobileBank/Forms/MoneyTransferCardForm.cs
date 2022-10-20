@@ -217,7 +217,7 @@ namespace MobileBank.Forms
             MessageBoxButtons btn = MessageBoxButtons.OK;
             MessageBoxIcon ico = MessageBoxIcon.Information;
 
-            string caption = "Ошибка. Невозможно осуществить перевод";
+            string caption = "Отмена. Невозможно осуществить перевод средств";
 
             if (txB_cardCvv.Text != "")
             {
@@ -274,6 +274,12 @@ namespace MobileBank.Forms
                         txB_sum.Select();
                         return;
                     }
+                }
+                if(Convert.ToDouble(DataStorage.balanceCard) < Convert.ToDouble(txB_sum.Text))
+                {
+                    MessageBox.Show($"Недостаточно денег на Вашем счёте: \"{DataStorage.balanceCard}\"", caption, btn, ico); ;
+                    txB_sum.Select();
+                    return;
                 }
 
 

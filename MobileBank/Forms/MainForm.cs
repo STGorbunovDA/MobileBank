@@ -159,6 +159,7 @@ namespace MobileBank.Forms
                     DataStorage.dolar = lbL_сourse_dollar.Text.Trim();
                     DataStorage.euro = lbL_сourse_euro.Text.Trim();
                     DataStorage.currency = lbl_currency.Text.Trim();
+                    DataStorage.balanceCard = lbL_balanceCard.Text.Trim();
                     moneyTransferCardForm.Show();
                     txB_NumberTransferCardMoney.Text = "";
                 }

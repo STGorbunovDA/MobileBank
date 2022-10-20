@@ -18,5 +18,6 @@ namespace MobileBank.Classes
         public static string euro;
         public static string cardDate;
         public static string currency;
+        public static string balanceCard;
     }
 }
