@@ -237,7 +237,6 @@ namespace MobileBank.Forms
                     else
                     {
                         MessageBox.Show("Вы ввели неверный CVV-код более трёх раз", caption, btn, ico);
-                        txB_cardCvv.Select();
                         this.Close();
                     }
                     txB_cardCvv.Select();

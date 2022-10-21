@@ -8,7 +8,7 @@ namespace MobileBank.Classes
 {
     class DataStorage
     {
-        public static int attempts;
+        public static int attempts = 0;
         public static string NumberTransferCard;
         public static string idClient;
         public static string phoneNumber;
