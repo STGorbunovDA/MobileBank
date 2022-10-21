@@ -353,11 +353,46 @@ namespace MobileBank.Forms
                                 queryTransaction1 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance - '{sum}' WHERE bank_card_number = '{card_numberUser}'";
                                 queryTransaction2 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance + '{sum}'/'{dolar}' where bank_card_number = '{NumberTransferCardMoney}'";
                             }
+                            else if (cardCurrencyUser == "RUB" && cardCurrencyTransfer == "EUR")
+                            {
+                                queryTransaction1 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance - '{sum}' WHERE bank_card_number = '{card_numberUser}'";
+                                queryTransaction2 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance + '{sum}'/'{euro}' where bank_card_number = '{NumberTransferCardMoney}'";
+                            }
+                            else if (cardCurrencyUser == "USD" && cardCurrencyTransfer == "RUB")
+                            {
+                                queryTransaction1 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance - '{sum}' WHERE bank_card_number = '{card_numberUser}'";
+                                queryTransaction2 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance + '{sum}'*'{dolar}' where bank_card_number = '{NumberTransferCardMoney}'";
+                            }
+                            else if (cardCurrencyUser == "EUR" && cardCurrencyTransfer == "RUB")
+                            {
+                                queryTransaction1 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance - '{sum}' WHERE bank_card_number = '{card_numberUser}'";
+                                queryTransaction2 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance + '{sum}'*'{euro}' where bank_card_number = '{NumberTransferCardMoney}'";
+                            }
+                            else if (cardCurrencyUser == "USD" && cardCurrencyTransfer == "EUR")
+                            {
+                                queryTransaction1 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance - '{sum}' WHERE bank_card_number = '{card_numberUser}'";
+                                queryTransaction2 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance + '{sum}'* ('{dolar}'/'{euro}') where bank_card_number = '{NumberTransferCardMoney}'";
 
-                            using (MySqlCommand commandTransfer = new MySqlCommand(queryTransaction2, DataBaseConnection.GetInstance.GetConnection()))
+                            }
+                            else if (cardCurrencyUser == "EUR" && cardCurrencyTransfer == "USD")
+                            {
+                                queryTransaction1 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance - '{sum}' WHERE bank_card_number = '{card_numberUser}'";
+                                queryTransaction2 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance + '{sum}'*('{euro}'/'{dolar}') where bank_card_number = '{NumberTransferCardMoney}'";
+                                
+                            }
+                            else
+                            {
+                                queryTransaction1 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance - '{sum}' * 1.04 WHERE bank_card_number = '{card_numberUser}'";
+                                queryTransaction2 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance + '{sum}' WHERE bank_card_number = '{NumberTransferCardMoney}'";
+                            }
+
+                            var queryTransaction3 = $"INSERT INTO transaction(transaction_type, transaction_destination, " +
+                                $"transaction_date, transaction_number, transaction_money) VALUES ()";
+
+                            using (MySqlCommand commandTransfer1 = new MySqlCommand(queryTransaction1, DataBaseConnection.GetInstance.GetConnection()))
                             {
                                 DataBaseConnection.GetInstance.OpenConnection();
-                                if (commandTransfer.ExecuteNonQuery() == 1)
+                                if (commandTransfer1.ExecuteNonQuery() == 1)
                                 {
                                     DataBaseConnection.GetInstance.CloseConnection();
                                     this.Close();
