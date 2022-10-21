@@ -8,7 +8,8 @@ namespace MobileBank.Classes
 {
     class DataStorage
     {
-        public static int attempts = 0;
+        public static int attemptsCVV = 0;
+        public static int attemptsPin = 0;
         public static string NumberTransferCard;
         public static string idClient;
         public static string phoneNumber;
@@ -19,5 +20,6 @@ namespace MobileBank.Classes
         public static string cardDate;
         public static string currency;
         public static string balanceCard;
+        public static string card_pin;
     }
 }

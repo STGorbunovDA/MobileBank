@@ -93,7 +93,7 @@ namespace MobileBank.Classes
             lbL_card_number.Text = "";
             string payment_system = "";
             string querySelectCard = $"SELECT bank_card_number, bank_card_cvv_code, bank_card_date, " +
-                $"bank_card_paymentSystem, bank_card_balance, bank_card_currency FROM bank_card WHERE bank_card_number = '{cmb_card.GetItemText(cmb_card.SelectedItem)}'";
+                $"bank_card_paymentSystem, bank_card_balance, bank_card_currency, bank_card_pin FROM bank_card WHERE bank_card_number = '{cmb_card.GetItemText(cmb_card.SelectedItem)}'";
             string querySelectClientCard = $"SELECT client_last_name, client_first_name, client_middle_name FROM client WHERE id_client = {DataStorage.idClient}";
 
             using (MySqlCommand command = new MySqlCommand(querySelectClientCard, DataBaseConnection.GetInstance.GetConnection()))
@@ -138,6 +138,7 @@ namespace MobileBank.Classes
                         payment_system = reader[3].ToString();
                         lbL_balanceCard.Text = Math.Round(Convert.ToDouble(reader[4]), 2).ToString();
                         lbl_currency.Text = reader[5].ToString();
+                        DataStorage.card_pin = reader[6].ToString();
                         DataStorage.cardCVV = lbL_cardCvv.Text;
                         lbL_cardCvv.Text = "***";
 
