@@ -18,7 +18,7 @@ namespace MobileBank.Forms
         private bool dragging = false;
         private Point dragCursorPoint;
         private Point dragFormPoint;
-
+        Random rand = new Random();
         public MoneyTransferCardForm()
         {
             InitializeComponent();
@@ -304,9 +304,13 @@ namespace MobileBank.Forms
 
                 var cardCVVUser = txB_cardCvv.Text;
                 var txB_cardDateUser = txB_cardDate.Text;
-                var NumberTransferCardMoney = txB_NumberTransferCardMoney.Text;
-                var sum = txB_sum.Text;
-                var cardCurrencyUser = "";
+
+                var reg3 = new Regex(" ");
+                var NumberTransferCardMoney = reg3.Replace(txB_NumberTransferCardMoney.Text, "");
+                var card_numberUser = reg3.Replace(txB_card_numberUser.Text, "");
+
+                string sum = txB_sum.Text;
+                var cardCurrencyUser = DataStorage.currency;
                 var cardCurrencyTransfer = "";
                 var cardCVVCheck = "";
                 var cardDateCheck = "";
@@ -328,6 +332,35 @@ namespace MobileBank.Forms
                                     cardCurrencyTransfer = reader[1].ToString();
                                 }
                                 reader.Close();
+                            }
+                        }
+
+                        DateTime transactionDate = DateTime.Now;
+                        var transactionNumber = "P";
+                        for (int i = 0; i < 10; i++)
+                        {
+                            transactionNumber += Convert.ToString(rand.Next(0, 10));
+                        }
+                        var queryTransaction1 = $"";
+                        var queryTransaction2 = $"";
+
+                        if (cardCurrencyUser == "RUB" && cardCurrencyTransfer == "USD")
+                        {
+                            queryTransaction1 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance - '{sum}' WHERE bank_card_number = '{card_numberUser}'";
+                            //queryTransaction2 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance + '{sum /= dolar}' where bank_card_number = '{NumberTransferCardMoney}'";
+                        }
+
+                        using (MySqlCommand commandTransfer = new MySqlCommand(queryTransaction1, DataBaseConnection.GetInstance.GetConnection()))
+                        {
+                            DataBaseConnection.GetInstance.OpenConnection();
+                            if (commandTransfer.ExecuteNonQuery() == 1)
+                            {
+                                DataBaseConnection.GetInstance.CloseConnection();
+                                this.Close();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Перевод не выполнен", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
 
