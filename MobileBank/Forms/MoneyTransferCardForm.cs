@@ -399,11 +399,35 @@ namespace MobileBank.Forms
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Перевод не выполнен", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    MessageBox.Show("Перевод не выполнен queryTransaction1", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 }
                             }
-
-                            txB_sum.Text += ".00";
+                            using (MySqlCommand commandTransfer2 = new MySqlCommand(queryTransaction2, DataBaseConnection.GetInstance.GetConnection()))
+                            {
+                                DataBaseConnection.GetInstance.OpenConnection();
+                                if (commandTransfer2.ExecuteNonQuery() == 1)
+                                {
+                                    DataBaseConnection.GetInstance.CloseConnection();
+                                    this.Close();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Перевод не выполнен queryTransaction1", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                            }
+                            //using (MySqlCommand commandTransfer3 = new MySqlCommand(queryTransaction3, DataBaseConnection.GetInstance.GetConnection()))
+                            //{
+                            //    DataBaseConnection.GetInstance.OpenConnection();
+                            //    if (commandTransfer3.ExecuteNonQuery() == 1)
+                            //    {
+                            //        DataBaseConnection.GetInstance.CloseConnection();
+                            //        this.Close();
+                            //    }
+                            //    else
+                            //    {
+                            //        MessageBox.Show("Перевод не выполнен queryTransaction1", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //    }
+                            //}
                         }
                         else
                         {
