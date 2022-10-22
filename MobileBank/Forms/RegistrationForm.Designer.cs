@@ -310,7 +310,7 @@
             this.chB_visibilityPassword.Name = "chB_visibilityPassword";
             this.chB_visibilityPassword.Size = new System.Drawing.Size(112, 17);
             this.chB_visibilityPassword.TabIndex = 25;
-            this.chB_visibilityPassword.Text = "показать пароль";
+            this.chB_visibilityPassword.Text = "показать пароли";
             this.chB_visibilityPassword.UseVisualStyleBackColor = true;
             this.chB_visibilityPassword.Click += new System.EventHandler(this.ChB_visibilityPassword_Click);
             // 
