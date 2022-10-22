@@ -251,5 +251,14 @@ namespace MobileBank.Forms
                 user.Show();
             }
         }
+
+        void LbL_HistoryTransactions_Click(object sender, EventArgs e)
+        {
+            HistoryTransactions historyTransactions = new HistoryTransactions();
+            if (Application.OpenForms["HistoryTransactions"] == null)
+            {
+                historyTransactions.Show();
+            }
+        }
     }
 }

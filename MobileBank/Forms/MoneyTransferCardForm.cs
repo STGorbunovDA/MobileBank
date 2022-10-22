@@ -1,14 +1,8 @@
 ﻿using MobileBank.Classes;
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MobileBank.Forms
@@ -215,246 +209,255 @@ namespace MobileBank.Forms
 
         void Btn_Transfer_Click(object sender, EventArgs e)
         {
-            MessageBoxButtons btn = MessageBoxButtons.OK;
-            MessageBoxIcon ico = MessageBoxIcon.Information;
-
-            string caption = "Отмена. Невозможно осуществить перевод средств";
-
-            if (txB_cardCvv.Text != "")
+            try
             {
-                if (!Regex.IsMatch(txB_cardDate.Text, @"^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])"))
+                MessageBoxButtons btn = MessageBoxButtons.OK;
+                MessageBoxIcon ico = MessageBoxIcon.Information;
+
+                string caption = "Отмена. Невозможно осуществить перевод средств";
+
+                if (txB_cardCvv.Text != "")
                 {
-                    MessageBox.Show("Введите корректно месяц и дату[mm/yy]", caption, btn, ico);
-                    txB_cardDate.Select();
-                    return;
-                }
-                if (DataStorage.cardCVV != txB_cardCvv.Text)
-                {
-                    MessageBox.Show("Вы ввели не корректный CVV-код", caption, btn, ico);
-                    if (DataStorage.attemptsCVV < 3)
-                        DataStorage.attemptsCVV++;
+                    if (!Regex.IsMatch(txB_cardDate.Text, @"^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])"))
+                    {
+                        MessageBox.Show("Введите корректно месяц и дату[mm/yy]", caption, btn, ico);
+                        txB_cardDate.Select();
+                        return;
+                    }
+                    if (DataStorage.cardCVV != txB_cardCvv.Text)
+                    {
+                        MessageBox.Show("Вы ввели не корректный CVV-код", caption, btn, ico);
+                        if (DataStorage.attemptsCVV < 3)
+                            DataStorage.attemptsCVV++;
+                        else
+                        {
+                            MessageBox.Show("Вы ввели неверный CVV-код более трёх раз", caption, btn, ico);
+                            this.Close();
+                        }
+                        txB_cardCvv.Select();
+                        return;
+                    }
+                    if (DataStorage.cardDate != txB_cardDate.Text)
+                    {
+                        MessageBox.Show("Вы ввели не корректный дату Вашей карты", caption, btn, ico);
+                        txB_cardCvv.Select();
+                        return;
+                    }
+                    var reg = new Regex(" ");
+                    var cardNumberUser = reg.Replace(txB_card_numberUser.Text, "");
+
+                    if (DataStorage.cardNumberUser != cardNumberUser)
+                    {
+                        MessageBox.Show("Вы ввели не корректный номер Вашей карты", caption, btn, ico);
+                        txB_cardCvv.Select();
+                        return;
+                    }
+                    if (DataStorage.currency == "RUB")
+                    {
+                        if (Convert.ToDouble(txB_sum.Text) < 50.00)
+                        {
+                            MessageBox.Show("Сумма перевода должна быть не меньше 50 RUB", caption, btn, ico);
+                            txB_sum.Select();
+                            return;
+                        }
+                    }
+                    if (DataStorage.currency == "USD")
+                    {
+                        if (Convert.ToDouble(txB_sum.Text) < 1.00)
+                        {
+                            MessageBox.Show("Сумма перевода должна быть не меньше 1 USD", caption, btn, ico);
+                            txB_sum.Select();
+                            return;
+                        }
+                    }
+                    if (DataStorage.currency == "EUR")
+                    {
+                        if (Convert.ToDouble(txB_sum.Text) < 1.00)
+                        {
+                            MessageBox.Show("Сумма перевода должна быть не меньше 1 EUR", caption, btn, ico);
+                            txB_sum.Select();
+                            return;
+                        }
+                    }
+                    if (Convert.ToDouble(DataStorage.balanceCard) < Convert.ToDouble(txB_sum.Text))
+                    {
+                        MessageBox.Show($"Недостаточно денег на Вашем счёте: \"{DataStorage.balanceCard}\"", caption, btn, ico); ;
+                        txB_sum.Select();
+                        return;
+                    }
+                    if (DataStorage.cardNumberUser == DataStorage.NumberTransferCard)
+                    {
+                        MessageBox.Show($"Вы не можите перевести средства на данную карту", caption, btn, ico); ;
+                        txB_NumberTransferCardMoney.Select();
+                        return;
+                    }
+
+
+                    var reg2 = new Regex(",");
+                    double dolar = Convert.ToDouble(reg2.Replace(DataStorage.dolar.ToString(), "."));
+                    double euro = Convert.ToDouble(reg2.Replace(DataStorage.euro.ToString(), "."));
+
+                    var cardCVVUser = txB_cardCvv.Text;
+                    var txB_cardDateUser = txB_cardDate.Text;
+
+                    var reg3 = new Regex(" ");
+                    var NumberTransferCardMoney = reg3.Replace(txB_NumberTransferCardMoney.Text, "");
+                    var card_numberUser = reg3.Replace(txB_card_numberUser.Text, "");
+
+                    string sum = txB_sum.Text;
+                    var cardCurrencyUser = DataStorage.currency;
+                    var cardCurrencyTransfer = "";
+                    var cardCVVCheck = "";
+                    var cardDateCheck = "";
+                    double cardBalanceCheckUser = 0;
+
+                    Validations validations = new Validations();
+                    validations.ShowDialog();
+
+                    if (DataStorage.attemptsPin < 3)
+                    {
+                        if (InternetСheck.CheackSkyNET())
+                        {
+                            if (!SettingMethod.CheackBankCardNumber(NumberTransferCardMoney))
+                            {
+                                string querySelectClientCard = $"SELECT id_bank_card, bank_card_currency FROM bank_card WHERE bank_card_number = {NumberTransferCardMoney}";
+
+                                using (MySqlCommand command = new MySqlCommand(querySelectClientCard, DataBaseConnection.GetInstance.GetConnection()))
+                                {
+                                    DataBaseConnection.GetInstance.OpenConnection();
+                                    using (MySqlDataReader reader = command.ExecuteReader())
+                                    {
+                                        while (reader.Read())
+                                        {
+                                            cardCurrencyTransfer = reader[1].ToString();
+                                        }
+                                        reader.Close();
+                                    }
+                                }
+
+                                DateTime transactionDate = DateTime.Now;
+                                var cardDate = transactionDate.ToString("yyyy-MM-dd HH:mm:ss");
+                                var transactionNumber = "P";
+                                for (int i = 0; i < 10; i++)
+                                {
+                                    transactionNumber += Convert.ToString(rand.Next(0, 10));
+                                }
+                                var queryTransaction1 = $"";
+                                var queryTransaction2 = $"";
+
+                                if (cardCurrencyUser == "RUB" && cardCurrencyTransfer == "USD")
+                                {
+                                    queryTransaction1 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance - '{sum}' WHERE bank_card_number = '{card_numberUser}'";
+                                    queryTransaction2 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance + '{sum}'/'{dolar}' where bank_card_number = '{NumberTransferCardMoney}'";
+                                }
+                                else if (cardCurrencyUser == "RUB" && cardCurrencyTransfer == "EUR")
+                                {
+                                    queryTransaction1 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance - '{sum}' WHERE bank_card_number = '{card_numberUser}'";
+                                    queryTransaction2 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance + '{sum}'/'{euro}' where bank_card_number = '{NumberTransferCardMoney}'";
+                                }
+                                else if (cardCurrencyUser == "USD" && cardCurrencyTransfer == "RUB")
+                                {
+                                    queryTransaction1 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance - '{sum}' WHERE bank_card_number = '{card_numberUser}'";
+                                    queryTransaction2 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance + '{sum}'*'{dolar}' where bank_card_number = '{NumberTransferCardMoney}'";
+                                }
+                                else if (cardCurrencyUser == "EUR" && cardCurrencyTransfer == "RUB")
+                                {
+                                    queryTransaction1 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance - '{sum}' WHERE bank_card_number = '{card_numberUser}'";
+                                    queryTransaction2 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance + '{sum}'*'{euro}' where bank_card_number = '{NumberTransferCardMoney}'";
+                                }
+                                else if (cardCurrencyUser == "USD" && cardCurrencyTransfer == "EUR")
+                                {
+                                    queryTransaction1 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance - '{sum}' WHERE bank_card_number = '{card_numberUser}'";
+                                    queryTransaction2 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance + '{sum}'* ('{dolar}'/'{euro}') where bank_card_number = '{NumberTransferCardMoney}'";
+
+                                }
+                                else if (cardCurrencyUser == "EUR" && cardCurrencyTransfer == "USD")
+                                {
+                                    queryTransaction1 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance - '{sum}' WHERE bank_card_number = '{card_numberUser}'";
+                                    queryTransaction2 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance + '{sum}'*('{euro}'/'{dolar}') where bank_card_number = '{NumberTransferCardMoney}'";
+
+                                }
+                                else
+                                {
+                                    queryTransaction1 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance - '{sum}' * 1.04 WHERE bank_card_number = '{card_numberUser}'";
+                                    queryTransaction2 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance + '{sum}' WHERE bank_card_number = '{NumberTransferCardMoney}'";
+                                }
+
+                                var queryTransaction3 = $"INSERT INTO transactions (transaction_type, transaction_destination, " +
+                                    $"transaction_date, transaction_number, transaction_money, transaction_currency, id_bank_card ) VALUES ('Онлайн перевод', '{NumberTransferCardMoney}', " +
+                                    $"'{cardDate}', '{transactionNumber}', '{sum}', '{cardCurrencyUser}', (select id_bank_card from bank_card where bank_card_number = '{card_numberUser}'))";
+
+                                using (MySqlCommand commandTransfer1 = new MySqlCommand(queryTransaction1, DataBaseConnection.GetInstance.GetConnection()))
+                                {
+                                    DataBaseConnection.GetInstance.OpenConnection();
+                                    if (commandTransfer1.ExecuteNonQuery() == 1)
+                                    {
+                                        DataBaseConnection.GetInstance.CloseConnection();
+                                        this.Close();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Перевод не выполнен queryTransaction1", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    }
+                                }
+                                using (MySqlCommand commandTransfer2 = new MySqlCommand(queryTransaction2, DataBaseConnection.GetInstance.GetConnection()))
+                                {
+                                    DataBaseConnection.GetInstance.OpenConnection();
+                                    if (commandTransfer2.ExecuteNonQuery() == 1)
+                                    {
+                                        DataBaseConnection.GetInstance.CloseConnection();
+                                        this.Close();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Перевод не выполнен queryTransaction1", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    }
+                                }
+                                using (MySqlCommand commandTransfer3 = new MySqlCommand(queryTransaction3, DataBaseConnection.GetInstance.GetConnection()))
+                                {
+                                    DataBaseConnection.GetInstance.OpenConnection();
+                                    if (commandTransfer3.ExecuteNonQuery() == 1)
+                                    {
+                                        DataBaseConnection.GetInstance.CloseConnection();
+                                        this.Close();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Перевод не выполнен queryTransaction1", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show($"Данной карты нет в нашей платёжной системе", caption, btn, ico); ;
+                                txB_sum.Select();
+                                //txB_sum.Text = "0";
+                                return;
+                            }
+                        }
+
+                        //в самом конце
+
+                        txB_sum.Text = "0";
+                    }
                     else
                     {
                         MessageBox.Show("Вы ввели неверный CVV-код более трёх раз", caption, btn, ico);
                         this.Close();
                     }
-                    txB_cardCvv.Select();
-                    return;
-                }
-                if (DataStorage.cardDate != txB_cardDate.Text)
-                {
-                    MessageBox.Show("Вы ввели не корректный дату Вашей карты", caption, btn, ico);
-                    txB_cardCvv.Select();
-                    return;
-                }
-                var reg = new Regex(" ");
-                var cardNumberUser = reg.Replace(txB_card_numberUser.Text, "");
-
-                if (DataStorage.cardNumberUser != cardNumberUser)
-                {
-                    MessageBox.Show("Вы ввели не корректный номер Вашей карты", caption, btn, ico);
-                    txB_cardCvv.Select();
-                    return;
-                }
-                if (DataStorage.currency == "RUB")
-                {
-                    if (Convert.ToDouble(txB_sum.Text) < 50.00)
-                    {
-                        MessageBox.Show("Сумма перевода должна быть не меньше 50 RUB", caption, btn, ico);
-                        txB_sum.Select();
-                        return;
-                    }
-                }
-                if (DataStorage.currency == "USD")
-                {
-                    if (Convert.ToDouble(txB_sum.Text) < 1.00)
-                    {
-                        MessageBox.Show("Сумма перевода должна быть не меньше 1 USD", caption, btn, ico);
-                        txB_sum.Select();
-                        return;
-                    }
-                }
-                if (DataStorage.currency == "EUR")
-                {
-                    if (Convert.ToDouble(txB_sum.Text) < 1.00)
-                    {
-                        MessageBox.Show("Сумма перевода должна быть не меньше 1 EUR", caption, btn, ico);
-                        txB_sum.Select();
-                        return;
-                    }
-                }
-                if (Convert.ToDouble(DataStorage.balanceCard) < Convert.ToDouble(txB_sum.Text))
-                {
-                    MessageBox.Show($"Недостаточно денег на Вашем счёте: \"{DataStorage.balanceCard}\"", caption, btn, ico); ;
-                    txB_sum.Select();
-                    return;
-                }
-                if (DataStorage.cardNumberUser == DataStorage.NumberTransferCard)
-                {
-                    MessageBox.Show($"Вы не можите перевести средства на данную карту", caption, btn, ico); ;
-                    txB_NumberTransferCardMoney.Select();
-                    return;
-                }
 
 
-                var reg2 = new Regex(",");
-                double dolar = Convert.ToDouble(reg2.Replace(DataStorage.dolar.ToString(), "."));
-                double euro = Convert.ToDouble(reg2.Replace(DataStorage.euro.ToString(), "."));
-
-                var cardCVVUser = txB_cardCvv.Text;
-                var txB_cardDateUser = txB_cardDate.Text;
-
-                var reg3 = new Regex(" ");
-                var NumberTransferCardMoney = reg3.Replace(txB_NumberTransferCardMoney.Text, "");
-                var card_numberUser = reg3.Replace(txB_card_numberUser.Text, "");
-
-                string sum = txB_sum.Text;
-                var cardCurrencyUser = DataStorage.currency;
-                var cardCurrencyTransfer = "";
-                var cardCVVCheck = "";
-                var cardDateCheck = "";
-                double cardBalanceCheckUser = 0;
-
-                Validations validations = new Validations();
-                validations.ShowDialog();
-
-                if (DataStorage.attemptsPin < 3)
-                {
-                    if (InternetСheck.CheackSkyNET())
-                    {
-                        if (!SettingMethod.CheackBankCardNumber(NumberTransferCardMoney))
-                        {
-                            string querySelectClientCard = $"SELECT id_bank_card, bank_card_currency FROM bank_card WHERE bank_card_number = {NumberTransferCardMoney}";
-
-                            using (MySqlCommand command = new MySqlCommand(querySelectClientCard, DataBaseConnection.GetInstance.GetConnection()))
-                            {
-                                DataBaseConnection.GetInstance.OpenConnection();
-                                using (MySqlDataReader reader = command.ExecuteReader())
-                                {
-                                    while (reader.Read())
-                                    {
-                                        cardCurrencyTransfer = reader[1].ToString();
-                                    }
-                                    reader.Close();
-                                }
-                            }
-
-                            DateTime transactionDate = DateTime.Now;
-                            var transactionNumber = "P";
-                            for (int i = 0; i < 10; i++)
-                            {
-                                transactionNumber += Convert.ToString(rand.Next(0, 10));
-                            }
-                            var queryTransaction1 = $"";
-                            var queryTransaction2 = $"";
-
-                            if (cardCurrencyUser == "RUB" && cardCurrencyTransfer == "USD")
-                            {
-                                queryTransaction1 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance - '{sum}' WHERE bank_card_number = '{card_numberUser}'";
-                                queryTransaction2 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance + '{sum}'/'{dolar}' where bank_card_number = '{NumberTransferCardMoney}'";
-                            }
-                            else if (cardCurrencyUser == "RUB" && cardCurrencyTransfer == "EUR")
-                            {
-                                queryTransaction1 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance - '{sum}' WHERE bank_card_number = '{card_numberUser}'";
-                                queryTransaction2 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance + '{sum}'/'{euro}' where bank_card_number = '{NumberTransferCardMoney}'";
-                            }
-                            else if (cardCurrencyUser == "USD" && cardCurrencyTransfer == "RUB")
-                            {
-                                queryTransaction1 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance - '{sum}' WHERE bank_card_number = '{card_numberUser}'";
-                                queryTransaction2 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance + '{sum}'*'{dolar}' where bank_card_number = '{NumberTransferCardMoney}'";
-                            }
-                            else if (cardCurrencyUser == "EUR" && cardCurrencyTransfer == "RUB")
-                            {
-                                queryTransaction1 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance - '{sum}' WHERE bank_card_number = '{card_numberUser}'";
-                                queryTransaction2 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance + '{sum}'*'{euro}' where bank_card_number = '{NumberTransferCardMoney}'";
-                            }
-                            else if (cardCurrencyUser == "USD" && cardCurrencyTransfer == "EUR")
-                            {
-                                queryTransaction1 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance - '{sum}' WHERE bank_card_number = '{card_numberUser}'";
-                                queryTransaction2 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance + '{sum}'* ('{dolar}'/'{euro}') where bank_card_number = '{NumberTransferCardMoney}'";
-
-                            }
-                            else if (cardCurrencyUser == "EUR" && cardCurrencyTransfer == "USD")
-                            {
-                                queryTransaction1 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance - '{sum}' WHERE bank_card_number = '{card_numberUser}'";
-                                queryTransaction2 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance + '{sum}'*('{euro}'/'{dolar}') where bank_card_number = '{NumberTransferCardMoney}'";
-                                
-                            }
-                            else
-                            {
-                                queryTransaction1 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance - '{sum}' * 1.04 WHERE bank_card_number = '{card_numberUser}'";
-                                queryTransaction2 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance + '{sum}' WHERE bank_card_number = '{NumberTransferCardMoney}'";
-                            }
-
-                            var queryTransaction3 = $"INSERT INTO transaction(transaction_type, transaction_destination, " +
-                                $"transaction_date, transaction_number, transaction_money) VALUES ()";
-
-                            using (MySqlCommand commandTransfer1 = new MySqlCommand(queryTransaction1, DataBaseConnection.GetInstance.GetConnection()))
-                            {
-                                DataBaseConnection.GetInstance.OpenConnection();
-                                if (commandTransfer1.ExecuteNonQuery() == 1)
-                                {
-                                    DataBaseConnection.GetInstance.CloseConnection();
-                                    this.Close();
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Перевод не выполнен queryTransaction1", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                            }
-                            using (MySqlCommand commandTransfer2 = new MySqlCommand(queryTransaction2, DataBaseConnection.GetInstance.GetConnection()))
-                            {
-                                DataBaseConnection.GetInstance.OpenConnection();
-                                if (commandTransfer2.ExecuteNonQuery() == 1)
-                                {
-                                    DataBaseConnection.GetInstance.CloseConnection();
-                                    this.Close();
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Перевод не выполнен queryTransaction1", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                            }
-                            //using (MySqlCommand commandTransfer3 = new MySqlCommand(queryTransaction3, DataBaseConnection.GetInstance.GetConnection()))
-                            //{
-                            //    DataBaseConnection.GetInstance.OpenConnection();
-                            //    if (commandTransfer3.ExecuteNonQuery() == 1)
-                            //    {
-                            //        DataBaseConnection.GetInstance.CloseConnection();
-                            //        this.Close();
-                            //    }
-                            //    else
-                            //    {
-                            //        MessageBox.Show("Перевод не выполнен queryTransaction1", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            //    }
-                            //}
-                        }
-                        else
-                        {
-                            MessageBox.Show($"Данной карты нет в нашей платёжной системе", caption, btn, ico); ;
-                            txB_sum.Select();
-                            //txB_sum.Text = "0";
-                            return;
-                        }
-                    }
-
-                    //в самом конце
-
-                    txB_sum.Text = "0";
                 }
                 else
                 {
-                    MessageBox.Show("Вы ввели неверный CVV-код более трёх раз", caption, btn, ico);
-                    this.Close();
+                    txB_cardCvv.Select();
+                    MessageBox.Show("CVV-код не введён", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
-
             }
-            else
+            catch (Exception ex)
             {
-                txB_cardCvv.Select();
-                MessageBox.Show("CVV-код не введён", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+                MessageBox.Show(ex.ToString());
+            }           
         }
 
         #endregion

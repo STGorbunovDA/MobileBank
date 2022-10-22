@@ -101,6 +101,30 @@
     <Compile Include="Forms\AddBankCard.Designer.cs">
       <DependentUpon>AddBankCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ChangeEmail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChangeEmail.Designer.cs">
+      <DependentUpon>ChangeEmail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ChangePasswordUserAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChangePasswordUserAccount.Designer.cs">
+      <DependentUpon>ChangePasswordUserAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ChangePhoneNumber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChangePhoneNumber.Designer.cs">
+      <DependentUpon>ChangePhoneNumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\HistoryTransactions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HistoryTransactions.Designer.cs">
+      <DependentUpon>HistoryTransactions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +165,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\AddBankCard.resx">
       <DependentUpon>AddBankCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ChangeEmail.resx">
+      <DependentUpon>ChangeEmail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ChangePasswordUserAccount.resx">
+      <DependentUpon>ChangePasswordUserAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ChangePhoneNumber.resx">
+      <DependentUpon>ChangePhoneNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HistoryTransactions.resx">
+      <DependentUpon>HistoryTransactions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
