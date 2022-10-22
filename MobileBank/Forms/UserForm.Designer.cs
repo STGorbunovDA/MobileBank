@@ -99,6 +99,7 @@
             this.btn_update.TabIndex = 35;
             this.btn_update.Text = "обновить";
             this.btn_update.UseVisualStyleBackColor = false;
+            this.btn_update.Click += new System.EventHandler(this.Btn_update_Click);
             // 
             // picB_user
             // 
@@ -258,7 +259,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(77, 27);
+            this.label2.Location = new System.Drawing.Point(90, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(102, 23);
             this.label2.TabIndex = 41;
@@ -297,6 +298,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UserForm";
             this.Text = "UserForm";
+            this.Load += new System.EventHandler(this.UserForm_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picB_user)).EndInit();
             this.panel2.ResumeLayout(false);

@@ -1,5 +1,12 @@
-﻿using System;
+﻿using MobileBank.Classes;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MobileBank.Forms
@@ -19,6 +26,24 @@ namespace MobileBank.Forms
         void Btn_close_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        void UserForm_Load(object sender, EventArgs e)
+        {
+            SettingMethod.RefreshUserClientPersonalData(lbL_FIO_user, lbL_Phone_user, lbL_email_user);
+        }
+
+        void Btn_update_Click(object sender, EventArgs e)
+        {
+            ClearControl();
+            SettingMethod.RefreshUserClientPersonalData(lbL_FIO_user, lbL_Phone_user, lbL_email_user);
+        }
+
+        void ClearControl()
+        {
+            lbL_FIO_user.Text = string.Empty;
+            lbL_Phone_user.Text = string.Empty;
+            lbL_email_user.Text = string.Empty;
         }
 
         #region перет.
@@ -106,5 +131,7 @@ namespace MobileBank.Forms
             dragging = false;
         }
         #endregion
+
+        
     }
 }

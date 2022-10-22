@@ -188,6 +188,28 @@ namespace MobileBank.Classes
             }
         }
         
+        internal static void RefreshUserClientPersonalData(Label lbL_FIO_user, Label lbL_Phone_user, Label lbL_email_user)
+        {
+            var queryPIB = $"SELECT CONCAT(client_last_name, ' ', client_first_name, ' ', client_middle_name), client_phone_number, client_email FROM client WHERE id_client = '{DataStorage.idClient}'";
 
+            if (InternetСheck.CheackSkyNET())
+            {
+                using (MySqlCommand command = new MySqlCommand(queryPIB, DataBaseConnection.GetInstance.GetConnection()))
+                {
+                    DataBaseConnection.GetInstance.OpenConnection();
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            lbL_FIO_user.Text = reader[0].ToString();
+                            lbL_Phone_user.Text = reader[1].ToString();
+                            lbL_email_user.Text = reader[2].ToString();
+                        }
+                        reader.Close();
+                    }
+                }
+            }
+
+        }
     }
 }
