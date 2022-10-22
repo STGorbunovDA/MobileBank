@@ -296,6 +296,9 @@ namespace MobileBank.Forms
             MobilePhoneTransferForm mobilePhoneTransfer = new MobilePhoneTransferForm();
             if (Application.OpenForms["MobilePhoneTransferForm"] == null)
             {
+                DataStorage.cardNumberUser = cmb_card.GetItemText(cmb_card.SelectedItem);
+                DataStorage.phoneNumber = txB_transferMobilePhone.Text;
+                txB_transferMobilePhone.Text = "";
                 mobilePhoneTransfer.Show();
             }
 

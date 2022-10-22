@@ -13,6 +13,7 @@ namespace MobileBank.Forms
         public MobilePhoneTransferForm()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
         }
 
         void Btn_close_Click(object sender, EventArgs e)

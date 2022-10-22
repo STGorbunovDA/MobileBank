@@ -15,6 +15,7 @@ namespace MobileBank.Forms
         public HistoryTransactions()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
         }
 
         void Btn_close_Click(object sender, EventArgs e)
