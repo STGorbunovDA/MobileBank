@@ -189,7 +189,7 @@ namespace MobileBank.Forms
                 if (!Regex.IsMatch(txB_client_password.Text, "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$^&*-]).{8,}$"))
                 {
                     MessageBox.Show("Пожалуйста введите пароль!\n(Не менее 8-ми символов, без кириллицы, хотя-бы одна заглавная и с символами #?!@$^&*-)", caption, btn, ico);
-                    txB_client_middle_name.Select();
+                    txB_client_password.Select();
                     return;
                 }
                 if (!Regex.IsMatch(txB_client_password_replay.Text, "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$^&*-]).{8,}$"))
@@ -207,10 +207,10 @@ namespace MobileBank.Forms
                 if (!Regex.IsMatch(txb_client_email.Text, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
                 {
                     MessageBox.Show("Пожалуйста введите вашу почту", caption, btn, ico);
-                    txB_client_password_replay.Select();
+                    txb_client_email.Select();
                     return;
                 }
-                if (!Regex.IsMatch(txB_client_phone_number.Text, "^[+][7][9][0-9]"))
+                if (!Regex.IsMatch(txB_client_phone_number.Text, "^[+][7][9][0-9]{9}$"))
                 {
                     MessageBox.Show("Пожалуйста введите номер телефона коректно!", caption, btn, ico);
                     txB_client_phone_number.Select();
@@ -228,9 +228,9 @@ namespace MobileBank.Forms
                                 $"client_password, client_email, client_phone_number) VALUES ('{txB_client_last_name.Text}', '{txB_client_first_name.Text}'," +
                                 $"'{txB_client_middle_name.Text}', '{cmb_client_gender.Text}', '{passUser}', '{txb_client_email.Text}'," +
                                 $"'{txB_client_phone_number.Text}')";
-                            DataBaseConnection.GetInstance.OpenConnection();
                             using (MySqlCommand commandAddNewUser = new MySqlCommand(MySqlRequest, DataBaseConnection.GetInstance.GetConnection()))
                             {
+                                DataBaseConnection.GetInstance.OpenConnection();
                                 if (commandAddNewUser.ExecuteNonQuery() == 1)
                                 {
                                     MessageBox.Show("Запись успешно сохранена", "Данные сохранены", MessageBoxButtons.OK, MessageBoxIcon.Information);

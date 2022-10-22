@@ -1,12 +1,6 @@
 ﻿using MobileBank.Classes;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MobileBank.Forms
@@ -130,8 +124,35 @@ namespace MobileBank.Forms
         {
             dragging = false;
         }
+
         #endregion
 
-        
+        void Btn_ChangeNumberPhone_Click(object sender, EventArgs e)
+        {
+            ChangePhoneNumber phoneNumber = new ChangePhoneNumber();
+            if (Application.OpenForms["ChangePhoneNumber"] == null)
+            {
+                phoneNumber.Show();
+            }
+        }
+
+        void Btn_ChangePasswordAccount_Click(object sender, EventArgs e)
+        {
+            ChangePasswordUserAccount changePasswordUser = new ChangePasswordUserAccount();
+            if (Application.OpenForms["ChangePasswordUserAccount"] == null)
+            {
+                changePasswordUser.Show();
+            }
+
+        }
+
+        void Btn_ChangeEmail_Click(object sender, EventArgs e)
+        {
+            ChangeEmail changeEmail = new ChangeEmail();
+            if (Application.OpenForms["ChangeEmail"] == null)
+            {
+                changeEmail.Show();
+            }
+        }
     }
 }

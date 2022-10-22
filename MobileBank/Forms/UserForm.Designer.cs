@@ -227,6 +227,7 @@
             this.btn_ChangePasswordAccount.TabIndex = 43;
             this.btn_ChangePasswordAccount.Text = "Изменить пароль для аккаунта";
             this.btn_ChangePasswordAccount.UseVisualStyleBackColor = false;
+            this.btn_ChangePasswordAccount.Click += new System.EventHandler(this.Btn_ChangePasswordAccount_Click);
             // 
             // btn_ChangeEmail
             // 
@@ -240,6 +241,7 @@
             this.btn_ChangeEmail.TabIndex = 42;
             this.btn_ChangeEmail.Text = "Сменить эл. почту";
             this.btn_ChangeEmail.UseVisualStyleBackColor = false;
+            this.btn_ChangeEmail.Click += new System.EventHandler(this.Btn_ChangeEmail_Click);
             // 
             // btn_ChangeNumberPhone
             // 
@@ -253,6 +255,7 @@
             this.btn_ChangeNumberPhone.TabIndex = 35;
             this.btn_ChangeNumberPhone.Text = "Изменить номер телефона";
             this.btn_ChangeNumberPhone.UseVisualStyleBackColor = false;
+            this.btn_ChangeNumberPhone.Click += new System.EventHandler(this.Btn_ChangeNumberPhone_Click);
             // 
             // label2
             // 
@@ -282,7 +285,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(590, 326);
+            this.panel4.Size = new System.Drawing.Size(590, 320);
             this.panel4.TabIndex = 41;
             this.panel4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel4_MouseDown);
             this.panel4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel4_MouseMove);
@@ -293,7 +296,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.ClientSize = new System.Drawing.Size(590, 326);
+            this.ClientSize = new System.Drawing.Size(590, 320);
             this.Controls.Add(this.panel4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UserForm";
