@@ -59,17 +59,20 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picB_user = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picB_bancCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picB_visa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picB_masterCard)).BeginInit();
             this.panel_MoneyTransferCard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picB_user)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DimGray;
+            this.panel1.Controls.Add(this.picB_user);
             this.panel1.Controls.Add(this.lbL_сourse_dollar);
             this.panel1.Controls.Add(this.lbL_сourse_euro);
             this.panel1.Controls.Add(this.label3);
@@ -81,9 +84,9 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(722, 46);
             this.panel1.TabIndex = 0;
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
-            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
-            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseMove);
+            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseUp);
             // 
             // lbL_сourse_dollar
             // 
@@ -441,6 +444,16 @@
             this.pictureBox1.TabIndex = 34;
             this.pictureBox1.TabStop = false;
             // 
+            // picB_user
+            // 
+            this.picB_user.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picB_user.BackgroundImage")));
+            this.picB_user.Location = new System.Drawing.Point(12, 6);
+            this.picB_user.Name = "picB_user";
+            this.picB_user.Size = new System.Drawing.Size(32, 35);
+            this.picB_user.TabIndex = 33;
+            this.picB_user.TabStop = false;
+            this.picB_user.Click += new System.EventHandler(this.PicB_user_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -481,6 +494,7 @@
             this.panel_MoneyTransferCard.ResumeLayout(false);
             this.panel_MoneyTransferCard.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picB_user)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -518,5 +532,6 @@
         private System.Windows.Forms.Button btn_MoneyTransferCard;
         private System.Windows.Forms.TextBox txB_NumberTransferCardMoney;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.PictureBox picB_user;
     }
 }

@@ -23,14 +23,14 @@ namespace MobileBank.Forms
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
         }
-        void panel1_MouseDown(object sender, MouseEventArgs e)
+        void Panel1_MouseDown(object sender, MouseEventArgs e)
         {
             dragging = true;
             dragCursorPoint = Cursor.Position;
             dragFormPoint = this.Location;
         }
 
-        void panel1_MouseMove(object sender, MouseEventArgs e)
+        void Panel1_MouseMove(object sender, MouseEventArgs e)
         {
             if (dragging)
             {
@@ -39,7 +39,7 @@ namespace MobileBank.Forms
             }
         }
 
-        void panel1_MouseUp(object sender, MouseEventArgs e)
+        void Panel1_MouseUp(object sender, MouseEventArgs e)
         {
             dragging = false;
         }
@@ -247,8 +247,16 @@ namespace MobileBank.Forms
         }
 
 
+
         #endregion
 
-
+        void PicB_user_Click(object sender, EventArgs e)
+        {
+            UserForm user = new UserForm();
+            if (Application.OpenForms["UserForm"] == null)
+            {
+                user.Show();
+            }
+        }
     }
 }
