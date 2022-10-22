@@ -52,32 +52,39 @@ namespace MobileBank.Forms
 
         private void Btn_ChangeEmail_Click(object sender, EventArgs e)
         {
-            MessageBoxButtons btn = MessageBoxButtons.OK;
-            MessageBoxIcon ico = MessageBoxIcon.Information;
-            string caption = "Ошибка";
-
-            if (!Regex.IsMatch(txb_client_email.Text, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
+            try
             {
-                MessageBox.Show("Пожалуйста введите вашу почту", caption, btn, ico);
-                txb_client_email.Select();
-                return;
+                MessageBoxButtons btn = MessageBoxButtons.OK;
+                MessageBoxIcon ico = MessageBoxIcon.Information;
+                string caption = "Ошибка";
+
+                if (!Regex.IsMatch(txb_client_email.Text, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
+                {
+                    MessageBox.Show("Пожалуйста введите вашу почту", caption, btn, ico);
+                    txb_client_email.Select();
+                    return;
+                }
+                var clientEmail = txb_client_email.Text;
+
+                var changeNumberPhoneQuery = $"UPDATE client SET client_email = '{clientEmail}' WHERE id_client = '{DataStorage.idClient}'";
+                using (MySqlCommand command = new MySqlCommand(changeNumberPhoneQuery, DataBaseConnection.GetInstance.GetConnection()))
+                {
+                    DataBaseConnection.GetInstance.OpenConnection();
+                    if (command.ExecuteNonQuery() == 1)
+                    {
+                        MessageBox.Show("Почта изменена", "Данные сохранены", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DataBaseConnection.GetInstance.CloseConnection();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Почта не изменёна", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
             }
-            var clientEmail = txb_client_email.Text;
-
-            var changeNumberPhoneQuery = $"UPDATE client SET client_email = '{clientEmail}' WHERE id_client = '{DataStorage.idClient}'";
-            using (MySqlCommand command = new MySqlCommand(changeNumberPhoneQuery, DataBaseConnection.GetInstance.GetConnection()))
+            catch (Exception)
             {
-                DataBaseConnection.GetInstance.OpenConnection();
-                if (command.ExecuteNonQuery() == 1)
-                {
-                    MessageBox.Show("Почта изменена", "Данные сохранены", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    DataBaseConnection.GetInstance.CloseConnection();
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Почта не изменёна", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                MessageBox.Show("Btn_ChangeEmail_Click", "Ошибка метода", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

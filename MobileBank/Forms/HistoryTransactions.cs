@@ -1,13 +1,7 @@
 ﻿using MobileBank.Classes;
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MobileBank.Forms
@@ -51,28 +45,35 @@ namespace MobileBank.Forms
 
         void HistoryTransactions_Load(object sender, EventArgs e)
         {
-            var querySelectTransaction = $"SELECT transaction_type, transaction_destination, transaction_date, transaction_number, transaction_money, transaction_currency " +
+            try
+            {
+                var querySelectTransaction = $"SELECT transaction_type, transaction_destination, transaction_date, transaction_number, transaction_money, transaction_currency " +
                 $"from transactions inner join bank_card on transactions.id_bank_card  = bank_card.id_bank_card inner join client on client.id_client = bank_card.id_client " +
                 $"where client.id_client = '{DataStorage.idClient}'";
 
-            using (MySqlCommand command = new MySqlCommand(querySelectTransaction, DataBaseConnection.GetInstance.GetConnection()))
-            {
-                DataBaseConnection.GetInstance.OpenConnection();
-                using (MySqlDataReader reader = command.ExecuteReader())
+                using (MySqlCommand command = new MySqlCommand(querySelectTransaction, DataBaseConnection.GetInstance.GetConnection()))
                 {
-                    while (reader.Read())
+                    DataBaseConnection.GetInstance.OpenConnection();
+                    using (MySqlDataReader reader = command.ExecuteReader())
                     {
-                        ListViewItem lvitem = new ListViewItem(reader[0].ToString());
-                        lvitem.SubItems.Add(reader[1].ToString());
-                        lvitem.SubItems.Add(reader[2].ToString());
-                        lvitem.SubItems.Add(reader[3].ToString());
-                        lvitem.SubItems.Add(reader[4].ToString());
-                        lvitem.SubItems.Add(reader[5].ToString());
-                        listView1.Items.Add(lvitem);
+                        while (reader.Read())
+                        {
+                            ListViewItem lvitem = new ListViewItem(reader[0].ToString());
+                            lvitem.SubItems.Add(reader[1].ToString());
+                            lvitem.SubItems.Add(reader[2].ToString());
+                            lvitem.SubItems.Add(reader[3].ToString());
+                            lvitem.SubItems.Add(reader[4].ToString());
+                            lvitem.SubItems.Add(reader[5].ToString());
+                            listView1.Items.Add(lvitem);
+                        }
+                        reader.Close();
+                        listView1.Sort();
                     }
-                    reader.Close();
-                    listView1.Sort();
                 }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("HistoryTransactions_Load", "Ошибка метода", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

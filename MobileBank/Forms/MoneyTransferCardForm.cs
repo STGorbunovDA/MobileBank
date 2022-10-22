@@ -445,8 +445,6 @@ namespace MobileBank.Forms
                         MessageBox.Show("Вы ввели неверный CVV-код более трёх раз", caption, btn, ico);
                         this.Close();
                     }
-
-
                 }
                 else
                 {
@@ -456,7 +454,7 @@ namespace MobileBank.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Ошибка трансфера средств (Btn_Transfer_Click)", "Ошибка метода", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }           
         }
 

@@ -212,7 +212,7 @@ namespace MobileBank.Forms
                 }
                 if (!Regex.IsMatch(txB_client_phone_number.Text, "^[+][7][9][0-9]{9}$"))
                 {
-                    MessageBox.Show("Пожалуйста введите номер телефона коректно!", caption, btn, ico);
+                    MessageBox.Show("Пожалуйста введите номер телефона корректно!", caption, btn, ico);
                     txB_client_phone_number.Select();
                     return;
                 }
@@ -251,7 +251,7 @@ namespace MobileBank.Forms
             }
             catch (Exception)
             {
-                MessageBox.Show("Btn_save_client_Click", "Ошибка метода", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ошибка регистрации (Btn_save_client_Click)", "Ошибка метода", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

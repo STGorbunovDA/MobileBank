@@ -47,47 +47,51 @@ namespace MobileBank.Forms
 
         void Btn_ChangePasswordAccount_Click(object sender, EventArgs e)
         {
-            MessageBoxButtons btn = MessageBoxButtons.OK;
-            MessageBoxIcon ico = MessageBoxIcon.Information;
-            string caption = "Ошибка";
-
-            if (!Regex.IsMatch(txB_client_password.Text, "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$^&*-]).{8,}$"))
+            try
             {
-                MessageBox.Show("Пожалуйста введите пароль!\n(Не менее 8-ми символов, без кириллицы, хотя-бы одна заглавная и с символами #?!@$^&*-)", caption, btn, ico);
-                txB_client_password.Select();
-                return;
-            }
-            if (!Regex.IsMatch(txB_client_password_old.Text, "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$^&*-]).{8,}$"))
-            {
-                MessageBox.Show("Пожалуйста введите пароль!\n(Не менее 8-ми символов, без кириллицы, хотя-бы одна заглавная и с символами #?!@$^&*-)", caption, btn, ico);
-                txB_client_password.Select();
-                return;
-            }
+                MessageBoxButtons btn = MessageBoxButtons.OK;
+                MessageBoxIcon ico = MessageBoxIcon.Information;
+                string caption = "Ошибка";
 
-            if(SettingMethod.CheackUserPassword(txB_client_password_old.Text))
-            {
-                var clientPassword = md5.hashPassword(txB_client_password.Text);
-
-                var changePasswordQuery = $"UPDATE client SET client_password = '{clientPassword}' WHERE id_client = '{DataStorage.idClient}'";
-                using (MySqlCommand command = new MySqlCommand(changePasswordQuery, DataBaseConnection.GetInstance.GetConnection()))
+                if (!Regex.IsMatch(txB_client_password.Text, "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$^&*-]).{8,}$"))
                 {
-                    DataBaseConnection.GetInstance.OpenConnection();
-                    if (command.ExecuteNonQuery() == 1)
+                    MessageBox.Show("Пожалуйста введите пароль!\n(Не менее 8-ми символов, без кириллицы, хотя-бы одна заглавная и с символами #?!@$^&*-)", caption, btn, ico);
+                    txB_client_password.Select();
+                    return;
+                }
+                if (!Regex.IsMatch(txB_client_password_old.Text, "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$^&*-]).{8,}$"))
+                {
+                    MessageBox.Show("Пожалуйста введите пароль!\n(Не менее 8-ми символов, без кириллицы, хотя-бы одна заглавная и с символами #?!@$^&*-)", caption, btn, ico);
+                    txB_client_password.Select();
+                    return;
+                }
+
+                if (SettingMethod.CheackUserPassword(txB_client_password_old.Text))
+                {
+                    var clientPassword = md5.hashPassword(txB_client_password.Text);
+
+                    var changePasswordQuery = $"UPDATE client SET client_password = '{clientPassword}' WHERE id_client = '{DataStorage.idClient}'";
+                    using (MySqlCommand command = new MySqlCommand(changePasswordQuery, DataBaseConnection.GetInstance.GetConnection()))
                     {
-                        MessageBox.Show("Пароль успешно изменен", "Данные сохранены", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        DataBaseConnection.GetInstance.CloseConnection();
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Пароль не изменён", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DataBaseConnection.GetInstance.OpenConnection();
+                        if (command.ExecuteNonQuery() == 1)
+                        {
+                            MessageBox.Show("Пароль успешно изменен", "Данные сохранены", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            DataBaseConnection.GetInstance.CloseConnection();
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Пароль не изменён", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
                 }
+                else MessageBox.Show("Старый пароль неверен", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else MessageBox.Show("Старый пароль неверен", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
-
+            catch (Exception)
+            {
+                MessageBox.Show("Btn_ChangePasswordAccount_Click", "Ошибка метода", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         void ChB_visibilityPassword_Click(object sender, EventArgs e)

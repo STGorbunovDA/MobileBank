@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using MobileBank.Classes;
 
@@ -127,15 +128,29 @@ namespace MobileBank.Forms
 
         void Btn_udpate_Click(object sender, EventArgs e)
         {
-            SettingMethod.Loading_cmb_card_MainForm(cmb_card);
-            if (cmb_card.Text != "У Вас отсутсвуют банковские карты")
-                SettingMethod.SelectBankCardMainForm(lbL_client_FIO, lbL_card_number, cmb_card, lbL_cardCvv, lbL_cardDate, lbL_balanceCard, lbl_currency, picB_masterCard, picB_visa);
+            try
+            {
+                SettingMethod.Loading_cmb_card_MainForm(cmb_card);
+                if (cmb_card.Text != "У Вас отсутсвуют банковские карты")
+                    SettingMethod.SelectBankCardMainForm(lbL_client_FIO, lbL_card_number, cmb_card, lbL_cardCvv, lbL_cardDate, lbL_balanceCard, lbl_currency, picB_masterCard, picB_visa);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка обновления (Btn_udpate_Click)", "Ошибка метода", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         void Cmb_card_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            if (cmb_card.Text != "У Вас отсутсвуют банковские карты")
-                SettingMethod.SelectBankCardMainForm(lbL_client_FIO, lbL_card_number, cmb_card, lbL_cardCvv, lbL_cardDate, lbL_balanceCard, lbl_currency, picB_masterCard, picB_visa);
+            try
+            {
+                if (cmb_card.Text != "У Вас отсутсвуют банковские карты")
+                    SettingMethod.SelectBankCardMainForm(lbL_client_FIO, lbL_card_number, cmb_card, lbL_cardCvv, lbL_cardDate, lbL_balanceCard, lbl_currency, picB_masterCard, picB_visa);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка загрузки в ComboBox (Cmb_card_SelectionChangeCommitted)", "Ошибка метода", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         void Btn_MoneyTransferCard_Click(object sender, EventArgs e)
@@ -259,6 +274,31 @@ namespace MobileBank.Forms
             {
                 historyTransactions.Show();
             }
+        }
+
+        void TxB_transferMobilePhone_Click(object sender, EventArgs e)
+        {
+            if (txB_transferMobilePhone.Text == "")
+            {
+                txB_transferMobilePhone.Text = "+79";
+                txB_transferMobilePhone.SelectionStart = txB_transferMobilePhone.Text.Length;
+            }
+        }
+
+        void Btn_transferMobilePhone_Click(object sender, EventArgs e)
+        {
+            if (!Regex.IsMatch(txB_transferMobilePhone.Text, "^[+][7][9][0-9]{9}$"))
+            {
+                MessageBox.Show("Пожалуйста введите номер телефона корректно!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txB_transferMobilePhone.Select();
+                return;
+            }
+            MobilePhoneTransferForm mobilePhoneTransfer = new MobilePhoneTransferForm();
+            if (Application.OpenForms["MobilePhoneTransferForm"] == null)
+            {
+                mobilePhoneTransfer.Show();
+            }
+
         }
     }
 }

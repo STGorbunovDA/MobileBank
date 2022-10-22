@@ -24,13 +24,27 @@ namespace MobileBank.Forms
 
         void UserForm_Load(object sender, EventArgs e)
         {
-            SettingMethod.RefreshUserClientPersonalData(lbL_FIO_user, lbL_Phone_user, lbL_email_user);
+            try
+            {
+                SettingMethod.RefreshUserClientPersonalData(lbL_FIO_user, lbL_Phone_user, lbL_email_user);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка загрузки персональных данных клиента (UserForm_Load)", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         void Btn_update_Click(object sender, EventArgs e)
         {
-            ClearControl();
-            SettingMethod.RefreshUserClientPersonalData(lbL_FIO_user, lbL_Phone_user, lbL_email_user);
+            try
+            {
+                ClearControl();
+                SettingMethod.RefreshUserClientPersonalData(lbL_FIO_user, lbL_Phone_user, lbL_email_user);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка загрузки персональных данных клиента (Btn_update_Click)", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         void ClearControl()

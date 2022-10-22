@@ -52,32 +52,39 @@ namespace MobileBank.Forms
 
         void Btn_ChangeNumberPhone_Click(object sender, EventArgs e)
         {
-            MessageBoxButtons btn = MessageBoxButtons.OK;
-            MessageBoxIcon ico = MessageBoxIcon.Information;
-            string caption = "Ошибка";
-
-            if (!Regex.IsMatch(txB_client_phone_number.Text, "^[+][7][9][0-9]{9}$"))
+            try
             {
-                MessageBox.Show("Пожалуйста введите номер телефона коректно!", caption, btn, ico);
-                txB_client_phone_number.Select();
-                return;
+                MessageBoxButtons btn = MessageBoxButtons.OK;
+                MessageBoxIcon ico = MessageBoxIcon.Information;
+                string caption = "Ошибка";
+
+                if (!Regex.IsMatch(txB_client_phone_number.Text, "^[+][7][9][0-9]{9}$"))
+                {
+                    MessageBox.Show("Пожалуйста введите номер телефона корректно!", caption, btn, ico);
+                    txB_client_phone_number.Select();
+                    return;
+                }
+                var phoneNumber = txB_client_phone_number.Text;
+
+                var changeNumberPhoneQuery = $"UPDATE client SET client_phone_number = '{phoneNumber}' WHERE id_client = '{DataStorage.idClient}'";
+                using (MySqlCommand command = new MySqlCommand(changeNumberPhoneQuery, DataBaseConnection.GetInstance.GetConnection()))
+                {
+                    DataBaseConnection.GetInstance.OpenConnection();
+                    if (command.ExecuteNonQuery() == 1)
+                    {
+                        MessageBox.Show("Номер телефона изменен", "Данные сохранены", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DataBaseConnection.GetInstance.CloseConnection();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Номер телефона не изменён", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
             }
-            var phoneNumber = txB_client_phone_number.Text;
-
-            var changeNumberPhoneQuery = $"UPDATE client SET client_phone_number = '{phoneNumber}' WHERE id_client = '{DataStorage.idClient}'";
-            using (MySqlCommand command = new MySqlCommand(changeNumberPhoneQuery, DataBaseConnection.GetInstance.GetConnection()))
+            catch (Exception)
             {
-                DataBaseConnection.GetInstance.OpenConnection();
-                if (command.ExecuteNonQuery() == 1)
-                {
-                    MessageBox.Show("Номер телефона изменен", "Данные сохранены", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    DataBaseConnection.GetInstance.CloseConnection();
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Номер телефона не изменён", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                MessageBox.Show("Btn_ChangeNumberPhone_Click", "Ошибка метода", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
