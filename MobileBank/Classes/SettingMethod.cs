@@ -211,5 +211,31 @@ namespace MobileBank.Classes
             }
 
         }
+
+        internal static Boolean CheackUserPassword(string txB_client_password_old)
+        {
+            var passUser = md5.hashPassword(txB_client_password_old);
+            string MySqlRequest = $"SELECT client_password FROM client WHERE client_password = '{passUser}'";
+
+            using (MySqlCommand command = new MySqlCommand(MySqlRequest, DataBaseConnection.GetInstance.GetConnection()))
+            {
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                {
+                    DataTable table = new DataTable();
+
+                    adapter.Fill(table);
+
+                    if (table.Rows.Count > 0)
+                    {
+                        return true;
+                    }
+
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
     }
 }
