@@ -16,6 +16,9 @@ namespace MobileBank.Forms
         public MoneyTransferCardForm()
         {
             InitializeComponent();
+            System.Globalization.CultureInfo customCulture = (System.Globalization.CultureInfo)System.Threading.Thread.CurrentThread.CurrentCulture.Clone();
+            customCulture.NumberFormat.NumberDecimalSeparator = ".";
+            System.Threading.Thread.CurrentThread.CurrentCulture = customCulture;
             StartPosition = FormStartPosition.CenterScreen;
         }
 
@@ -207,6 +210,8 @@ namespace MobileBank.Forms
             }
         }
 
+
+        #endregion
         void Btn_Transfer_Click(object sender, EventArgs e)
         {
             try
@@ -297,8 +302,8 @@ namespace MobileBank.Forms
                     double dolar = Convert.ToDouble(reg2.Replace(DataStorage.dolar.ToString(), "."));
                     double euro = Convert.ToDouble(reg2.Replace(DataStorage.euro.ToString(), "."));
 
-                    var cardCVVUser = txB_cardCvv.Text;
-                    var txB_cardDateUser = txB_cardDate.Text;
+                    //var cardCVVUser = txB_cardCvv.Text;
+                    //var txB_cardDateUser = txB_cardDate.Text;
 
                     var reg3 = new Regex(" ");
                     var NumberTransferCardMoney = reg3.Replace(txB_NumberTransferCardMoney.Text, "");
@@ -307,9 +312,6 @@ namespace MobileBank.Forms
                     string sum = txB_sum.Text;
                     var cardCurrencyUser = DataStorage.currency;
                     var cardCurrencyTransfer = "";
-                    var cardCVVCheck = "";
-                    var cardDateCheck = "";
-                    double cardBalanceCheckUser = 0;
 
                     Validations validations = new Validations();
                     validations.ShowDialog();
@@ -410,7 +412,7 @@ namespace MobileBank.Forms
                                     }
                                     else
                                     {
-                                        MessageBox.Show("Перевод не выполнен queryTransaction1", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        MessageBox.Show("Перевод не выполнен queryTransaction2", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     }
                                 }
                                 using (MySqlCommand commandTransfer3 = new MySqlCommand(queryTransaction3, DataBaseConnection.GetInstance.GetConnection()))
@@ -423,7 +425,7 @@ namespace MobileBank.Forms
                                     }
                                     else
                                     {
-                                        MessageBox.Show("Перевод не выполнен queryTransaction1", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        MessageBox.Show("Перевод не выполнен queryTransaction3", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     }
                                 }
                             }
@@ -431,7 +433,6 @@ namespace MobileBank.Forms
                             {
                                 MessageBox.Show($"Данной карты нет в нашей платёжной системе", caption, btn, ico); ;
                                 txB_sum.Select();
-                                //txB_sum.Text = "0";
                                 return;
                             }
                         }
@@ -452,13 +453,11 @@ namespace MobileBank.Forms
                     MessageBox.Show("CVV-код не введён", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Ошибка трансфера средств (Btn_Transfer_Click)", "Ошибка метода", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }           
         }
-
-        #endregion
 
 
     }
