@@ -187,7 +187,33 @@ namespace MobileBank.Classes
                 }
             }
         }
-        
+
+        internal static void Loading_serviceTypeMobile_cmd(ComboBox cmb_serviceTypeMobile)
+        {
+            var queryChooseOperator = $"SELECT id_service, serviceName, serviceBalance, serviceType FROM clientServices WHERE serviceType = 'Mobile'";
+            using (MySqlCommand command = new MySqlCommand(queryChooseOperator, DataBaseConnection.GetInstance.GetConnection()))
+            {
+                DataBaseConnection.GetInstance.OpenConnection();
+                DataTable serviceTypeMobile = new DataTable();
+
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                {
+                    adapter.Fill(serviceTypeMobile);
+                    if (serviceTypeMobile.Rows.Count > 0)
+                    {
+                        cmb_serviceTypeMobile.DataSource = serviceTypeMobile;
+                        cmb_serviceTypeMobile.ValueMember = "id_service";
+                        cmb_serviceTypeMobile.DisplayMember = "serviceName";
+                    }
+                    else
+                    {
+                        cmb_serviceTypeMobile.Text = "";
+                    }
+                    DataBaseConnection.GetInstance.CloseConnection();
+                }
+            }
+        }
+
         internal static void RefreshUserClientPersonalData(Label lbL_FIO_user, Label lbL_Phone_user, Label lbL_email_user)
         {
             var queryPIB = $"SELECT CONCAT(client_last_name, ' ', client_first_name, ' ', client_middle_name), client_phone_number, client_email FROM client WHERE id_client = '{DataStorage.idClient}'";

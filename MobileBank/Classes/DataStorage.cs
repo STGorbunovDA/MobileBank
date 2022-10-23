@@ -21,5 +21,7 @@ namespace MobileBank.Classes
         public static string currency;
         public static string balanceCard;
         public static string card_pin;
+        public static double commissionPhoneTransfer = 1.44;
+
     }
 }
