@@ -287,7 +287,7 @@ namespace MobileBank.Forms
                         var reg3 = new Regex(" ");
                         var card_numberUser = reg3.Replace(txB_card_numberUser.Text, "");
 
-                        string sum = lbL_paymentTransferPhone.Text;
+                        string totalSum = lbL_paymentTransferPhone.Text;
                         var cardCurrencyUser = DataStorage.currency;
 
                         Validations validations = new Validations();
@@ -297,11 +297,20 @@ namespace MobileBank.Forms
                         {
                             if (InternetСheck.CheackSkyNET())
                             {
+                                DateTime transactionDate = DateTime.Now;
+                                var transactionDateMobile = transactionDate.ToString("yyyy-MM-dd HH:mm:ss");
+                                var transactionNumber = "M";
 
-                                if(lbl_currency.Text == "RUB")
+                                for (int i = 0; i < 10; i++)
                                 {
-
+                                    transactionNumber += Convert.ToString(rand.Next(0, 10));
                                 }
+                                var queryTransaction1 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance = '{totalSum}' WHERE bank_card_number = '{card_numberUser}'";
+                                var queryTransaction2 = $"INSERT INTO transactions (transaction_type, transaction_destination, transaction_date, " +
+                                    $"transaction_number, transaction_money, transaction_currency, id_bank_card) VALUES ('Пополнение мобильного', " +
+                                    $"'{txB_transferMobilePhone.Text}', '{transactionDateMobile}', '{card_numberUser}', '{totalSum}', " +
+                                    $"'{cardCurrencyUser}', (select id_bank_card from bank_card where bank_card_number = '{card_numberUser}'))";
+                                var queryTransaction3 = $""
                             }
                         }
 
