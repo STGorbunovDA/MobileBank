@@ -310,7 +310,7 @@ namespace MobileBank.Forms
                                     $"transaction_number, transaction_money, transaction_currency, id_bank_card) VALUES ('Пополнение мобильного', " +
                                     $"'{txB_transferMobilePhone.Text}', '{transactionDateMobile}', '{card_numberUser}', '{totalSum}', " +
                                     $"'{cardCurrencyUser}', (select id_bank_card from bank_card where bank_card_number = '{card_numberUser}'))";
-                                var queryTransaction3 = $""
+                                var queryTransaction3 = $"UPDATE clientServices SET serviceBalance = serviceBalance + '{totalSum}' WHERE serviceName = '{cmb_serviceTypeMobileOperator.GetItemText(cmb_serviceTypeMobileOperator.SelectedItem)}' AND serviceType = 'Mobile'";
                             }
                         }
 
