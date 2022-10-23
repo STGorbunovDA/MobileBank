@@ -65,7 +65,7 @@ namespace MobileBank.Forms
                 tmp1 += 4;
             }
             txB_transferMobilePhone.Text = DataStorage.phoneNumber;
-            lbl_currency.Text = DataStorage.currency;
+            lbL_currency.Text = DataStorage.currency;
             txB_card_numberUser.Text = txB_card_numberUser.Text.Trim();
             txB_cardDate.Text = DataStorage.cardDate;
             txB_cardCvv.Text = "";
@@ -91,7 +91,7 @@ namespace MobileBank.Forms
         {
             if(!String.IsNullOrEmpty(txB_sum.Text))
             {
-                if (lbl_currency.Text == "RUB")
+                if (lbL_currency.Text == "RUB")
                 {
                     if (Convert.ToInt32(txB_sum.Text) > 49)
                     {
@@ -104,7 +104,7 @@ namespace MobileBank.Forms
                         lbL_paymentTransferPhone.Text = "";
                     }
                 }
-                else if (lbl_currency.Text == "USD")
+                else if (lbL_currency.Text == "USD")
                 {
                     if (Convert.ToDouble(txB_sum.Text) > 0.99)
                     {
@@ -119,7 +119,7 @@ namespace MobileBank.Forms
                         lbL_paymentTransferPhone.Text = "";
                     }
                 }
-                else if (lbl_currency.Text == "USD")
+                else if (lbL_currency.Text == "USD")
                 {
                     if (Convert.ToDouble(txB_sum.Text) > 0.99)
                     {

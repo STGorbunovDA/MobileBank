@@ -594,7 +594,7 @@
             this.btn_communalPayments.TabIndex = 7;
             this.btn_communalPayments.Text = ">";
             this.btn_communalPayments.UseVisualStyleBackColor = false;
-            this.btn_communalPayments.Click += new System.EventHandler(this.btn_communalPayments_Click);
+            this.btn_communalPayments.Click += new System.EventHandler(this.Btn_communalPayments_Click);
             // 
             // label14
             // 
