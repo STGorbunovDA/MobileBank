@@ -311,5 +311,10 @@ namespace MobileBank.Forms
             }
 
         }
+
+        void btn_communalPayments_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

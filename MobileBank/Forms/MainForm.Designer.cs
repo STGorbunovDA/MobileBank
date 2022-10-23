@@ -68,6 +68,10 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panel_communalPayments = new System.Windows.Forms.Panel();
+            this.btn_communalPayments = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lbL_HistoryTransactions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picB_user)).BeginInit();
@@ -79,6 +83,8 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel_communalPayments.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -565,12 +571,62 @@
             this.pictureBox2.TabIndex = 34;
             this.pictureBox2.TabStop = false;
             // 
+            // panel_communalPayments
+            // 
+            this.panel_communalPayments.BackColor = System.Drawing.Color.DimGray;
+            this.panel_communalPayments.Controls.Add(this.btn_communalPayments);
+            this.panel_communalPayments.Controls.Add(this.label14);
+            this.panel_communalPayments.Controls.Add(this.pictureBox4);
+            this.panel_communalPayments.Location = new System.Drawing.Point(12, 490);
+            this.panel_communalPayments.Name = "panel_communalPayments";
+            this.panel_communalPayments.Size = new System.Drawing.Size(324, 72);
+            this.panel_communalPayments.TabIndex = 41;
+            // 
+            // btn_communalPayments
+            // 
+            this.btn_communalPayments.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_communalPayments.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_communalPayments.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_communalPayments.ForeColor = System.Drawing.Color.Black;
+            this.btn_communalPayments.Location = new System.Drawing.Point(282, 19);
+            this.btn_communalPayments.Name = "btn_communalPayments";
+            this.btn_communalPayments.Size = new System.Drawing.Size(30, 30);
+            this.btn_communalPayments.TabIndex = 7;
+            this.btn_communalPayments.Text = ">";
+            this.btn_communalPayments.UseVisualStyleBackColor = false;
+            this.btn_communalPayments.Click += new System.EventHandler(this.btn_communalPayments_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.DimGray;
+            this.label14.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.label14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label14.Location = new System.Drawing.Point(42, 23);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(208, 22);
+            this.label14.TabIndex = 34;
+            this.label14.Text = "Коммунальные платежи";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox4.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
+            this.pictureBox4.Location = new System.Drawing.Point(3, 17);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox4.TabIndex = 34;
+            this.pictureBox4.TabStop = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(722, 716);
+            this.Controls.Add(this.panel_communalPayments);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel_MoneyTransferCard);
             this.Controls.Add(this.btn_udpate);
@@ -612,6 +668,9 @@
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel_communalPayments.ResumeLayout(false);
+            this.panel_communalPayments.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -658,5 +717,9 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Panel panel_communalPayments;
+        private System.Windows.Forms.Button btn_communalPayments;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }
