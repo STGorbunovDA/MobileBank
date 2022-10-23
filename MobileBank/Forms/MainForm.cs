@@ -298,6 +298,14 @@ namespace MobileBank.Forms
             {
                 DataStorage.cardNumberUser = cmb_card.GetItemText(cmb_card.SelectedItem);
                 DataStorage.phoneNumber = txB_transferMobilePhone.Text;
+
+                DataStorage.cardNumberUser = cmb_card.GetItemText(cmb_card.SelectedItem).Trim();
+                DataStorage.cardDate = lbL_cardDate.Text.Trim();
+                DataStorage.dolar = lbL_сourse_dollar.Text.Trim();
+                DataStorage.euro = lbL_сourse_euro.Text.Trim();
+                DataStorage.currency = lbl_currency.Text.Trim();
+                DataStorage.balanceCard = lbL_balanceCard.Text.Trim();
+
                 txB_transferMobilePhone.Text = "";
                 mobilePhoneTransfer.Show();
             }
