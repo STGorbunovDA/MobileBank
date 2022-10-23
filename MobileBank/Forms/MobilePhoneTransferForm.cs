@@ -1,4 +1,5 @@
 ﻿using MobileBank.Classes;
+using MySql.Data.MySqlClient;
 using System;
 using System.Drawing;
 using System.Text.RegularExpressions;
@@ -149,7 +150,7 @@ namespace MobileBank.Forms
                 MessageBoxIcon ico = MessageBoxIcon.Information;
 
                 string caption = "Отмена. Невозможно осуществить перевод средств";
-                if (String.IsNullOrEmpty(txB_sum.Text))
+                if (!String.IsNullOrEmpty(txB_sum.Text))
                 {
                     if (txB_cardCvv.Text != "")
                     {
@@ -311,6 +312,46 @@ namespace MobileBank.Forms
                                     $"'{txB_transferMobilePhone.Text}', '{transactionDateMobile}', '{card_numberUser}', '{totalSum}', " +
                                     $"'{cardCurrencyUser}', (select id_bank_card from bank_card where bank_card_number = '{card_numberUser}'))";
                                 var queryTransaction3 = $"UPDATE clientServices SET serviceBalance = serviceBalance + '{totalSum}' WHERE serviceName = '{cmb_serviceTypeMobileOperator.GetItemText(cmb_serviceTypeMobileOperator.SelectedItem)}' AND serviceType = 'Mobile'";
+
+                                using (MySqlCommand commandTransfer1 = new MySqlCommand(queryTransaction1, DataBaseConnection.GetInstance.GetConnection()))
+                                {
+                                    DataBaseConnection.GetInstance.OpenConnection();
+                                    if (commandTransfer1.ExecuteNonQuery() == 1)
+                                    {
+                                        DataBaseConnection.GetInstance.CloseConnection();
+                                        this.Close();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Перевод не выполнен queryTransaction1", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    }
+                                }
+                                using (MySqlCommand commandTransfer2 = new MySqlCommand(queryTransaction2, DataBaseConnection.GetInstance.GetConnection()))
+                                {
+                                    DataBaseConnection.GetInstance.OpenConnection();
+                                    if (commandTransfer2.ExecuteNonQuery() == 1)
+                                    {
+                                        DataBaseConnection.GetInstance.CloseConnection();
+                                        this.Close();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Перевод не выполнен queryTransaction2", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    }
+                                }
+                                using (MySqlCommand commandTransfer3 = new MySqlCommand(queryTransaction3, DataBaseConnection.GetInstance.GetConnection()))
+                                {
+                                    DataBaseConnection.GetInstance.OpenConnection();
+                                    if (commandTransfer3.ExecuteNonQuery() == 1)
+                                    {
+                                        DataBaseConnection.GetInstance.CloseConnection();
+                                        this.Close();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Перевод не выполнен queryTransaction3", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    }
+                                }
                             }
                         }
 
