@@ -213,6 +213,31 @@ namespace MobileBank.Classes
                 }
             }
         }
+        internal static void Loading_servicesCommunalPayments_cmd(ComboBox cmb_servicesCommunalPayments)
+        {
+            var queryChooseOperator = $"SELECT id_service, serviceName, serviceBalance, serviceType FROM clientServices WHERE serviceType = 'Communal'";
+            using (MySqlCommand command = new MySqlCommand(queryChooseOperator, DataBaseConnection.GetInstance.GetConnection()))
+            {
+                DataBaseConnection.GetInstance.OpenConnection();
+                DataTable servicesCommunalPayments = new DataTable();
+
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                {
+                    adapter.Fill(servicesCommunalPayments);
+                    if (servicesCommunalPayments.Rows.Count > 0)
+                    {
+                        cmb_servicesCommunalPayments.DataSource = servicesCommunalPayments;
+                        cmb_servicesCommunalPayments.ValueMember = "id_service";
+                        cmb_servicesCommunalPayments.DisplayMember = "serviceName";
+                    }
+                    else
+                    {
+                        cmb_servicesCommunalPayments.Text = "";
+                    }
+                    DataBaseConnection.GetInstance.CloseConnection();
+                }
+            }
+        }
 
         internal static void RefreshUserClientPersonalData(Label lbL_FIO_user, Label lbL_Phone_user, Label lbL_email_user)
         {
