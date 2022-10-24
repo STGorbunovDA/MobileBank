@@ -168,12 +168,11 @@ namespace MobileBank.Forms
                     DataStorage.euro = lbL_сourse_euro.Text.Trim();
                     DataStorage.currency = lbl_currency.Text.Trim();
                     DataStorage.balanceCard = lbL_balanceCard.Text.Trim();
-                    moneyTransferCardForm.Show();
+                    moneyTransferCardForm.ShowDialog();
                     txB_NumberTransferCardMoney.Text = "";
+                    Btn_udpate_Click(sender, e);
                 }
             }
-
-
         }
 
         #region Key-press Key-UP
@@ -304,11 +303,10 @@ namespace MobileBank.Forms
                 DataStorage.euro = lbL_сourse_euro.Text.Trim();
                 DataStorage.currency = lbl_currency.Text.Trim();
                 DataStorage.balanceCard = lbL_balanceCard.Text.Trim();
-
+                mobilePhoneTransfer.ShowDialog();
+                Btn_udpate_Click(sender, e);
                 txB_transferMobilePhone.Text = "";
-                mobilePhoneTransfer.Show();
             }
-
         }
 
         void Btn_communalPayments_Click(object sender, EventArgs e)
@@ -322,7 +320,8 @@ namespace MobileBank.Forms
                 DataStorage.euro = lbL_сourse_euro.Text.Trim();
                 DataStorage.currency = lbl_currency.Text.Trim();
                 DataStorage.balanceCard = lbL_balanceCard.Text.Trim();
-                communalPayments.Show();
+                communalPayments.ShowDialog();
+                Btn_udpate_Click(sender, e);
             }
         }
     }
