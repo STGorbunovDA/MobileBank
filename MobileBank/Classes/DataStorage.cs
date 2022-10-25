@@ -15,7 +15,7 @@ namespace MobileBank.Classes
         public static string phoneNumber;
         public static string cardNumberUser;
         public static string cardCVV;
-        public static string dolar;
+        public static string dollar;
         public static string euro;
         public static string cardDate;
         public static string currency;
