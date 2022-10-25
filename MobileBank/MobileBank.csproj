@@ -125,11 +125,23 @@
     <Compile Include="Forms\CommunalPayments.Designer.cs">
       <DependentUpon>CommunalPayments.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\HelpChildren.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HelpChildren.Designer.cs">
+      <DependentUpon>HelpChildren.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\HistoryTransactions.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\HistoryTransactions.Designer.cs">
       <DependentUpon>HistoryTransactions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\InternetTVPayments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\InternetTVPayments.Designer.cs">
+      <DependentUpon>InternetTVPayments.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
@@ -190,8 +202,14 @@
     <EmbeddedResource Include="Forms\CommunalPayments.resx">
       <DependentUpon>CommunalPayments.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HelpChildren.resx">
+      <DependentUpon>HelpChildren.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\HistoryTransactions.resx">
       <DependentUpon>HistoryTransactions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InternetTVPayments.resx">
+      <DependentUpon>InternetTVPayments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
