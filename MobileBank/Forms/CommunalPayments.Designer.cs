@@ -87,7 +87,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
-            this.pictureBox4.Location = new System.Drawing.Point(10, 6);
+            this.pictureBox4.Location = new System.Drawing.Point(12, 6);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(32, 32);
             this.pictureBox4.TabIndex = 36;
@@ -98,7 +98,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 8F);
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(102, 62);
+            this.label1.Location = new System.Drawing.Point(116, 62);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(42, 13);
             this.label1.TabIndex = 45;
@@ -112,7 +112,7 @@
             this.cmb_servicesCommunalPayments.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cmb_servicesCommunalPayments.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.cmb_servicesCommunalPayments.FormattingEnabled = true;
-            this.cmb_servicesCommunalPayments.Location = new System.Drawing.Point(105, 78);
+            this.cmb_servicesCommunalPayments.Location = new System.Drawing.Point(119, 78);
             this.cmb_servicesCommunalPayments.Name = "cmb_servicesCommunalPayments";
             this.cmb_servicesCommunalPayments.Size = new System.Drawing.Size(210, 27);
             this.cmb_servicesCommunalPayments.TabIndex = 47;
@@ -122,11 +122,11 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 8F);
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(102, 118);
+            this.label2.Location = new System.Drawing.Point(116, 118);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 13);
+            this.label2.Size = new System.Drawing.Size(76, 13);
             this.label2.TabIndex = 48;
-            this.label2.Text = "Личный счёт";
+            this.label2.Text = "Лицевой счёт";
             // 
             // txB_personalAccountCommunalPayments
             // 
@@ -134,7 +134,7 @@
             this.txB_personalAccountCommunalPayments.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txB_personalAccountCommunalPayments.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.txB_personalAccountCommunalPayments.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txB_personalAccountCommunalPayments.Location = new System.Drawing.Point(105, 134);
+            this.txB_personalAccountCommunalPayments.Location = new System.Drawing.Point(119, 134);
             this.txB_personalAccountCommunalPayments.MaxLength = 12;
             this.txB_personalAccountCommunalPayments.Name = "txB_personalAccountCommunalPayments";
             this.txB_personalAccountCommunalPayments.Size = new System.Drawing.Size(210, 26);
@@ -147,7 +147,7 @@
             this.lbL_currency.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.lbL_currency.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbL_currency.ForeColor = System.Drawing.Color.DimGray;
-            this.lbL_currency.Location = new System.Drawing.Point(321, 204);
+            this.lbL_currency.Location = new System.Drawing.Point(335, 204);
             this.lbL_currency.Name = "lbL_currency";
             this.lbL_currency.Size = new System.Drawing.Size(39, 19);
             this.lbL_currency.TabIndex = 54;
@@ -159,7 +159,7 @@
             this.txB_sum.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txB_sum.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.txB_sum.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txB_sum.Location = new System.Drawing.Point(105, 199);
+            this.txB_sum.Location = new System.Drawing.Point(119, 199);
             this.txB_sum.MaxLength = 12;
             this.txB_sum.Name = "txB_sum";
             this.txB_sum.Size = new System.Drawing.Size(210, 26);
@@ -171,7 +171,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.ForeColor = System.Drawing.Color.GreenYellow;
-            this.label3.Location = new System.Drawing.Point(104, 222);
+            this.label3.Location = new System.Drawing.Point(118, 222);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(211, 16);
             this.label3.TabIndex = 53;
@@ -182,7 +182,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 8F);
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(102, 183);
+            this.label4.Location = new System.Drawing.Point(116, 183);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 51;
@@ -193,7 +193,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label5.ForeColor = System.Drawing.Color.GreenYellow;
-            this.label5.Location = new System.Drawing.Point(104, 157);
+            this.label5.Location = new System.Drawing.Point(118, 157);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(211, 16);
             this.label5.TabIndex = 55;
@@ -205,7 +205,7 @@
             this.btn_TransferCommunalPayments.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_TransferCommunalPayments.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_TransferCommunalPayments.ForeColor = System.Drawing.Color.Black;
-            this.btn_TransferCommunalPayments.Location = new System.Drawing.Point(25, 473);
+            this.btn_TransferCommunalPayments.Location = new System.Drawing.Point(33, 466);
             this.btn_TransferCommunalPayments.Name = "btn_TransferCommunalPayments";
             this.btn_TransferCommunalPayments.Size = new System.Drawing.Size(368, 45);
             this.btn_TransferCommunalPayments.TabIndex = 60;
@@ -224,7 +224,7 @@
             this.panel2.Controls.Add(this.txB_card_numberUser);
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.label13);
-            this.panel2.Location = new System.Drawing.Point(25, 272);
+            this.panel2.Location = new System.Drawing.Point(33, 265);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(368, 180);
             this.panel2.TabIndex = 59;
@@ -273,6 +273,7 @@
             this.txB_cardDate.Location = new System.Drawing.Point(18, 122);
             this.txB_cardDate.MaxLength = 5;
             this.txB_cardDate.Name = "txB_cardDate";
+            this.txB_cardDate.ReadOnly = true;
             this.txB_cardDate.Size = new System.Drawing.Size(50, 23);
             this.txB_cardDate.TabIndex = 43;
             this.txB_cardDate.Text = "07/26";
@@ -329,7 +330,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.ClientSize = new System.Drawing.Size(432, 532);
+            this.ClientSize = new System.Drawing.Size(434, 532);
             this.Controls.Add(this.btn_TransferCommunalPayments);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.txB_personalAccountCommunalPayments);
