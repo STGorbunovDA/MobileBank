@@ -164,7 +164,7 @@ namespace MobileBank.Forms
                     DataStorage.NumberTransferCard = txB_NumberTransferCardMoney.Text;
                     DataStorage.cardNumberUser = cmb_card.GetItemText(cmb_card.SelectedItem).Trim();
                     DataStorage.cardDate = lbL_cardDate.Text.Trim();
-                    DataStorage.dolar = lbL_сourse_dollar.Text.Trim();
+                    DataStorage.dollar = lbL_сourse_dollar.Text.Trim();
                     DataStorage.euro = lbL_сourse_euro.Text.Trim();
                     DataStorage.currency = lbl_currency.Text.Trim();
                     DataStorage.balanceCard = lbL_balanceCard.Text.Trim();
@@ -299,7 +299,7 @@ namespace MobileBank.Forms
                 DataStorage.phoneNumber = txB_transferMobilePhone.Text;
 
                 DataStorage.cardDate = lbL_cardDate.Text.Trim();
-                DataStorage.dolar = lbL_сourse_dollar.Text.Trim();
+                DataStorage.dollar = lbL_сourse_dollar.Text.Trim();
                 DataStorage.euro = lbL_сourse_euro.Text.Trim();
                 DataStorage.currency = lbl_currency.Text.Trim();
                 DataStorage.balanceCard = lbL_balanceCard.Text.Trim();
@@ -316,13 +316,46 @@ namespace MobileBank.Forms
             {
                 DataStorage.cardNumberUser = cmb_card.GetItemText(cmb_card.SelectedItem);
                 DataStorage.cardDate = lbL_cardDate.Text.Trim();
-                DataStorage.dolar = lbL_сourse_dollar.Text.Trim();
-                DataStorage.euro = lbL_сourse_euro.Text.Trim();
                 DataStorage.currency = lbl_currency.Text.Trim();
                 DataStorage.balanceCard = lbL_balanceCard.Text.Trim();
+                DataStorage.dollar = lbL_сourse_dollar.Text.Trim();
+                DataStorage.euro = lbL_сourse_euro.Text.Trim();
                 communalPayments.ShowDialog();
                 Btn_udpate_Click(sender, e);
             }
+        }
+
+        void Btn_internetTV_Click(object sender, EventArgs e)
+        {
+            InternetTVPayments internetTV = new InternetTVPayments();
+            if (Application.OpenForms["InternetTVPayments"] == null)
+            {
+                DataStorage.cardNumberUser = cmb_card.GetItemText(cmb_card.SelectedItem);
+                DataStorage.cardDate = lbL_cardDate.Text.Trim();
+                DataStorage.currency = lbl_currency.Text.Trim();
+                DataStorage.balanceCard = lbL_balanceCard.Text.Trim();
+                DataStorage.dollar = lbL_сourse_dollar.Text.Trim();
+                DataStorage.euro = lbL_сourse_euro.Text.Trim();
+                internetTV.ShowDialog();
+                Btn_udpate_Click(sender, e);
+            }
+        }
+
+        void Btn_Children_Click(object sender, EventArgs e)
+        {
+            HelpChildren helpChildren = new HelpChildren();
+            if (Application.OpenForms["HelpChildren"] == null)
+            {
+                DataStorage.cardNumberUser = cmb_card.GetItemText(cmb_card.SelectedItem);
+                DataStorage.cardDate = lbL_cardDate.Text.Trim();
+                DataStorage.currency = lbl_currency.Text.Trim();
+                DataStorage.balanceCard = lbL_balanceCard.Text.Trim();
+                DataStorage.dollar = lbL_сourse_dollar.Text.Trim();
+                DataStorage.euro = lbL_сourse_euro.Text.Trim();
+                helpChildren.ShowDialog();
+                Btn_udpate_Click(sender, e);
+            }
+
         }
     }
 }

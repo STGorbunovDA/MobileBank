@@ -41,20 +41,16 @@
             this.btn_adding_card = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.cmb_card = new System.Windows.Forms.ComboBox();
-            this.picB_bancCard = new System.Windows.Forms.PictureBox();
             this.lbL_card_number = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lbL_cardDate = new System.Windows.Forms.Label();
             this.lbL_client_FIO = new System.Windows.Forms.Label();
-            this.picB_visa = new System.Windows.Forms.PictureBox();
-            this.picB_masterCard = new System.Windows.Forms.PictureBox();
             this.lbL_cardCvv = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.lbL_balanceCard = new System.Windows.Forms.Label();
             this.lbl_currency = new System.Windows.Forms.Label();
-            this.btn_udpate = new System.Windows.Forms.Button();
             this.panel_MoneyTransferCard = new System.Windows.Forms.Panel();
             this.btn_MoneyTransferCard = new System.Windows.Forms.Button();
             this.txB_NumberTransferCardMoney = new System.Windows.Forms.TextBox();
@@ -72,12 +68,21 @@
             this.btn_communalPayments = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.panel_InternetTV = new System.Windows.Forms.Panel();
+            this.btn_internetTV = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.panel_help_children = new System.Windows.Forms.Panel();
+            this.btn_Children = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.btn_udpate = new System.Windows.Forms.Button();
+            this.picB_masterCard = new System.Windows.Forms.PictureBox();
+            this.picB_visa = new System.Windows.Forms.PictureBox();
+            this.picB_bancCard = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lbL_HistoryTransactions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picB_user)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picB_bancCard)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picB_visa)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picB_masterCard)).BeginInit();
             this.panel_MoneyTransferCard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -85,6 +90,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel_communalPayments.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.panel_InternetTV.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.panel_help_children.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picB_masterCard)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picB_visa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picB_bancCard)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -236,18 +248,6 @@
             this.cmb_card.TabIndex = 19;
             this.cmb_card.SelectionChangeCommitted += new System.EventHandler(this.Cmb_card_SelectionChangeCommitted);
             // 
-            // picB_bancCard
-            // 
-            this.picB_bancCard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.picB_bancCard.BackColor = System.Drawing.Color.Transparent;
-            this.picB_bancCard.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picB_bancCard.BackgroundImage")));
-            this.picB_bancCard.Location = new System.Drawing.Point(154, 117);
-            this.picB_bancCard.Name = "picB_bancCard";
-            this.picB_bancCard.Size = new System.Drawing.Size(404, 225);
-            this.picB_bancCard.TabIndex = 20;
-            this.picB_bancCard.TabStop = false;
-            // 
             // lbL_card_number
             // 
             this.lbL_card_number.AutoSize = true;
@@ -320,30 +320,6 @@
             this.lbL_client_FIO.TabIndex = 25;
             this.lbL_client_FIO.Text = "Иванов Иван Иванович";
             // 
-            // picB_visa
-            // 
-            this.picB_visa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.picB_visa.BackColor = System.Drawing.Color.DimGray;
-            this.picB_visa.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picB_visa.BackgroundImage")));
-            this.picB_visa.Location = new System.Drawing.Point(484, 282);
-            this.picB_visa.Name = "picB_visa";
-            this.picB_visa.Size = new System.Drawing.Size(50, 50);
-            this.picB_visa.TabIndex = 26;
-            this.picB_visa.TabStop = false;
-            // 
-            // picB_masterCard
-            // 
-            this.picB_masterCard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.picB_masterCard.BackColor = System.Drawing.Color.DimGray;
-            this.picB_masterCard.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picB_masterCard.BackgroundImage")));
-            this.picB_masterCard.Location = new System.Drawing.Point(486, 282);
-            this.picB_masterCard.Name = "picB_masterCard";
-            this.picB_masterCard.Size = new System.Drawing.Size(50, 50);
-            this.picB_masterCard.TabIndex = 27;
-            this.picB_masterCard.TabStop = false;
-            // 
             // lbL_cardCvv
             // 
             this.lbL_cardCvv.AutoSize = true;
@@ -392,20 +368,6 @@
             this.lbl_currency.Size = new System.Drawing.Size(27, 13);
             this.lbl_currency.TabIndex = 31;
             this.lbl_currency.Text = "RUB";
-            // 
-            // btn_udpate
-            // 
-            this.btn_udpate.BackColor = System.Drawing.Color.Transparent;
-            this.btn_udpate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_udpate.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_udpate.ForeColor = System.Drawing.Color.Gray;
-            this.btn_udpate.Image = ((System.Drawing.Image)(resources.GetObject("btn_udpate.Image")));
-            this.btn_udpate.Location = new System.Drawing.Point(667, 52);
-            this.btn_udpate.Name = "btn_udpate";
-            this.btn_udpate.Size = new System.Drawing.Size(43, 41);
-            this.btn_udpate.TabIndex = 7;
-            this.btn_udpate.UseVisualStyleBackColor = false;
-            this.btn_udpate.Click += new System.EventHandler(this.Btn_udpate_Click);
             // 
             // panel_MoneyTransferCard
             // 
@@ -465,7 +427,7 @@
             this.label9.BackColor = System.Drawing.Color.DimGray;
             this.label9.Font = new System.Drawing.Font("Tahoma", 13F);
             this.label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label9.Location = new System.Drawing.Point(42, 9);
+            this.label9.Location = new System.Drawing.Point(49, 9);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(155, 22);
             this.label9.TabIndex = 34;
@@ -477,7 +439,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackColor = System.Drawing.Color.DimGray;
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(10, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(32, 32);
             this.pictureBox1.TabIndex = 34;
@@ -602,7 +564,7 @@
             this.label14.BackColor = System.Drawing.Color.DimGray;
             this.label14.Font = new System.Drawing.Font("Tahoma", 13F);
             this.label14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label14.Location = new System.Drawing.Point(42, 23);
+            this.label14.Location = new System.Drawing.Point(49, 23);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(208, 22);
             this.label14.TabIndex = 34;
@@ -614,11 +576,159 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox4.BackColor = System.Drawing.Color.DimGray;
             this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
-            this.pictureBox4.Location = new System.Drawing.Point(3, 17);
+            this.pictureBox4.Location = new System.Drawing.Point(10, 17);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(32, 32);
             this.pictureBox4.TabIndex = 34;
             this.pictureBox4.TabStop = false;
+            // 
+            // panel_InternetTV
+            // 
+            this.panel_InternetTV.BackColor = System.Drawing.Color.DimGray;
+            this.panel_InternetTV.Controls.Add(this.btn_internetTV);
+            this.panel_InternetTV.Controls.Add(this.label13);
+            this.panel_InternetTV.Controls.Add(this.pictureBox5);
+            this.panel_InternetTV.Location = new System.Drawing.Point(378, 490);
+            this.panel_InternetTV.Name = "panel_InternetTV";
+            this.panel_InternetTV.Size = new System.Drawing.Size(324, 72);
+            this.panel_InternetTV.TabIndex = 42;
+            // 
+            // btn_internetTV
+            // 
+            this.btn_internetTV.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_internetTV.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_internetTV.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_internetTV.ForeColor = System.Drawing.Color.Black;
+            this.btn_internetTV.Location = new System.Drawing.Point(282, 19);
+            this.btn_internetTV.Name = "btn_internetTV";
+            this.btn_internetTV.Size = new System.Drawing.Size(30, 30);
+            this.btn_internetTV.TabIndex = 7;
+            this.btn_internetTV.Text = ">";
+            this.btn_internetTV.UseVisualStyleBackColor = false;
+            this.btn_internetTV.Click += new System.EventHandler(this.Btn_internetTV_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.DimGray;
+            this.label13.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.label13.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label13.Location = new System.Drawing.Point(50, 23);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(130, 22);
+            this.label13.TabIndex = 34;
+            this.label13.Text = "Интернет и ТВ";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox5.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
+            this.pictureBox5.Location = new System.Drawing.Point(11, 17);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox5.TabIndex = 34;
+            this.pictureBox5.TabStop = false;
+            // 
+            // panel_help_children
+            // 
+            this.panel_help_children.BackColor = System.Drawing.Color.DimGray;
+            this.panel_help_children.Controls.Add(this.btn_Children);
+            this.panel_help_children.Controls.Add(this.label15);
+            this.panel_help_children.Controls.Add(this.pictureBox6);
+            this.panel_help_children.Location = new System.Drawing.Point(12, 579);
+            this.panel_help_children.Name = "panel_help_children";
+            this.panel_help_children.Size = new System.Drawing.Size(324, 72);
+            this.panel_help_children.TabIndex = 42;
+            // 
+            // btn_Children
+            // 
+            this.btn_Children.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_Children.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_Children.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_Children.ForeColor = System.Drawing.Color.Black;
+            this.btn_Children.Location = new System.Drawing.Point(282, 19);
+            this.btn_Children.Name = "btn_Children";
+            this.btn_Children.Size = new System.Drawing.Size(30, 30);
+            this.btn_Children.TabIndex = 7;
+            this.btn_Children.Text = ">";
+            this.btn_Children.UseVisualStyleBackColor = false;
+            this.btn_Children.Click += new System.EventHandler(this.Btn_Children_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.DimGray;
+            this.label15.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.label15.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label15.Location = new System.Drawing.Point(49, 19);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(185, 22);
+            this.label15.TabIndex = 34;
+            this.label15.Text = "Благотворительность";
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox6.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.BackgroundImage")));
+            this.pictureBox6.Location = new System.Drawing.Point(10, 17);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(32, 30);
+            this.pictureBox6.TabIndex = 34;
+            this.pictureBox6.TabStop = false;
+            // 
+            // btn_udpate
+            // 
+            this.btn_udpate.BackColor = System.Drawing.Color.Transparent;
+            this.btn_udpate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_udpate.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_udpate.ForeColor = System.Drawing.Color.Gray;
+            this.btn_udpate.Image = ((System.Drawing.Image)(resources.GetObject("btn_udpate.Image")));
+            this.btn_udpate.Location = new System.Drawing.Point(667, 52);
+            this.btn_udpate.Name = "btn_udpate";
+            this.btn_udpate.Size = new System.Drawing.Size(43, 41);
+            this.btn_udpate.TabIndex = 7;
+            this.btn_udpate.UseVisualStyleBackColor = false;
+            this.btn_udpate.Click += new System.EventHandler(this.Btn_udpate_Click);
+            // 
+            // picB_masterCard
+            // 
+            this.picB_masterCard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.picB_masterCard.BackColor = System.Drawing.Color.DimGray;
+            this.picB_masterCard.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picB_masterCard.BackgroundImage")));
+            this.picB_masterCard.Location = new System.Drawing.Point(486, 282);
+            this.picB_masterCard.Name = "picB_masterCard";
+            this.picB_masterCard.Size = new System.Drawing.Size(50, 50);
+            this.picB_masterCard.TabIndex = 27;
+            this.picB_masterCard.TabStop = false;
+            // 
+            // picB_visa
+            // 
+            this.picB_visa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.picB_visa.BackColor = System.Drawing.Color.DimGray;
+            this.picB_visa.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picB_visa.BackgroundImage")));
+            this.picB_visa.Location = new System.Drawing.Point(484, 282);
+            this.picB_visa.Name = "picB_visa";
+            this.picB_visa.Size = new System.Drawing.Size(50, 50);
+            this.picB_visa.TabIndex = 26;
+            this.picB_visa.TabStop = false;
+            // 
+            // picB_bancCard
+            // 
+            this.picB_bancCard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.picB_bancCard.BackColor = System.Drawing.Color.Transparent;
+            this.picB_bancCard.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picB_bancCard.BackgroundImage")));
+            this.picB_bancCard.Location = new System.Drawing.Point(154, 117);
+            this.picB_bancCard.Name = "picB_bancCard";
+            this.picB_bancCard.Size = new System.Drawing.Size(404, 225);
+            this.picB_bancCard.TabIndex = 20;
+            this.picB_bancCard.TabStop = false;
             // 
             // MainForm
             // 
@@ -626,6 +736,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(722, 716);
+            this.Controls.Add(this.panel_help_children);
+            this.Controls.Add(this.panel_InternetTV);
             this.Controls.Add(this.panel_communalPayments);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel_MoneyTransferCard);
@@ -658,9 +770,6 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lbL_HistoryTransactions)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picB_user)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picB_bancCard)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picB_visa)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picB_masterCard)).EndInit();
             this.panel_MoneyTransferCard.ResumeLayout(false);
             this.panel_MoneyTransferCard.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -671,6 +780,15 @@
             this.panel_communalPayments.ResumeLayout(false);
             this.panel_communalPayments.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.panel_InternetTV.ResumeLayout(false);
+            this.panel_InternetTV.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.panel_help_children.ResumeLayout(false);
+            this.panel_help_children.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picB_masterCard)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picB_visa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picB_bancCard)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -721,5 +839,13 @@
         private System.Windows.Forms.Button btn_communalPayments;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Panel panel_InternetTV;
+        private System.Windows.Forms.Button btn_internetTV;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Panel panel_help_children;
+        private System.Windows.Forms.Button btn_Children;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.PictureBox pictureBox6;
     }
 }

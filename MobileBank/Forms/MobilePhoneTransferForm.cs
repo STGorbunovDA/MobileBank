@@ -109,7 +109,7 @@ namespace MobileBank.Forms
                     if (Convert.ToDouble(txB_sum.Text) > 0.99)
                     {
                         var reg2 = new Regex(",");
-                        double dolar = Convert.ToDouble(reg2.Replace(DataStorage.dolar.ToString(), "."));
+                        double dolar = Convert.ToDouble(reg2.Replace(DataStorage.dollar.ToString(), "."));
                         lbL_commissionTransferPhone.Text = (((Convert.ToDouble(txB_sum.Text) * dolar) / 100 * DataStorage.commissionPhoneTransfer) / dolar).ToString();
                         lbL_paymentTransferPhone.Text = (Convert.ToDouble(lbL_commissionTransferPhone.Text) + Convert.ToDouble(txB_sum.Text)).ToString();
                     }
@@ -282,7 +282,7 @@ namespace MobileBank.Forms
 
 
                         var reg2 = new Regex(",");
-                        double dolar = Convert.ToDouble(reg2.Replace(DataStorage.dolar.ToString(), "."));
+                        double dolar = Convert.ToDouble(reg2.Replace(DataStorage.dollar.ToString(), "."));
                         double euro = Convert.ToDouble(reg2.Replace(DataStorage.euro.ToString(), "."));
 
                         var reg3 = new Regex(" ");
@@ -298,6 +298,22 @@ namespace MobileBank.Forms
                         {
                             if (InternetСheck.CheackSkyNET())
                             {
+                                #region для пополнения в рублях
+                                //var replenishmentRUB = "";
+                                //if (cardCurrencyUser == "RUB")
+                                //{
+                                //    replenishmentRUB = totalSum;
+                                //}
+                                //if(cardCurrencyUser == "USD")
+                                //{
+                                //    replenishmentRUB = (Convert.ToDouble(totalSum) * Convert.ToDouble(dollar)).ToString();
+                                //}
+                                //if (cardCurrencyUser == "EUR")
+                                //{
+                                //    replenishmentRUB = (Convert.ToDouble(totalSum) * Convert.ToDouble(euro)).ToString();
+                                //}
+                                #endregion
+
                                 DateTime transactionDate = DateTime.Now;
                                 var transactionDateMobile = transactionDate.ToString("yyyy-MM-dd HH:mm:ss");
                                 var transactionNumber = "M";
@@ -306,7 +322,7 @@ namespace MobileBank.Forms
                                 {
                                     transactionNumber += Convert.ToString(rand.Next(0, 10));
                                 }
-                                var queryTransaction1 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance = '{totalSum}' WHERE bank_card_number = '{card_numberUser}'";
+                                var queryTransaction1 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance - '{totalSum}' WHERE bank_card_number = '{card_numberUser}'";
                                 var queryTransaction2 = $"INSERT INTO transactions (transaction_type, transaction_destination, transaction_date, " +
                                     $"transaction_number, transaction_money, transaction_currency, id_bank_card) VALUES ('Пополнение мобильного', " +
                                     $"'{txB_transferMobilePhone.Text}', '{transactionDateMobile}', '{card_numberUser}', '{totalSum}', " +
@@ -353,6 +369,11 @@ namespace MobileBank.Forms
                                     }
                                 }
                             }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Вы ввели неверный CVV-код более трёх раз", caption, btn, ico);
+                            this.Close();
                         }
 
                     }

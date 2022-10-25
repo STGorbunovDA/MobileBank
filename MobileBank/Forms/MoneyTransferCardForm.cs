@@ -299,7 +299,7 @@ namespace MobileBank.Forms
 
 
                     var reg2 = new Regex(",");
-                    double dolar = Convert.ToDouble(reg2.Replace(DataStorage.dolar.ToString(), "."));
+                    double dolar = Convert.ToDouble(reg2.Replace(DataStorage.dollar.ToString(), "."));
                     double euro = Convert.ToDouble(reg2.Replace(DataStorage.euro.ToString(), "."));
 
                     //var cardCVVUser = txB_cardCvv.Text;
@@ -436,10 +436,6 @@ namespace MobileBank.Forms
                                 return;
                             }
                         }
-
-                        //в самом конце
-
-                        txB_sum.Text = "0";
                     }
                     else
                     {

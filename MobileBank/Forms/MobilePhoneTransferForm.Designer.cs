@@ -313,6 +313,7 @@
             this.txB_cardDate.Location = new System.Drawing.Point(18, 122);
             this.txB_cardDate.MaxLength = 5;
             this.txB_cardDate.Name = "txB_cardDate";
+            this.txB_cardDate.ReadOnly = true;
             this.txB_cardDate.Size = new System.Drawing.Size(50, 23);
             this.txB_cardDate.TabIndex = 43;
             this.txB_cardDate.Text = "07/26";
