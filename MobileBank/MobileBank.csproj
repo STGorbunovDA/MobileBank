@@ -125,11 +125,17 @@
     <Compile Include="Forms\CommunalPayments.Designer.cs">
       <DependentUpon>CommunalPayments.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\HelpChildren.cs">
+    <Compile Include="Forms\CreditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\HelpChildren.Designer.cs">
-      <DependentUpon>HelpChildren.cs</DependentUpon>
+    <Compile Include="Forms\CreditForm.Designer.cs">
+      <DependentUpon>CreditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\HelpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HelpForm.Designer.cs">
+      <DependentUpon>HelpForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\HistoryTransactions.cs">
       <SubType>Form</SubType>
@@ -202,8 +208,11 @@
     <EmbeddedResource Include="Forms\CommunalPayments.resx">
       <DependentUpon>CommunalPayments.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\HelpChildren.resx">
-      <DependentUpon>HelpChildren.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\CreditForm.resx">
+      <DependentUpon>CreditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HelpForm.resx">
+      <DependentUpon>HelpForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\HistoryTransactions.resx">
       <DependentUpon>HistoryTransactions.cs</DependentUpon>

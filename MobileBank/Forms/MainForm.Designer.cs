@@ -80,6 +80,10 @@
             this.picB_masterCard = new System.Windows.Forms.PictureBox();
             this.picB_visa = new System.Windows.Forms.PictureBox();
             this.picB_bancCard = new System.Windows.Forms.PictureBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btn_credit = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lbL_HistoryTransactions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picB_user)).BeginInit();
@@ -97,6 +101,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picB_masterCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picB_visa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picB_bancCard)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -654,7 +660,7 @@
             this.btn_Children.TabIndex = 7;
             this.btn_Children.Text = ">";
             this.btn_Children.UseVisualStyleBackColor = false;
-            this.btn_Children.Click += new System.EventHandler(this.Btn_Children_Click);
+            this.btn_Children.Click += new System.EventHandler(this.Btn_HelpForm_Click);
             // 
             // label15
             // 
@@ -730,12 +736,62 @@
             this.picB_bancCard.TabIndex = 20;
             this.picB_bancCard.TabStop = false;
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.DimGray;
+            this.panel3.Controls.Add(this.btn_credit);
+            this.panel3.Controls.Add(this.label16);
+            this.panel3.Controls.Add(this.pictureBox7);
+            this.panel3.Location = new System.Drawing.Point(378, 579);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(324, 72);
+            this.panel3.TabIndex = 43;
+            // 
+            // btn_credit
+            // 
+            this.btn_credit.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_credit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_credit.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_credit.ForeColor = System.Drawing.Color.Black;
+            this.btn_credit.Location = new System.Drawing.Point(282, 19);
+            this.btn_credit.Name = "btn_credit";
+            this.btn_credit.Size = new System.Drawing.Size(30, 30);
+            this.btn_credit.TabIndex = 7;
+            this.btn_credit.Text = ">";
+            this.btn_credit.UseVisualStyleBackColor = false;
+            this.btn_credit.Click += new System.EventHandler(this.Btn_credit_Click);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.DimGray;
+            this.label16.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.label16.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label16.Location = new System.Drawing.Point(49, 19);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(68, 22);
+            this.label16.TabIndex = 34;
+            this.label16.Text = "Кредит";
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox7.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBox7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox7.BackgroundImage")));
+            this.pictureBox7.Location = new System.Drawing.Point(10, 17);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox7.TabIndex = 34;
+            this.pictureBox7.TabStop = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(722, 716);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel_help_children);
             this.Controls.Add(this.panel_InternetTV);
             this.Controls.Add(this.panel_communalPayments);
@@ -789,6 +845,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.picB_masterCard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picB_visa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picB_bancCard)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -847,5 +906,9 @@
         private System.Windows.Forms.Button btn_Children;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button btn_credit;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.PictureBox pictureBox7;
     }
 }

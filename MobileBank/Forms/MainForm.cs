@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using MobileBank.Classes;
+using MySql.Data.MySqlClient;
 
 namespace MobileBank.Forms
 {
@@ -341,9 +342,9 @@ namespace MobileBank.Forms
             }
         }
 
-        void Btn_Children_Click(object sender, EventArgs e)
+        void Btn_HelpForm_Click(object sender, EventArgs e)
         {
-            HelpChildren helpChildren = new HelpChildren();
+            HelpForm helpForm = new HelpForm();
             if (Application.OpenForms["HelpChildren"] == null)
             {
                 DataStorage.cardNumberUser = cmb_card.GetItemText(cmb_card.SelectedItem);
@@ -352,10 +353,42 @@ namespace MobileBank.Forms
                 DataStorage.balanceCard = lbL_balanceCard.Text.Trim();
                 DataStorage.dollar = lbL_сourse_dollar.Text.Trim();
                 DataStorage.euro = lbL_сourse_euro.Text.Trim();
-                helpChildren.ShowDialog();
+                helpForm.ShowDialog();
                 Btn_udpate_Click(sender, e);
             }
+        }
 
+        void Btn_credit_Click(object sender, EventArgs e)
+        {
+            DataStorage.cardNumberUser = cmb_card.GetItemText(cmb_card.SelectedItem);
+            var cardCurrency = "";
+            var queryCurrency = $"SELECT bank_card_currency FROM bank_card WHERE bank_card_number = '{DataStorage.cardNumberUser}'";
+
+            using (MySqlCommand command = new MySqlCommand(queryCurrency, DataBaseConnection.GetInstance.GetConnection()))
+            {
+                DataBaseConnection.GetInstance.OpenConnection();
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        cardCurrency = reader[0].ToString();
+                    }
+                    reader.Close();
+                }
+            }
+            if (cardCurrency == "RUB")
+            {
+                CreditForm creditForm = new CreditForm();
+                if (Application.OpenForms["CreditForm"] == null)
+                {
+                    creditForm.ShowDialog();
+                    Btn_udpate_Click(sender, e);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Операции с кредитом можно осуществить только в рублях", "Отказ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }
