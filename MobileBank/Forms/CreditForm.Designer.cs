@@ -34,17 +34,17 @@
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.lbL_enterNumberPhone = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbL_dateRegistration = new System.Windows.Forms.Label();
+            this.lbL_sum = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lbL_totalSum = new System.Windows.Forms.Label();
             this.lbl_currency = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lbL_repaymentDate = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lbL_repaymentSum = new System.Windows.Forms.Label();
             this.panel_arrangeCredit = new System.Windows.Forms.Panel();
             this.btn_TransferHelpChildrenPayments = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
@@ -129,27 +129,27 @@
             this.label4.TabIndex = 41;
             this.label4.Text = "Дата оформления:";
             // 
-            // label2
+            // lbL_dateRegistration
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(152, 12);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 16);
-            this.label2.TabIndex = 42;
-            this.label2.Text = "date";
+            this.lbL_dateRegistration.AutoSize = true;
+            this.lbL_dateRegistration.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbL_dateRegistration.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbL_dateRegistration.Location = new System.Drawing.Point(152, 12);
+            this.lbL_dateRegistration.Name = "lbL_dateRegistration";
+            this.lbL_dateRegistration.Size = new System.Drawing.Size(37, 16);
+            this.lbL_dateRegistration.TabIndex = 42;
+            this.lbL_dateRegistration.Text = "date";
             // 
-            // label3
+            // lbL_sum
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(32, 82);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 16);
-            this.label3.TabIndex = 45;
-            this.label3.Text = "100000";
+            this.lbL_sum.AutoSize = true;
+            this.lbL_sum.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbL_sum.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbL_sum.Location = new System.Drawing.Point(32, 82);
+            this.lbL_sum.Name = "lbL_sum";
+            this.lbL_sum.Size = new System.Drawing.Size(55, 16);
+            this.lbL_sum.TabIndex = 45;
+            this.lbL_sum.Text = "100000";
             // 
             // label5
             // 
@@ -184,16 +184,16 @@
             this.label7.TabIndex = 46;
             this.label7.Text = "\\";
             // 
-            // label8
+            // lbL_totalSum
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label8.Location = new System.Drawing.Point(113, 81);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(55, 16);
-            this.label8.TabIndex = 47;
-            this.label8.Text = "100000";
+            this.lbL_totalSum.AutoSize = true;
+            this.lbL_totalSum.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbL_totalSum.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbL_totalSum.Location = new System.Drawing.Point(113, 81);
+            this.lbL_totalSum.Name = "lbL_totalSum";
+            this.lbL_totalSum.Size = new System.Drawing.Size(55, 16);
+            this.lbL_totalSum.TabIndex = 47;
+            this.lbL_totalSum.Text = "100000";
             // 
             // lbl_currency
             // 
@@ -218,16 +218,16 @@
             this.label1.TabIndex = 49;
             this.label1.Text = "Следущая оплата:";
             // 
-            // label9
+            // lbL_repaymentDate
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label9.Location = new System.Drawing.Point(150, 126);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(37, 16);
-            this.label9.TabIndex = 50;
-            this.label9.Text = "date";
+            this.lbL_repaymentDate.AutoSize = true;
+            this.lbL_repaymentDate.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbL_repaymentDate.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbL_repaymentDate.Location = new System.Drawing.Point(150, 126);
+            this.lbL_repaymentDate.Name = "lbL_repaymentDate";
+            this.lbL_repaymentDate.Size = new System.Drawing.Size(37, 16);
+            this.lbL_repaymentDate.TabIndex = 50;
+            this.lbL_repaymentDate.Text = "date";
             // 
             // label10
             // 
@@ -240,16 +240,16 @@
             this.label10.TabIndex = 51;
             this.label10.Text = "К оплате:";
             // 
-            // label11
+            // lbL_repaymentSum
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label11.Location = new System.Drawing.Point(100, 157);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(37, 16);
-            this.label11.TabIndex = 52;
-            this.label11.Text = "date";
+            this.lbL_repaymentSum.AutoSize = true;
+            this.lbL_repaymentSum.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbL_repaymentSum.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbL_repaymentSum.Location = new System.Drawing.Point(100, 157);
+            this.lbL_repaymentSum.Name = "lbL_repaymentSum";
+            this.lbL_repaymentSum.Size = new System.Drawing.Size(15, 16);
+            this.lbL_repaymentSum.TabIndex = 52;
+            this.lbL_repaymentSum.Text = "0";
             // 
             // panel_arrangeCredit
             // 
@@ -257,15 +257,15 @@
             this.panel_arrangeCredit.Controls.Add(this.label4);
             this.panel_arrangeCredit.Controls.Add(this.label10);
             this.panel_arrangeCredit.Controls.Add(this.lbL_enterNumberPhone);
-            this.panel_arrangeCredit.Controls.Add(this.label11);
-            this.panel_arrangeCredit.Controls.Add(this.label2);
+            this.panel_arrangeCredit.Controls.Add(this.lbL_repaymentSum);
+            this.panel_arrangeCredit.Controls.Add(this.lbL_dateRegistration);
             this.panel_arrangeCredit.Controls.Add(this.label1);
             this.panel_arrangeCredit.Controls.Add(this.label6);
-            this.panel_arrangeCredit.Controls.Add(this.label9);
+            this.panel_arrangeCredit.Controls.Add(this.lbL_repaymentDate);
             this.panel_arrangeCredit.Controls.Add(this.label5);
             this.panel_arrangeCredit.Controls.Add(this.lbl_currency);
-            this.panel_arrangeCredit.Controls.Add(this.label3);
-            this.panel_arrangeCredit.Controls.Add(this.label8);
+            this.panel_arrangeCredit.Controls.Add(this.lbL_sum);
+            this.panel_arrangeCredit.Controls.Add(this.lbL_totalSum);
             this.panel_arrangeCredit.Controls.Add(this.label7);
             this.panel_arrangeCredit.Location = new System.Drawing.Point(15, 57);
             this.panel_arrangeCredit.Name = "panel_arrangeCredit";
@@ -457,7 +457,7 @@
             this.panel_arrangeCredit_2.Controls.Add(this.lbL_sumCredit);
             this.panel_arrangeCredit_2.Controls.Add(this.label14);
             this.panel_arrangeCredit_2.Controls.Add(this.panel2);
-            this.panel_arrangeCredit_2.Location = new System.Drawing.Point(12, 53);
+            this.panel_arrangeCredit_2.Location = new System.Drawing.Point(0, 0);
             this.panel_arrangeCredit_2.Name = "panel_arrangeCredit_2";
             this.panel_arrangeCredit_2.Size = new System.Drawing.Size(520, 195);
             this.panel_arrangeCredit_2.TabIndex = 87;
@@ -468,10 +468,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.ClientSize = new System.Drawing.Size(545, 242);
-            this.Controls.Add(this.panel_arrangeCredit);
-            this.Controls.Add(this.panel_arrangeCredit_2);
-            this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.btn_close);
+            this.Controls.Add(this.panel_arrangeCredit_2);
+            this.Controls.Add(this.panel_arrangeCredit);
+            this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.btn_TransferHelpChildrenPayments);
             this.Controls.Add(this.label16);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -499,18 +499,18 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Label lbL_enterNumberPhone;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbL_dateRegistration;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lbL_totalSum;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbL_sum;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lbl_currency;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lbL_repaymentDate;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lbL_repaymentSum;
         private System.Windows.Forms.Panel panel_arrangeCredit;
         private System.Windows.Forms.Button btn_TransferHelpChildrenPayments;
         private System.Windows.Forms.Label label12;

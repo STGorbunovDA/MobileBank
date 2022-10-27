@@ -66,7 +66,7 @@ namespace MobileBank.Forms
 
                 var totalSum = "";
                 var sum = "";
-                DateTime dateTime = new DateTime();
+                DateTime dateRegistration = new DateTime();
                 var idCredit = "";
 
                 double creditTotalSumToCheack = 0;
@@ -88,7 +88,7 @@ namespace MobileBank.Forms
                     }
                     DataBaseConnection.GetInstance.CloseConnection();
                 }
-
+                
                 if (creditTotalSumToCheack == 0)
                 {
                     this.Width = 545;
@@ -109,17 +109,67 @@ namespace MobileBank.Forms
                     btn_close.Location = new Point(347, 10);
                     pictureBox7.Size = new Size(32, 32);
                     pictureBox7.Location = new Point(12, 10);
-                }
 
-                if (creditSumToCheack >= creditTotalSumToCheack)
-                {
-                    var queryDeleteCredits = $"DELETE FROM credits WHERE id_bank_card = (SELECT id_bank_card FROM bank_card WHERE bank_card_number = '{DataStorage.cardNumberUser}')";
-
-                    using (MySqlCommand command = new MySqlCommand(queryDeleteCredits, DataBaseConnection.GetInstance.GetConnection()))
+                    if (creditSumToCheack >= creditTotalSumToCheack)
                     {
-                        command.ExecuteNonQuery();
+                        var queryDeleteCredits = $"DELETE FROM credits WHERE id_bank_card = (SELECT id_bank_card FROM bank_card WHERE bank_card_number = '{DataStorage.cardNumberUser}')";
+
+                        using (MySqlCommand command = new MySqlCommand(queryDeleteCredits, DataBaseConnection.GetInstance.GetConnection()))
+                        {
+                            command.ExecuteNonQuery();
+                        }
                     }
+                    var querySelectIdCard = $"SELECT credits.id_bank_card, credits.credit_total_sum, credits.credit_sum, credits.credit_date, " +
+                        $"credits.id_credit FROM credits INNER JOIN bank_card on credits.id_bank_card = bank_card.id_bank_card WHERE " +
+                        $"bank_card.bank_card_number = '{DataStorage.cardNumberUser}')";
+
+                    using (MySqlCommand command = new MySqlCommand(querySelectIdCard, DataBaseConnection.GetInstance.GetConnection()))
+                    {
+                        DataBaseConnection.GetInstance.OpenConnection();
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                totalSum = reader[1].ToString();
+                                sum = reader[2].ToString();
+                                dateRegistration = Convert.ToDateTime(reader[3].ToString());
+                                idCredit = reader[4].ToString();
+
+                            }
+                            reader.Close();
+                        }
+                        DataBaseConnection.GetInstance.CloseConnection();
+                    }
+
+                    lbL_sum.Text = Math.Round(Convert.ToDouble(sum), 2).ToString();
+                    lbL_totalSum.Text = Math.Round(Convert.ToDouble(totalSum), 2).ToString();
+                    lbL_dateRegistration.Text = dateRegistration.ToShortDateString();
+
+                    double toPaySum = 0;
+
+                    DateTime repaymentDate = new DateTime();
+                    var querySelectRepayment = $"SELECT repayment_date, repayment_sum FROM credits WHERE id_credit = '{idCredit}'";
+
+                    using (MySqlCommand command = new MySqlCommand(querySelectRepayment, DataBaseConnection.GetInstance.GetConnection()))
+                    {
+                        DataBaseConnection.GetInstance.OpenConnection();
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                repaymentDate = Convert.ToDateTime(reader[0].ToString());
+                                toPaySum = Convert.ToDouble(reader[1].ToString());
+                            }
+                            reader.Close();
+                        }
+                        DataBaseConnection.GetInstance.CloseConnection();
+                    }
+                    lbL_repaymentSum.Text = Math.Round(toPaySum, 2).ToString();
+                    lbL_repaymentDate.Text = repaymentDate.ToShortDateString();
+
+
                 }
+
             }
             catch (Exception)
             {
