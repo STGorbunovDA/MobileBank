@@ -179,5 +179,39 @@ namespace MobileBank.Forms
             
 
         }
+
+        void TrB_sumCredit_ValueChanged(object sender, EventArgs e)
+        {
+            txB_sumCredit.Text = trB_sumCredit.Value.ToString();
+        }
+
+        void TxB_sumCredit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= '0' && e.KeyChar <= '9') || e.KeyChar == (char)Keys.Back)
+            {
+
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        void TxB_monthsCredit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= '0' && e.KeyChar <= '9') || e.KeyChar == (char)Keys.Back)
+            {
+
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        void TrB_monthsCredit_ValueChanged(object sender, EventArgs e)
+        {
+            txB_monthsCredit.Text = trB_monthsCredit.Value.ToString();
+        }
     }
 }

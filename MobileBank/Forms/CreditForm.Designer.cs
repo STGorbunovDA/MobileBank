@@ -291,7 +291,7 @@
             this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.label12.Font = new System.Drawing.Font("Tahoma", 10F);
             this.label12.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label12.Location = new System.Drawing.Point(34, 31);
+            this.label12.Location = new System.Drawing.Point(49, 30);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(55, 17);
             this.label12.TabIndex = 73;
@@ -303,18 +303,25 @@
             this.txB_sumCredit.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txB_sumCredit.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.txB_sumCredit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txB_sumCredit.Location = new System.Drawing.Point(95, 27);
+            this.txB_sumCredit.Location = new System.Drawing.Point(110, 26);
             this.txB_sumCredit.MaxLength = 12;
             this.txB_sumCredit.Name = "txB_sumCredit";
             this.txB_sumCredit.Size = new System.Drawing.Size(165, 26);
             this.txB_sumCredit.TabIndex = 74;
+            this.txB_sumCredit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxB_sumCredit_KeyPress);
             // 
             // trB_sumCredit
             // 
-            this.trB_sumCredit.Location = new System.Drawing.Point(95, 60);
+            this.trB_sumCredit.LargeChange = 10000;
+            this.trB_sumCredit.Location = new System.Drawing.Point(110, 59);
+            this.trB_sumCredit.Maximum = 1000000;
             this.trB_sumCredit.Name = "trB_sumCredit";
             this.trB_sumCredit.Size = new System.Drawing.Size(165, 45);
+            this.trB_sumCredit.SmallChange = 10000;
             this.trB_sumCredit.TabIndex = 75;
+            this.trB_sumCredit.TickFrequency = 10000;
+            this.trB_sumCredit.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.trB_sumCredit.ValueChanged += new System.EventHandler(this.TrB_sumCredit_ValueChanged);
             // 
             // label13
             // 
@@ -322,7 +329,7 @@
             this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.label13.Font = new System.Drawing.Font("Tahoma", 10F);
             this.label13.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label13.Location = new System.Drawing.Point(34, 110);
+            this.label13.Location = new System.Drawing.Point(47, 107);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(146, 17);
             this.label13.TabIndex = 76;
@@ -334,19 +341,27 @@
             this.txB_monthsCredit.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txB_monthsCredit.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.txB_monthsCredit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txB_monthsCredit.Location = new System.Drawing.Point(186, 106);
+            this.txB_monthsCredit.Location = new System.Drawing.Point(199, 103);
             this.txB_monthsCredit.MaxLength = 12;
             this.txB_monthsCredit.Name = "txB_monthsCredit";
             this.txB_monthsCredit.Size = new System.Drawing.Size(74, 26);
             this.txB_monthsCredit.TabIndex = 77;
+            this.txB_monthsCredit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxB_monthsCredit_KeyPress);
             // 
             // trB_monthsCredit
             // 
-            this.trB_monthsCredit.Location = new System.Drawing.Point(186, 140);
+            this.trB_monthsCredit.LargeChange = 6;
+            this.trB_monthsCredit.Location = new System.Drawing.Point(199, 137);
+            this.trB_monthsCredit.Maximum = 60;
+            this.trB_monthsCredit.Minimum = 3;
             this.trB_monthsCredit.Name = "trB_monthsCredit";
             this.trB_monthsCredit.Size = new System.Drawing.Size(74, 45);
+            this.trB_monthsCredit.SmallChange = 6;
             this.trB_monthsCredit.TabIndex = 78;
+            this.trB_monthsCredit.TickFrequency = 6;
             this.trB_monthsCredit.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.trB_monthsCredit.Value = 3;
+            this.trB_monthsCredit.ValueChanged += new System.EventHandler(this.TrB_monthsCredit_ValueChanged);
             // 
             // panel2
             // 
@@ -443,6 +458,8 @@
             // 
             // panel_arrangeCredit_2
             // 
+            this.panel_arrangeCredit_2.Controls.Add(this.label13);
+            this.panel_arrangeCredit_2.Controls.Add(this.txB_monthsCredit);
             this.panel_arrangeCredit_2.Controls.Add(this.label19);
             this.panel_arrangeCredit_2.Controls.Add(this.label20);
             this.panel_arrangeCredit_2.Controls.Add(this.btn_arrangeCredit);
@@ -451,8 +468,6 @@
             this.panel_arrangeCredit_2.Controls.Add(this.label12);
             this.panel_arrangeCredit_2.Controls.Add(this.txB_sumCredit);
             this.panel_arrangeCredit_2.Controls.Add(this.trB_sumCredit);
-            this.panel_arrangeCredit_2.Controls.Add(this.label13);
-            this.panel_arrangeCredit_2.Controls.Add(this.txB_monthsCredit);
             this.panel_arrangeCredit_2.Controls.Add(this.trB_monthsCredit);
             this.panel_arrangeCredit_2.Controls.Add(this.lbL_sumCredit);
             this.panel_arrangeCredit_2.Controls.Add(this.label14);
