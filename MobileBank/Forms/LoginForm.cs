@@ -155,8 +155,9 @@ namespace MobileBank
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.ToString());
                 MessageBox.Show("Системная ошибка авторизации!");
             }
         }

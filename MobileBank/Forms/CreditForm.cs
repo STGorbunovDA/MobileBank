@@ -88,7 +88,7 @@ namespace MobileBank.Forms
                     }
                     DataBaseConnection.GetInstance.CloseConnection();
                 }
-                
+
                 if (creditTotalSumToCheack == 0)
                 {
                     this.Width = 545;
@@ -186,6 +186,10 @@ namespace MobileBank.Forms
             {
                 e.Handled = true;
             }
+            if (txB_sumCredit.Text != "0" && !String.IsNullOrEmpty(txB_sumCredit.Text) && !String.IsNullOrEmpty(txB_monthsCredit.Text)
+                && Convert.ToInt32(txB_sumCredit.Text) < 1000000)
+                trB_sumCredit.Value = Convert.ToInt32(txB_sumCredit.Text);
+            CalculatorCredit();
         }
 
         void TxB_monthsCredit_KeyPress(object sender, KeyPressEventArgs e)
@@ -198,37 +202,65 @@ namespace MobileBank.Forms
             {
                 e.Handled = true;
             }
+            if (txB_monthsCredit.Text != "0" && !String.IsNullOrEmpty(txB_sumCredit.Text) && !String.IsNullOrEmpty(txB_monthsCredit.Text)
+                && Convert.ToInt32(txB_monthsCredit.Text) < 60)
+                trB_monthsCredit.Value = Convert.ToInt32(txB_monthsCredit.Text);
+            CalculatorCredit();
         }
 
-        void calculatorCredit()
+        void CalculatorCredit()
         {
-            double mothlyRate = 0.01;
-            double sum = Convert.ToDouble(txB_sumCredit.Text);
-            int numberOfMonths = Convert.ToInt32(txB_monthsCredit.Text);
-            double result = sum * (mothlyRate + (mothlyRate / (Math.Pow(1 + mothlyRate, numberOfMonths) - 1)));
-            lbL_sumCredit.Text = Math.Round(result, 2).ToString();
+            try
+            {
+                if (txB_sumCredit.Text != "0" && !String.IsNullOrEmpty(txB_sumCredit.Text) && !String.IsNullOrEmpty(txB_monthsCredit.Text)
+                    && Convert.ToInt32(txB_monthsCredit.Text) < 60 && Convert.ToInt32(txB_sumCredit.Text) < 1000000)
+                {
+                    double mothlyRate = 0.01;
+                    double sum = Convert.ToDouble(txB_sumCredit.Text);
+                    int numberOfMonths = Convert.ToInt32(txB_monthsCredit.Text);
+                    double result = sum * (mothlyRate + (mothlyRate / (Math.Pow(1 + mothlyRate, numberOfMonths) - 1)));
+                    lbL_sumCredit.Text = Math.Round(result, 2).ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
 
         void TrB_sumCredit_Scroll(object sender, EventArgs e)
         {
-            txB_sumCredit.Text = trB_sumCredit.Value.ToString();
+            if (txB_sumCredit.Text != "0" && !String.IsNullOrEmpty(txB_sumCredit.Text) && !String.IsNullOrEmpty(txB_monthsCredit.Text)
+                && Convert.ToInt32(txB_sumCredit.Text) < 1000000)
+                txB_sumCredit.Text = trB_sumCredit.Value.ToString();
+            CalculatorCredit();
         }
 
         void TrB_monthsCredit_Scroll(object sender, EventArgs e)
         {
-            txB_monthsCredit.Text = trB_monthsCredit.Value.ToString();
+            if (txB_monthsCredit.Text != "0" && !String.IsNullOrEmpty(txB_sumCredit.Text) && !String.IsNullOrEmpty(txB_monthsCredit.Text)
+                && Convert.ToInt32(txB_monthsCredit.Text) < 60)
+                txB_monthsCredit.Text = trB_monthsCredit.Value.ToString();
+            CalculatorCredit();
         }
 
         void TxB_sumCredit_Click(object sender, EventArgs e)
         {
-            trB_sumCredit.Value = Convert.ToInt32(txB_sumCredit.Text);
-            calculatorCredit();
+            if (txB_sumCredit.Text != "0" && !String.IsNullOrEmpty(txB_sumCredit.Text) && !String.IsNullOrEmpty(txB_monthsCredit.Text)
+                && Convert.ToInt32(txB_sumCredit.Text) < 1000000)
+                trB_sumCredit.Value = Convert.ToInt32(txB_sumCredit.Text);
+            CalculatorCredit();
         }
 
         void TxB_monthsCredit_Click(object sender, EventArgs e)
         {
-            trB_monthsCredit.Value = Convert.ToInt32(txB_monthsCredit.Text);
+            if (txB_monthsCredit.Text != "0" && !String.IsNullOrEmpty(txB_sumCredit.Text) && !String.IsNullOrEmpty(txB_monthsCredit.Text)
+                && Convert.ToInt32(txB_monthsCredit.Text) < 60)
+                trB_monthsCredit.Value = Convert.ToInt32(txB_monthsCredit.Text);
+            CalculatorCredit();
         }
+
+
     }
 }
