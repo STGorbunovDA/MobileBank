@@ -238,6 +238,7 @@ namespace MobileBank.Forms
                                     DataBaseConnection.GetInstance.CloseConnection();
                                     this.Close();
                                 }
+                                else DataBaseConnection.GetInstance.CloseConnection();
                             }
                         }
                     }
