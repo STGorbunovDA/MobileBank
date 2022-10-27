@@ -45,14 +45,14 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel_arrangeCredit = new System.Windows.Forms.Panel();
             this.btn_TransferHelpChildrenPayments = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.txB_sumCredit = new System.Windows.Forms.TextBox();
             this.trB_sumCredit = new System.Windows.Forms.TrackBar();
             this.label13 = new System.Windows.Forms.Label();
             this.txB_monthsCredit = new System.Windows.Forms.TextBox();
-            this.tcB_monthsCredit = new System.Windows.Forms.TrackBar();
+            this.trB_monthsCredit = new System.Windows.Forms.TrackBar();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.lbL_sumCredit = new System.Windows.Forms.Label();
@@ -62,9 +62,9 @@
             this.label20 = new System.Windows.Forms.Label();
             this.btn_arrangeCredit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.panel_arrangeCredit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trB_sumCredit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tcB_monthsCredit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trB_monthsCredit)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_close
@@ -99,7 +99,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.pictureBox7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox7.BackgroundImage")));
-            this.pictureBox7.Location = new System.Drawing.Point(12, 8);
+            this.pictureBox7.Location = new System.Drawing.Point(12, 10);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(32, 32);
             this.pictureBox7.TabIndex = 36;
@@ -249,26 +249,26 @@
             this.label11.TabIndex = 52;
             this.label11.Text = "date";
             // 
-            // panel1
+            // panel_arrangeCredit
             // 
-            this.panel1.BackColor = System.Drawing.Color.Gray;
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.lbL_enterNumberPhone);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.lbl_currency);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Location = new System.Drawing.Point(208, 315);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(352, 184);
-            this.panel1.TabIndex = 53;
+            this.panel_arrangeCredit.BackColor = System.Drawing.Color.Gray;
+            this.panel_arrangeCredit.Controls.Add(this.label4);
+            this.panel_arrangeCredit.Controls.Add(this.label10);
+            this.panel_arrangeCredit.Controls.Add(this.lbL_enterNumberPhone);
+            this.panel_arrangeCredit.Controls.Add(this.label11);
+            this.panel_arrangeCredit.Controls.Add(this.label2);
+            this.panel_arrangeCredit.Controls.Add(this.label1);
+            this.panel_arrangeCredit.Controls.Add(this.label6);
+            this.panel_arrangeCredit.Controls.Add(this.label9);
+            this.panel_arrangeCredit.Controls.Add(this.label5);
+            this.panel_arrangeCredit.Controls.Add(this.lbl_currency);
+            this.panel_arrangeCredit.Controls.Add(this.label3);
+            this.panel_arrangeCredit.Controls.Add(this.label8);
+            this.panel_arrangeCredit.Controls.Add(this.label7);
+            this.panel_arrangeCredit.Location = new System.Drawing.Point(395, 254);
+            this.panel_arrangeCredit.Name = "panel_arrangeCredit";
+            this.panel_arrangeCredit.Size = new System.Drawing.Size(356, 184);
+            this.panel_arrangeCredit.TabIndex = 53;
             // 
             // btn_TransferHelpChildrenPayments
             // 
@@ -338,13 +338,13 @@
             this.txB_monthsCredit.Size = new System.Drawing.Size(74, 26);
             this.txB_monthsCredit.TabIndex = 77;
             // 
-            // tcB_monthsCredit
+            // trB_monthsCredit
             // 
-            this.tcB_monthsCredit.Location = new System.Drawing.Point(164, 170);
-            this.tcB_monthsCredit.Name = "tcB_monthsCredit";
-            this.tcB_monthsCredit.Size = new System.Drawing.Size(74, 45);
-            this.tcB_monthsCredit.TabIndex = 78;
-            this.tcB_monthsCredit.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.trB_monthsCredit.Location = new System.Drawing.Point(164, 170);
+            this.trB_monthsCredit.Name = "trB_monthsCredit";
+            this.trB_monthsCredit.Size = new System.Drawing.Size(74, 45);
+            this.trB_monthsCredit.TabIndex = 78;
+            this.trB_monthsCredit.TickStyle = System.Windows.Forms.TickStyle.None;
             // 
             // panel2
             // 
@@ -444,7 +444,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.ClientSize = new System.Drawing.Size(545, 372);
+            this.ClientSize = new System.Drawing.Size(545, 309);
+            this.Controls.Add(this.panel_arrangeCredit);
             this.Controls.Add(this.btn_arrangeCredit);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label19);
@@ -453,14 +454,13 @@
             this.Controls.Add(this.lbL_sumCredit);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.tcB_monthsCredit);
+            this.Controls.Add(this.trB_monthsCredit);
             this.Controls.Add(this.txB_monthsCredit);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.trB_sumCredit);
             this.Controls.Add(this.txB_sumCredit);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.btn_TransferHelpChildrenPayments);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.btn_close);
@@ -472,10 +472,10 @@
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CreditForm_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.CreditForm_MouseUp);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panel_arrangeCredit.ResumeLayout(false);
+            this.panel_arrangeCredit.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trB_sumCredit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tcB_monthsCredit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trB_monthsCredit)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -499,14 +499,14 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel_arrangeCredit;
         private System.Windows.Forms.Button btn_TransferHelpChildrenPayments;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txB_sumCredit;
         private System.Windows.Forms.TrackBar trB_sumCredit;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txB_monthsCredit;
-        private System.Windows.Forms.TrackBar tcB_monthsCredit;
+        private System.Windows.Forms.TrackBar trB_monthsCredit;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label lbL_sumCredit;
