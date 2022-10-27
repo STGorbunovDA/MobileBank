@@ -61,10 +61,12 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.btn_arrangeCredit = new System.Windows.Forms.Button();
+            this.panel_arrangeCredit_2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.panel_arrangeCredit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trB_sumCredit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trB_monthsCredit)).BeginInit();
+            this.panel_arrangeCredit_2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_close
@@ -73,7 +75,7 @@
             this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_close.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_close.ForeColor = System.Drawing.Color.Black;
-            this.btn_close.Location = new System.Drawing.Point(509, 14);
+            this.btn_close.Location = new System.Drawing.Point(509, 10);
             this.btn_close.Name = "btn_close";
             this.btn_close.Size = new System.Drawing.Size(24, 23);
             this.btn_close.TabIndex = 3;
@@ -87,7 +89,7 @@
             this.label16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.label16.Font = new System.Drawing.Font("Tahoma", 13F);
             this.label16.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label16.Location = new System.Drawing.Point(50, 13);
+            this.label16.Location = new System.Drawing.Point(50, 14);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(68, 22);
             this.label16.TabIndex = 35;
@@ -265,7 +267,7 @@
             this.panel_arrangeCredit.Controls.Add(this.label3);
             this.panel_arrangeCredit.Controls.Add(this.label8);
             this.panel_arrangeCredit.Controls.Add(this.label7);
-            this.panel_arrangeCredit.Location = new System.Drawing.Point(395, 254);
+            this.panel_arrangeCredit.Location = new System.Drawing.Point(15, 57);
             this.panel_arrangeCredit.Name = "panel_arrangeCredit";
             this.panel_arrangeCredit.Size = new System.Drawing.Size(356, 184);
             this.panel_arrangeCredit.TabIndex = 53;
@@ -289,7 +291,7 @@
             this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.label12.Font = new System.Drawing.Font("Tahoma", 10F);
             this.label12.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label12.Location = new System.Drawing.Point(12, 79);
+            this.label12.Location = new System.Drawing.Point(34, 31);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(55, 17);
             this.label12.TabIndex = 73;
@@ -301,7 +303,7 @@
             this.txB_sumCredit.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txB_sumCredit.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.txB_sumCredit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txB_sumCredit.Location = new System.Drawing.Point(73, 75);
+            this.txB_sumCredit.Location = new System.Drawing.Point(95, 27);
             this.txB_sumCredit.MaxLength = 12;
             this.txB_sumCredit.Name = "txB_sumCredit";
             this.txB_sumCredit.Size = new System.Drawing.Size(165, 26);
@@ -309,7 +311,7 @@
             // 
             // trB_sumCredit
             // 
-            this.trB_sumCredit.Location = new System.Drawing.Point(73, 108);
+            this.trB_sumCredit.Location = new System.Drawing.Point(95, 60);
             this.trB_sumCredit.Name = "trB_sumCredit";
             this.trB_sumCredit.Size = new System.Drawing.Size(165, 45);
             this.trB_sumCredit.TabIndex = 75;
@@ -320,7 +322,7 @@
             this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.label13.Font = new System.Drawing.Font("Tahoma", 10F);
             this.label13.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label13.Location = new System.Drawing.Point(12, 140);
+            this.label13.Location = new System.Drawing.Point(34, 110);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(146, 17);
             this.label13.TabIndex = 76;
@@ -332,7 +334,7 @@
             this.txB_monthsCredit.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txB_monthsCredit.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.txB_monthsCredit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txB_monthsCredit.Location = new System.Drawing.Point(164, 136);
+            this.txB_monthsCredit.Location = new System.Drawing.Point(186, 106);
             this.txB_monthsCredit.MaxLength = 12;
             this.txB_monthsCredit.Name = "txB_monthsCredit";
             this.txB_monthsCredit.Size = new System.Drawing.Size(74, 26);
@@ -340,7 +342,7 @@
             // 
             // trB_monthsCredit
             // 
-            this.trB_monthsCredit.Location = new System.Drawing.Point(164, 170);
+            this.trB_monthsCredit.Location = new System.Drawing.Point(186, 140);
             this.trB_monthsCredit.Name = "trB_monthsCredit";
             this.trB_monthsCredit.Size = new System.Drawing.Size(74, 45);
             this.trB_monthsCredit.TabIndex = 78;
@@ -349,7 +351,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Gray;
-            this.panel2.Location = new System.Drawing.Point(274, 46);
+            this.panel2.Location = new System.Drawing.Point(298, 5);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(11, 187);
             this.panel2.TabIndex = 79;
@@ -360,7 +362,7 @@
             this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.label14.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
             this.label14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label14.Location = new System.Drawing.Point(309, 79);
+            this.label14.Location = new System.Drawing.Point(345, 31);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(43, 17);
             this.label14.TabIndex = 80;
@@ -372,7 +374,7 @@
             this.lbL_sumCredit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.lbL_sumCredit.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
             this.lbL_sumCredit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbL_sumCredit.Location = new System.Drawing.Point(354, 79);
+            this.lbL_sumCredit.Location = new System.Drawing.Point(390, 31);
             this.lbL_sumCredit.Name = "lbL_sumCredit";
             this.lbL_sumCredit.Size = new System.Drawing.Size(17, 17);
             this.lbL_sumCredit.TabIndex = 81;
@@ -384,7 +386,7 @@
             this.lbL_percentCredit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.lbL_percentCredit.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
             this.lbL_percentCredit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbL_percentCredit.Location = new System.Drawing.Point(309, 140);
+            this.lbL_percentCredit.Location = new System.Drawing.Point(345, 73);
             this.lbL_percentCredit.Name = "lbL_percentCredit";
             this.lbL_percentCredit.Size = new System.Drawing.Size(17, 17);
             this.lbL_percentCredit.TabIndex = 82;
@@ -396,7 +398,7 @@
             this.label18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.label18.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
             this.label18.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label18.Location = new System.Drawing.Point(332, 140);
+            this.label18.Location = new System.Drawing.Point(368, 73);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(25, 17);
             this.label18.TabIndex = 83;
@@ -408,7 +410,7 @@
             this.label19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.label19.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label19.ForeColor = System.Drawing.Color.DimGray;
-            this.label19.Location = new System.Drawing.Point(310, 100);
+            this.label19.Location = new System.Drawing.Point(346, 52);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(138, 13);
             this.label19.TabIndex = 84;
@@ -420,7 +422,7 @@
             this.label20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.label20.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label20.ForeColor = System.Drawing.Color.DimGray;
-            this.label20.Location = new System.Drawing.Point(310, 160);
+            this.label20.Location = new System.Drawing.Point(346, 93);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(128, 13);
             this.label20.TabIndex = 85;
@@ -432,38 +434,46 @@
             this.btn_arrangeCredit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_arrangeCredit.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_arrangeCredit.ForeColor = System.Drawing.Color.Black;
-            this.btn_arrangeCredit.Location = new System.Drawing.Point(303, 188);
+            this.btn_arrangeCredit.Location = new System.Drawing.Point(338, 127);
             this.btn_arrangeCredit.Name = "btn_arrangeCredit";
-            this.btn_arrangeCredit.Size = new System.Drawing.Size(201, 45);
+            this.btn_arrangeCredit.Size = new System.Drawing.Size(146, 45);
             this.btn_arrangeCredit.TabIndex = 86;
             this.btn_arrangeCredit.Text = "Оформить кредит";
             this.btn_arrangeCredit.UseVisualStyleBackColor = false;
+            // 
+            // panel_arrangeCredit_2
+            // 
+            this.panel_arrangeCredit_2.Controls.Add(this.label19);
+            this.panel_arrangeCredit_2.Controls.Add(this.label20);
+            this.panel_arrangeCredit_2.Controls.Add(this.btn_arrangeCredit);
+            this.panel_arrangeCredit_2.Controls.Add(this.label18);
+            this.panel_arrangeCredit_2.Controls.Add(this.lbL_percentCredit);
+            this.panel_arrangeCredit_2.Controls.Add(this.label12);
+            this.panel_arrangeCredit_2.Controls.Add(this.txB_sumCredit);
+            this.panel_arrangeCredit_2.Controls.Add(this.trB_sumCredit);
+            this.panel_arrangeCredit_2.Controls.Add(this.label13);
+            this.panel_arrangeCredit_2.Controls.Add(this.txB_monthsCredit);
+            this.panel_arrangeCredit_2.Controls.Add(this.trB_monthsCredit);
+            this.panel_arrangeCredit_2.Controls.Add(this.lbL_sumCredit);
+            this.panel_arrangeCredit_2.Controls.Add(this.label14);
+            this.panel_arrangeCredit_2.Controls.Add(this.panel2);
+            this.panel_arrangeCredit_2.Location = new System.Drawing.Point(12, 53);
+            this.panel_arrangeCredit_2.Name = "panel_arrangeCredit_2";
+            this.panel_arrangeCredit_2.Size = new System.Drawing.Size(520, 195);
+            this.panel_arrangeCredit_2.TabIndex = 87;
             // 
             // CreditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.ClientSize = new System.Drawing.Size(545, 309);
+            this.ClientSize = new System.Drawing.Size(545, 242);
             this.Controls.Add(this.panel_arrangeCredit);
-            this.Controls.Add(this.btn_arrangeCredit);
-            this.Controls.Add(this.label20);
-            this.Controls.Add(this.label19);
-            this.Controls.Add(this.label18);
-            this.Controls.Add(this.lbL_percentCredit);
-            this.Controls.Add(this.lbL_sumCredit);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.trB_monthsCredit);
-            this.Controls.Add(this.txB_monthsCredit);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.trB_sumCredit);
-            this.Controls.Add(this.txB_sumCredit);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.btn_TransferHelpChildrenPayments);
-            this.Controls.Add(this.label16);
+            this.Controls.Add(this.panel_arrangeCredit_2);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.btn_close);
+            this.Controls.Add(this.btn_TransferHelpChildrenPayments);
+            this.Controls.Add(this.label16);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CreditForm";
             this.Text = "Credit";
@@ -476,6 +486,8 @@
             this.panel_arrangeCredit.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trB_sumCredit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trB_monthsCredit)).EndInit();
+            this.panel_arrangeCredit_2.ResumeLayout(false);
+            this.panel_arrangeCredit_2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -515,5 +527,6 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Button btn_arrangeCredit;
+        private System.Windows.Forms.Panel panel_arrangeCredit_2;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using MobileBank.Classes;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -69,8 +70,45 @@ namespace MobileBank.Forms
             double creditTotalSumToCheack = 0;
             double creditSumToCheack = 0;
 
-            var queryCheckCreditStatus = $"SELECT credit_total_sum, credit_sum where id_bank_card = {DataStorage.cardNumberUser}";
+            var queryCheckCreditStatus = $"SELECT credit_total_sum, credit_sum FROM credits WHERE id_bank_card = '{DataStorage.cardNumberUser}'";
 
+            using (MySqlCommand command = new MySqlCommand(queryCheckCreditStatus, DataBaseConnection.GetInstance.GetConnection()))
+            {
+                DataBaseConnection.GetInstance.OpenConnection();
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        creditTotalSumToCheack = Convert.ToDouble(reader[0]);
+                        creditSumToCheack = Convert.ToDouble(reader[1]);
+                    }
+                    reader.Close();
+                }
+                DataBaseConnection.GetInstance.CloseConnection();
+            }
+           
+            if (creditTotalSumToCheack == 0)
+            {
+                this.Width = 545;
+                this.Height = 242;
+                btn_TransferHelpChildrenPayments.Visible = false;
+                panel_arrangeCredit.Visible = false;
+                pictureBox7.Location = new Point(12, 10);
+                pictureBox7.Size = new Size(32, 32);
+                btn_close.Location = new Point(509, 10);
+            }
+            else 
+            {
+                this.Width = 380;
+                this.Height = 308;
+                panel_arrangeCredit_2.Visible = false;
+                btn_TransferHelpChildrenPayments.Visible = true;
+                panel_arrangeCredit.Visible = true;
+                btn_close.Location = new Point(347, 10);
+                pictureBox7.Size = new Size(32, 32);
+                pictureBox7.Location = new Point(12, 10);
+            }
+            
 
         }
     }
