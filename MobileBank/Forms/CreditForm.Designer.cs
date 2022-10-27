@@ -308,6 +308,7 @@
             this.txB_sumCredit.Name = "txB_sumCredit";
             this.txB_sumCredit.Size = new System.Drawing.Size(165, 26);
             this.txB_sumCredit.TabIndex = 74;
+            this.txB_sumCredit.Click += new System.EventHandler(this.TxB_sumCredit_Click);
             this.txB_sumCredit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxB_sumCredit_KeyPress);
             // 
             // trB_sumCredit
@@ -321,7 +322,7 @@
             this.trB_sumCredit.TabIndex = 75;
             this.trB_sumCredit.TickFrequency = 10000;
             this.trB_sumCredit.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.trB_sumCredit.ValueChanged += new System.EventHandler(this.TrB_sumCredit_ValueChanged);
+            this.trB_sumCredit.Scroll += new System.EventHandler(this.TrB_sumCredit_Scroll);
             // 
             // label13
             // 
@@ -346,6 +347,7 @@
             this.txB_monthsCredit.Name = "txB_monthsCredit";
             this.txB_monthsCredit.Size = new System.Drawing.Size(74, 26);
             this.txB_monthsCredit.TabIndex = 77;
+            this.txB_monthsCredit.Click += new System.EventHandler(this.TxB_monthsCredit_Click);
             this.txB_monthsCredit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxB_monthsCredit_KeyPress);
             // 
             // trB_monthsCredit
@@ -361,7 +363,7 @@
             this.trB_monthsCredit.TickFrequency = 6;
             this.trB_monthsCredit.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trB_monthsCredit.Value = 3;
-            this.trB_monthsCredit.ValueChanged += new System.EventHandler(this.TrB_monthsCredit_ValueChanged);
+            this.trB_monthsCredit.Scroll += new System.EventHandler(this.TrB_monthsCredit_Scroll);
             // 
             // panel2
             // 
@@ -413,7 +415,7 @@
             this.label18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.label18.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
             this.label18.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label18.Location = new System.Drawing.Point(368, 73);
+            this.label18.Location = new System.Drawing.Point(459, 73);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(25, 17);
             this.label18.TabIndex = 83;

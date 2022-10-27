@@ -166,8 +166,6 @@ namespace MobileBank.Forms
                     }
                     lbL_repaymentSum.Text = Math.Round(toPaySum, 2).ToString();
                     lbL_repaymentDate.Text = repaymentDate.ToShortDateString();
-
-
                 }
 
             }
@@ -175,14 +173,7 @@ namespace MobileBank.Forms
             {
                 MessageBox.Show("Ошибка загрузки формы кредита (CreditForm_Load)", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-           
-            
 
-        }
-
-        void TrB_sumCredit_ValueChanged(object sender, EventArgs e)
-        {
-            txB_sumCredit.Text = trB_sumCredit.Value.ToString();
         }
 
         void TxB_sumCredit_KeyPress(object sender, KeyPressEventArgs e)
@@ -209,9 +200,35 @@ namespace MobileBank.Forms
             }
         }
 
-        void TrB_monthsCredit_ValueChanged(object sender, EventArgs e)
+        void calculatorCredit()
+        {
+            double mothlyRate = 0.01;
+            double sum = Convert.ToDouble(txB_sumCredit.Text);
+            int numberOfMonths = Convert.ToInt32(txB_monthsCredit.Text);
+            double result = sum * (mothlyRate + (mothlyRate / (Math.Pow(1 + mothlyRate, numberOfMonths) - 1)));
+            lbL_sumCredit.Text = Math.Round(result, 2).ToString();
+        }
+
+
+        void TrB_sumCredit_Scroll(object sender, EventArgs e)
+        {
+            txB_sumCredit.Text = trB_sumCredit.Value.ToString();
+        }
+
+        void TrB_monthsCredit_Scroll(object sender, EventArgs e)
         {
             txB_monthsCredit.Text = trB_monthsCredit.Value.ToString();
+        }
+
+        void TxB_sumCredit_Click(object sender, EventArgs e)
+        {
+            trB_sumCredit.Value = Convert.ToInt32(txB_sumCredit.Text);
+            calculatorCredit();
+        }
+
+        void TxB_monthsCredit_Click(object sender, EventArgs e)
+        {
+            trB_monthsCredit.Value = Convert.ToInt32(txB_monthsCredit.Text);
         }
     }
 }
