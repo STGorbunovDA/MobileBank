@@ -420,5 +420,59 @@ namespace MobileBank.Classes
                 return false;
             }  
         }
+
+        internal static bool LoadingCreditStatus(string cardNumberUser)
+        {
+            try
+            {
+                var reg3 = new Regex(" ");
+                cardNumberUser = reg3.Replace(cardNumberUser, "");
+
+                var repayment_date = "";
+                var queryCreditStatus = $"SELECT repayment_date FROM credits WHERE id_bank_card  = (SELECT id_bank_card FROM bank_card WHERE bank_card_number = '{cardNumberUser}')";
+                
+                if (InternetСheck.CheackSkyNET())
+                {
+                    using (MySqlCommand command = new MySqlCommand(queryCreditStatus, DataBaseConnection.GetInstance.GetConnection()))
+                    {
+                        DataBaseConnection.GetInstance.OpenConnection();
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                repayment_date = reader[0].ToString();
+                            }
+                            reader.Close();
+                        }
+                    }
+                    if(String.IsNullOrEmpty(repayment_date))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        DateTime dateTimeNow = DateTime.Now;
+
+                        DateTime repaymentDate = Convert.ToDateTime(repayment_date);
+
+                        if (repaymentDate < dateTimeNow)
+                        {
+                            return false;
+                        }
+                        else
+                        {
+                            return true;
+                        }
+                    }   
+                }
+                return true;
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка метода (LoadingCreditStatus)");
+                return true;
+            }
+        }
     }
 }

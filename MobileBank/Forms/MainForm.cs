@@ -107,6 +107,20 @@ namespace MobileBank.Forms
             {
                 MessageBox.Show("Ошибка загрузки label-ов кредитной карты", "Системная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
+            try
+            {
+                if(!SettingMethod.LoadingCreditStatus(lbL_card_number.Text))
+                {
+                    MessageBox.Show("У Вас не оплачен кредит!", "Срочная информация", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    Btn_credit_Click(sender, e);
+                }
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Ошибка проверки статуса кредита (LoadingCreditStatus)", "Системная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 
