@@ -17,7 +17,8 @@ namespace MobileBank
         public LoginForm()
         {
             InitializeComponent();
-            StartPosition = FormStartPosition.CenterScreen;
+            if (!InstanceChecker.TakeMemory())
+                StartPosition = FormStartPosition.CenterScreen;
         }
 
 
@@ -64,7 +65,8 @@ namespace MobileBank
 
         void Btn_closeLoginForm_Click(object sender, EventArgs e)
         {
-            System.Environment.Exit(1);
+            if (!FormClose.GetInstance.FClose())
+                this.Close();
         }
 
         void Panel1_MouseDown(object sender, MouseEventArgs e)

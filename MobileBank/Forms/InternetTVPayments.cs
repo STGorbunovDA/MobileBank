@@ -31,7 +31,8 @@ namespace MobileBank.Forms
 
         void Btn_close_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (!FormClose.GetInstance.FClose())
+                this.Close();
         }
 
         void InternetTV_MouseDown(object sender, MouseEventArgs e)

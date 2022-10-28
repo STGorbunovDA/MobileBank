@@ -457,7 +457,7 @@ namespace MobileBank.Classes
 
                         if (repaymentDate < dateTimeNow)
                         {
-                            lbL_CreditNotPaid.Visible = true;
+                            DataStorage.paymentCredit = false;
                             return false;
                         }
                         else

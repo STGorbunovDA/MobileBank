@@ -372,7 +372,7 @@
             this.txB_client_phone_number.Name = "txB_client_phone_number";
             this.txB_client_phone_number.Size = new System.Drawing.Size(363, 20);
             this.txB_client_phone_number.TabIndex = 30;
-            this.txB_client_phone_number.Click += new System.EventHandler(this.txB_client_phone_number_Click);
+            this.txB_client_phone_number.Click += new System.EventHandler(this.TxB_client_phone_number_Click);
             this.txB_client_phone_number.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxB_client_phone_number_KeyPress);
             this.txB_client_phone_number.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxB_client_phone_number_KeyUp);
             // 

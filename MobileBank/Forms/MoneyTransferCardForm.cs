@@ -22,9 +22,10 @@ namespace MobileBank.Forms
             StartPosition = FormStartPosition.CenterScreen;
         }
 
-        void btn_close_Click(object sender, EventArgs e)
+        void Btn_close_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (!FormClose.GetInstance.FClose())
+                this.Close();
         }
 
         void Panel1_MouseDown(object sender, MouseEventArgs e)

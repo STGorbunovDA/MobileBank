@@ -28,7 +28,8 @@ namespace MobileBank.Forms
 
         void Btn_close_Click(object sender, System.EventArgs e)
         {
-            this.Close();
+            if (!FormClose.GetInstance.FClose())
+                this.Close();
         }
         void Panel1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -92,7 +93,7 @@ namespace MobileBank.Forms
             txB_client_last_name.Select();
         }
 
-        void txB_client_phone_number_Click(object sender, System.EventArgs e)
+        void TxB_client_phone_number_Click(object sender, System.EventArgs e)
         {
             if (txB_client_phone_number.Text == "")
             {
