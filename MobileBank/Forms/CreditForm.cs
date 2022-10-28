@@ -297,7 +297,7 @@ namespace MobileBank.Forms
                         }
                         DataBaseConnection.GetInstance.CloseConnection();
                     }
-                    if (!String.IsNullOrEmpty(idCredits))
+                    if (String.IsNullOrEmpty(idCredits))
                     {
                         var totalSum = Convert.ToDouble(lbL_sumCredit.Text) * Convert.ToDouble(txB_monthsCredit.Text);
                         var creditSum = txB_sumCredit.Text;
@@ -319,7 +319,7 @@ namespace MobileBank.Forms
                             DataBaseConnection.GetInstance.CloseConnection();
                         }
                         var sumCard = txB_sumCredit.Text;
-                        var queryEnrollmentCardCredit = $"UPDATE bank_card SET bank_card_balance = bank_card_balance - '{sumCard}' WHERE bank_card_number = '{DataStorage.cardNumberUser}'";
+                        var queryEnrollmentCardCredit = $"UPDATE bank_card SET bank_card_balance = bank_card_balance + '{sumCard}' WHERE bank_card_number = '{DataStorage.cardNumberUser}'";
                         
                         using (MySqlCommand command = new MySqlCommand(queryEnrollmentCardCredit, DataBaseConnection.GetInstance.GetConnection()))
                         {
@@ -327,9 +327,8 @@ namespace MobileBank.Forms
                             command.ExecuteNonQuery();
                             DataBaseConnection.GetInstance.CloseConnection();
                         }
-
-
-
+                        MessageBox.Show("Кредит оформлен!", "Успешно", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
                     }
                     else
                     {
