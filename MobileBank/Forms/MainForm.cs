@@ -107,13 +107,16 @@ namespace MobileBank.Forms
             {
                 MessageBox.Show("Ошибка загрузки label-ов кредитной карты", "Системная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
             try
             {
-                if(!SettingMethod.LoadingCreditStatus(lbL_card_number.Text, lbL_CreditNotPaid))
+                if (!SettingMethod.LoadingCreditStatus(lbL_card_number.Text, lbL_CreditNotPaid))
                 {
                     MessageBox.Show("У Вас не оплачен кредит!", "Срочная информация", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     Btn_credit_Click(sender, e);
+                    if (DataStorage.paymentCredit == false)
+                        lbL_CreditNotPaid.Visible = true;
+
                 }
             }
             catch (Exception)
@@ -369,12 +372,14 @@ namespace MobileBank.Forms
                 DataStorage.euro = lbL_сourse_euro.Text.Trim();
                 helpForm.ShowDialog();
                 Btn_udpate_Click(sender, e);
+                
             }
         }
 
         void Btn_credit_Click(object sender, EventArgs e)
         {
             DataStorage.cardNumberUser = cmb_card.GetItemText(cmb_card.SelectedItem);
+            DataStorage.balanceCard = lbL_balanceCard.Text;
             var cardCurrency = "";
             var queryCurrency = $"SELECT bank_card_currency FROM bank_card WHERE bank_card_number = '{DataStorage.cardNumberUser}'";
 
@@ -397,6 +402,9 @@ namespace MobileBank.Forms
                 {
                     creditForm.ShowDialog();
                     Btn_udpate_Click(sender, e);
+                    if (DataStorage.paymentCredit == false)
+                        lbL_CreditNotPaid.Visible = true;
+                    else lbL_CreditNotPaid.Visible = false;
                 }
             }
             else
