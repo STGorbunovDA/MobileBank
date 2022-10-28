@@ -84,6 +84,7 @@
             this.btn_credit = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.lbL_CreditNotPaid = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lbL_HistoryTransactions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picB_user)).BeginInit();
@@ -108,6 +109,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DimGray;
+            this.panel1.Controls.Add(this.lbL_CreditNotPaid);
             this.panel1.Controls.Add(this.lbL_HistoryTransactions);
             this.panel1.Controls.Add(this.picB_user);
             this.panel1.Controls.Add(this.lbL_сourse_dollar);
@@ -785,6 +787,18 @@
             this.pictureBox7.TabIndex = 34;
             this.pictureBox7.TabStop = false;
             // 
+            // lbL_CreditNotPaid
+            // 
+            this.lbL_CreditNotPaid.AutoSize = true;
+            this.lbL_CreditNotPaid.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbL_CreditNotPaid.ForeColor = System.Drawing.Color.GreenYellow;
+            this.lbL_CreditNotPaid.Location = new System.Drawing.Point(246, 12);
+            this.lbL_CreditNotPaid.Name = "lbL_CreditNotPaid";
+            this.lbL_CreditNotPaid.Size = new System.Drawing.Size(204, 23);
+            this.lbL_CreditNotPaid.TabIndex = 44;
+            this.lbL_CreditNotPaid.Text = "Кредит не оплачен!";
+            this.lbL_CreditNotPaid.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -910,5 +924,6 @@
         private System.Windows.Forms.Button btn_credit;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Label lbL_CreditNotPaid;
     }
 }

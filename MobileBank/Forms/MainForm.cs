@@ -110,7 +110,7 @@ namespace MobileBank.Forms
             
             try
             {
-                if(!SettingMethod.LoadingCreditStatus(lbL_card_number.Text))
+                if(!SettingMethod.LoadingCreditStatus(lbL_card_number.Text, lbL_CreditNotPaid))
                 {
                     MessageBox.Show("У Вас не оплачен кредит!", "Срочная информация", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     Btn_credit_Click(sender, e);
