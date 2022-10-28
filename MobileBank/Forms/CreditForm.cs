@@ -1,13 +1,7 @@
 ﻿using MobileBank.Classes;
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MobileBank.Forms
@@ -123,7 +117,7 @@ namespace MobileBank.Forms
                     }
                     var querySelectIdCard = $"SELECT credits.id_bank_card, credits.credit_total_sum, credits.credit_sum, credits.credit_date, " +
                         $"credits.id_credit FROM credits INNER JOIN bank_card on credits.id_bank_card = bank_card.id_bank_card WHERE " +
-                        $"bank_card.bank_card_number = '{DataStorage.cardNumberUser}')";
+                        $"bank_card.bank_card_number = '{DataStorage.cardNumberUser}'";
 
                     using (MySqlCommand command = new MySqlCommand(querySelectIdCard, DataBaseConnection.GetInstance.GetConnection()))
                     {
@@ -300,7 +294,7 @@ namespace MobileBank.Forms
                     if (String.IsNullOrEmpty(idCredits))
                     {
                         var totalSum = Convert.ToDouble(lbL_sumCredit.Text) * Convert.ToDouble(txB_monthsCredit.Text);
-                        var creditSum = txB_sumCredit.Text;
+                        
 
                         DateTime dateTime = DateTime.Now;
                         var dateTimeNow = dateTime.ToString("yyyy-MM-dd HH:mm:ss");
@@ -310,7 +304,7 @@ namespace MobileBank.Forms
                         var repaymentSum = lbL_sumCredit.Text;
 
                         var queryCredit = $"INSERT INTO credits(credit_total_sum, credit_sum, credit_date, credit_status, repayment_date, repayment_sum, id_bank_card) VALUES ('{totalSum}'," +
-                        $"'{creditSum}', '{dateTimeNow}', '1', '{repaymentDate}', '{repaymentSum}', (SELECT id_bank_card FROM bank_card WHERE bank_card_number = '{DataStorage.cardNumberUser}'))";
+                        $"'0', '{dateTimeNow}', '0', '{repaymentDate}', '{repaymentSum}', (SELECT id_bank_card FROM bank_card WHERE bank_card_number = '{DataStorage.cardNumberUser}'))";
 
                         using (MySqlCommand command = new MySqlCommand(queryCredit, DataBaseConnection.GetInstance.GetConnection()))
                         {
@@ -355,6 +349,11 @@ namespace MobileBank.Forms
                 && Convert.ToInt32(txB_sumCredit.Text) < 1000000)
                 trB_sumCredit.Value = Convert.ToInt32(txB_sumCredit.Text);
             CalculatorCredit();
+        }
+
+        void Btn_TransferHelpChildrenPayments_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

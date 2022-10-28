@@ -284,6 +284,7 @@
             this.btn_TransferHelpChildrenPayments.TabIndex = 72;
             this.btn_TransferHelpChildrenPayments.Text = "Оплатить";
             this.btn_TransferHelpChildrenPayments.UseVisualStyleBackColor = false;
+            this.btn_TransferHelpChildrenPayments.Click += new System.EventHandler(this.Btn_TransferHelpChildrenPayments_Click);
             // 
             // label12
             // 
@@ -491,8 +492,8 @@
             this.ClientSize = new System.Drawing.Size(545, 242);
             this.Controls.Add(this.btn_close);
             this.Controls.Add(this.pictureBox7);
-            this.Controls.Add(this.panel_arrangeCredit_2);
             this.Controls.Add(this.panel_arrangeCredit);
+            this.Controls.Add(this.panel_arrangeCredit_2);
             this.Controls.Add(this.btn_TransferHelpChildrenPayments);
             this.Controls.Add(this.label16);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
