@@ -318,6 +318,17 @@ namespace MobileBank.Forms
                             command.ExecuteNonQuery();
                             DataBaseConnection.GetInstance.CloseConnection();
                         }
+                        var sumCard = txB_sumCredit.Text;
+                        var queryEnrollmentCardCredit = $"UPDATE bank_card SET bank_card_balance = bank_card_balance - '{sumCard}' WHERE bank_card_number = '{DataStorage.cardNumberUser}'";
+                        
+                        using (MySqlCommand command = new MySqlCommand(queryEnrollmentCardCredit, DataBaseConnection.GetInstance.GetConnection()))
+                        {
+                            DataBaseConnection.GetInstance.OpenConnection();
+                            command.ExecuteNonQuery();
+                            DataBaseConnection.GetInstance.CloseConnection();
+                        }
+
+
 
                     }
                     else
