@@ -421,7 +421,7 @@ namespace MobileBank.Classes
             }  
         }
 
-        internal static bool LoadingCreditStatus(string cardNumberUser)
+        internal static bool LoadingCreditStatus(string cardNumberUser, Label lbL_CreditNotPaid)
         {
             try
             {
@@ -429,11 +429,11 @@ namespace MobileBank.Classes
                 cardNumberUser = reg3.Replace(cardNumberUser, "");
 
                 var repayment_date = "";
-                var queryCreditStatus = $"SELECT repayment_date FROM credits WHERE id_bank_card  = (SELECT id_bank_card FROM bank_card WHERE bank_card_number = '{cardNumberUser}')";
+                var queryCreditDate = $"SELECT repayment_date FROM credits WHERE id_bank_card  = (SELECT id_bank_card FROM bank_card WHERE bank_card_number = '{cardNumberUser}')";
                 
                 if (InternetСheck.CheackSkyNET())
                 {
-                    using (MySqlCommand command = new MySqlCommand(queryCreditStatus, DataBaseConnection.GetInstance.GetConnection()))
+                    using (MySqlCommand command = new MySqlCommand(queryCreditDate, DataBaseConnection.GetInstance.GetConnection()))
                     {
                         DataBaseConnection.GetInstance.OpenConnection();
                         using (MySqlDataReader reader = command.ExecuteReader())
@@ -457,7 +457,29 @@ namespace MobileBank.Classes
 
                         if (repaymentDate < dateTimeNow)
                         {
-                            return false;
+                            var creditStatus = "";
+                            var queryCreditStatus = $"SELECT credit_status FROM credits WHERE id_bank_card  = (SELECT id_bank_card FROM bank_card WHERE bank_card_number = '{cardNumberUser}')";
+
+                            using (MySqlCommand command = new MySqlCommand(queryCreditStatus, DataBaseConnection.GetInstance.GetConnection()))
+                            {
+                                DataBaseConnection.GetInstance.OpenConnection();
+                                using (MySqlDataReader reader = command.ExecuteReader())
+                                {
+                                    while (reader.Read())
+                                    {
+                                        creditStatus = reader[0].ToString();
+                                    }
+                                    reader.Close();
+                                }
+                            }
+                            if(creditStatus == "0")
+                            {
+                                lbL_CreditNotPaid.Visible = true;
+                                return false;
+                            }
+                            else return true;
+
+
                         }
                         else
                         {
