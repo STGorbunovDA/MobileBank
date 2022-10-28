@@ -457,29 +457,8 @@ namespace MobileBank.Classes
 
                         if (repaymentDate < dateTimeNow)
                         {
-                            var creditStatus = "";
-                            var queryCreditStatus = $"SELECT credit_status FROM credits WHERE id_bank_card  = (SELECT id_bank_card FROM bank_card WHERE bank_card_number = '{cardNumberUser}')";
-
-                            using (MySqlCommand command = new MySqlCommand(queryCreditStatus, DataBaseConnection.GetInstance.GetConnection()))
-                            {
-                                DataBaseConnection.GetInstance.OpenConnection();
-                                using (MySqlDataReader reader = command.ExecuteReader())
-                                {
-                                    while (reader.Read())
-                                    {
-                                        creditStatus = reader[0].ToString();
-                                    }
-                                    reader.Close();
-                                }
-                            }
-                            if(creditStatus == "0")
-                            {
-                                lbL_CreditNotPaid.Visible = true;
-                                return false;
-                            }
-                            else return true;
-
-
+                            lbL_CreditNotPaid.Visible = true;
+                            return false;
                         }
                         else
                         {

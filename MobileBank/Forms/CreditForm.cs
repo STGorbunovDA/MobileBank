@@ -304,7 +304,7 @@ namespace MobileBank.Forms
                         var repaymentSum = lbL_sumCredit.Text;
 
                         var queryCredit = $"INSERT INTO credits(credit_total_sum, credit_sum, credit_date, credit_status, repayment_date, repayment_sum, id_bank_card) VALUES ('{totalSum}'," +
-                        $"'0', '{dateTimeNow}', '0', '{repaymentDate}', '{repaymentSum}', (SELECT id_bank_card FROM bank_card WHERE bank_card_number = '{DataStorage.cardNumberUser}'))";
+                        $"'0', '{dateTimeNow}', '1', '{repaymentDate}', '{repaymentSum}', (SELECT id_bank_card FROM bank_card WHERE bank_card_number = '{DataStorage.cardNumberUser}'))";
 
                         using (MySqlCommand command = new MySqlCommand(queryCredit, DataBaseConnection.GetInstance.GetConnection()))
                         {
