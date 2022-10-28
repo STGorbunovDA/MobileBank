@@ -93,6 +93,19 @@ namespace MobileBank.Forms
                     pictureBox7.Size = new Size(32, 32);
                     btn_close.Location = new Point(509, 10);
                 }
+                else if (creditSumToCheack >= creditTotalSumToCheack)
+                {
+                    var queryDeleteCredits = $"DELETE FROM credits WHERE id_bank_card = (SELECT id_bank_card FROM bank_card WHERE bank_card_number = '{DataStorage.cardNumberUser}')";
+
+                    using (MySqlCommand command = new MySqlCommand(queryDeleteCredits, DataBaseConnection.GetInstance.GetConnection()))
+                    {
+                        DataBaseConnection.GetInstance.OpenConnection();
+                        command.ExecuteNonQuery();
+                        DataBaseConnection.GetInstance.CloseConnection();
+                        MessageBox.Show("Ваш кредит полностью оплачен", "Успешно", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+                }
                 else
                 {
                     this.Width = 380;
@@ -104,17 +117,7 @@ namespace MobileBank.Forms
                     pictureBox7.Size = new Size(32, 32);
                     pictureBox7.Location = new Point(12, 10);
 
-                    if (creditSumToCheack >= creditTotalSumToCheack)
-                    {
-                        var queryDeleteCredits = $"DELETE FROM credits WHERE id_bank_card = (SELECT id_bank_card FROM bank_card WHERE bank_card_number = '{DataStorage.cardNumberUser}')";
-
-                        using (MySqlCommand command = new MySqlCommand(queryDeleteCredits, DataBaseConnection.GetInstance.GetConnection()))
-                        {
-                            DataBaseConnection.GetInstance.OpenConnection();
-                            command.ExecuteNonQuery();
-                            DataBaseConnection.GetInstance.CloseConnection();
-                        }
-                    }
+                    
                     var querySelectIdCard = $"SELECT credits.id_bank_card, credits.credit_total_sum, credits.credit_sum, credits.credit_date, " +
                         $"credits.id_credit FROM credits INNER JOIN bank_card on credits.id_bank_card = bank_card.id_bank_card WHERE " +
                         $"bank_card.bank_card_number = '{DataStorage.cardNumberUser}'";
@@ -355,20 +358,34 @@ namespace MobileBank.Forms
         {
             var payment = lbL_repaymentSum.Text;
 
-            DateTime dateTime = Convert.ToDateTime(lbL_repaymentDate.Text).AddMonths(1);
-            var credit_date = dateTime.ToString("yyyy-MM-dd HH:mm:ss");
-
-            var queryPaymentCredit = $"UPDATE credits SET credit_sum = credit_sum + '{payment}', credit_status = '1', " +
-                $"repayment_date = '{credit_date}' WHERE id_bank_card = (SELECT id_bank_card FROM bank_card WHERE bank_card_number = '{DataStorage.cardNumberUser}')";
-
-            using (MySqlCommand command = new MySqlCommand(queryPaymentCredit, DataBaseConnection.GetInstance.GetConnection()))
+            if(Convert.ToDouble(DataStorage.balanceCard) > Convert.ToDouble(payment))
             {
-                DataBaseConnection.GetInstance.OpenConnection();
-                command.ExecuteNonQuery();
-                DataBaseConnection.GetInstance.CloseConnection();
+                DateTime dateTime = Convert.ToDateTime(lbL_repaymentDate.Text).AddMonths(1);
+                var credit_date = dateTime.ToString("yyyy-MM-dd HH:mm:ss");
+
+                var queryPaymentCredit = $"UPDATE credits SET credit_sum = credit_sum + '{payment}', credit_status = '1', " +
+                    $"repayment_date = '{credit_date}' WHERE id_bank_card = (SELECT id_bank_card FROM bank_card WHERE bank_card_number = '{DataStorage.cardNumberUser}')";
+
+                var queryTransaction1 = $"UPDATE bank_card SET bank_card_balance = bank_card_balance - '{payment}' WHERE bank_card_number = '{DataStorage.cardNumberUser}'";
+
+                using (MySqlCommand command = new MySqlCommand(queryPaymentCredit, DataBaseConnection.GetInstance.GetConnection()))
+                {
+                    DataBaseConnection.GetInstance.OpenConnection();
+                    command.ExecuteNonQuery();
+                    DataBaseConnection.GetInstance.CloseConnection();
+                }
+
+                using (MySqlCommand command2 = new MySqlCommand(queryTransaction1, DataBaseConnection.GetInstance.GetConnection()))
+                {
+                    DataBaseConnection.GetInstance.OpenConnection();
+                    command2.ExecuteNonQuery();
+                    DataBaseConnection.GetInstance.CloseConnection();
+                }
+                DataStorage.paymentCredit = true;
+                MessageBox.Show("Кредит оплачен!", "Успешно", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
-            MessageBox.Show("Кредит оплачен!", "Успешно", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Close();
+            else MessageBox.Show("Недостаточно средств на счёте!", "Отмена", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
     }
