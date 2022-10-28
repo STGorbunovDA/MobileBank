@@ -353,6 +353,22 @@ namespace MobileBank.Forms
 
         void Btn_TransferHelpChildrenPayments_Click(object sender, EventArgs e)
         {
+            var payment = lbL_repaymentSum.Text;
+
+            DateTime dateTime = Convert.ToDateTime(lbL_repaymentDate.Text).AddMonths(1);
+            var credit_date = dateTime.ToString("yyyy-MM-dd HH:mm:ss");
+
+            var queryPaymentCredit = $"UPDATE credits SET credit_sum = credit_sum + '{payment}', credit_status = '1', " +
+                $"repayment_date = '{credit_date}' WHERE id_bank_card = (SELECT id_bank_card FROM bank_card WHERE bank_card_number = '{DataStorage.cardNumberUser}')";
+
+            using (MySqlCommand command = new MySqlCommand(queryPaymentCredit, DataBaseConnection.GetInstance.GetConnection()))
+            {
+                DataBaseConnection.GetInstance.OpenConnection();
+                command.ExecuteNonQuery();
+                DataBaseConnection.GetInstance.CloseConnection();
+            }
+            MessageBox.Show("Кредит оплачен!", "Успешно", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
 
         }
     }
