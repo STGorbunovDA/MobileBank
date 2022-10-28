@@ -116,7 +116,9 @@ namespace MobileBank.Forms
 
                         using (MySqlCommand command = new MySqlCommand(queryDeleteCredits, DataBaseConnection.GetInstance.GetConnection()))
                         {
+                            DataBaseConnection.GetInstance.OpenConnection();
                             command.ExecuteNonQuery();
+                            DataBaseConnection.GetInstance.CloseConnection();
                         }
                     }
                     var querySelectIdCard = $"SELECT credits.id_bank_card, credits.credit_total_sum, credits.credit_sum, credits.credit_date, " +
@@ -186,7 +188,7 @@ namespace MobileBank.Forms
             {
                 e.Handled = true;
             }
-            
+
         }
 
         void TxB_monthsCredit_KeyPress(object sender, KeyPressEventArgs e)
@@ -199,7 +201,7 @@ namespace MobileBank.Forms
             {
                 e.Handled = true;
             }
-            
+
         }
 
         void CalculatorCredit()
@@ -213,26 +215,19 @@ namespace MobileBank.Forms
                     double sum = Convert.ToDouble(txB_sumCredit.Text);
                     double result = 0;
                     int numberOfMonths = Convert.ToInt32(txB_monthsCredit.Text);
-                    if(numberOfMonths <= 10)
+
+                    if (numberOfMonths <= 10)
                         result = sum * (mothlyRate + (mothlyRate / (Math.Pow(1 + mothlyRate, numberOfMonths) - 1)));
                     else if (numberOfMonths > 10)
                         result = sum * ((mothlyRate - 0.003) + (mothlyRate / (Math.Pow(1 + mothlyRate, numberOfMonths) - 1)));
-                    else if(numberOfMonths > 20)
-                    {
+                    else if (numberOfMonths > 20)
                         result = sum * ((mothlyRate - 0.004) + (mothlyRate / (Math.Pow(1 + mothlyRate, numberOfMonths) - 1)));
-                    }
                     else if (numberOfMonths > 30)
-                    {
                         result = sum * ((mothlyRate - 0.005) + (mothlyRate / (Math.Pow(1 + mothlyRate, numberOfMonths) - 1)));
-                    }
                     else if (numberOfMonths > 40)
-                    {
                         result = sum * ((mothlyRate - 0.006) + (mothlyRate / (Math.Pow(1 + mothlyRate, numberOfMonths) - 1)));
-                    }
                     else if (numberOfMonths > 50)
-                    {
                         result = sum * ((mothlyRate - 0.007) + (mothlyRate / (Math.Pow(1 + mothlyRate, numberOfMonths) - 1)));
-                    }
 
                     lbL_sumCredit.Text = Math.Round(result, 2).ToString();
                     var podschet = (Convert.ToDouble(txB_monthsCredit.Text) * Convert.ToDouble(lbL_sumCredit.Text) - Convert.ToDouble(txB_sumCredit.Text)) / Convert.ToDouble(txB_sumCredit.Text) * 100;
@@ -248,16 +243,12 @@ namespace MobileBank.Forms
 
         void TrB_sumCredit_Scroll(object sender, EventArgs e)
         {
-            //if (txB_sumCredit.Text != "0" && !String.IsNullOrEmpty(txB_sumCredit.Text) && !String.IsNullOrEmpty(txB_monthsCredit.Text)
-            //    && Convert.ToInt32(txB_sumCredit.Text) < 1000000)
             txB_sumCredit.Text = trB_sumCredit.Value.ToString();
             CalculatorCredit();
         }
 
         void TrB_monthsCredit_Scroll(object sender, EventArgs e)
         {
-            //if (txB_monthsCredit.Text != "0" && !String.IsNullOrEmpty(txB_sumCredit.Text) && !String.IsNullOrEmpty(txB_monthsCredit.Text)
-            //    && Convert.ToInt32(txB_monthsCredit.Text) < 60)
             txB_monthsCredit.Text = trB_monthsCredit.Value.ToString();
             CalculatorCredit();
         }
@@ -292,6 +283,28 @@ namespace MobileBank.Forms
                 if (DataStorage.attemptsPin < 3)
                 {
                     var totalSum = Convert.ToDouble(lbL_sumCredit.Text) * Convert.ToDouble(txB_monthsCredit.Text);
+                    var creditSum = lbL_sumCredit.Text;
+
+                    DateTime dateTime = DateTime.Now;
+                    var dateTimeNow = dateTime.ToString("yyyy-MM-dd HH:mm:ss");
+                   
+                    DateTime creditDateTime = dateTime.AddMonths(1);
+                    var repaymentDate = creditDateTime.ToString("yyyy-MM-dd HH:mm:ss");
+
+                    var payment = lbL_sumCredit.Text;
+
+                    var queryCredit = $"INSERT INTO credits(credit_total_sum, credit_sum, credit_date, id_bank_card) VALUES ('{totalSum}'," +
+                        $"'0', '{dateTimeNow}', (SELECT id_bank_card FROM bank_card WHERE bank_card_number = '{DataStorage.cardNumberUser}'))";
+
+                    using (MySqlCommand command = new MySqlCommand(queryCredit, DataBaseConnection.GetInstance.GetConnection()))
+                    {
+                        DataBaseConnection.GetInstance.OpenConnection();
+                        command.ExecuteNonQuery();
+                        DataBaseConnection.GetInstance.CloseConnection();
+                    }
+
+
+
                 }
 
 
@@ -301,7 +314,7 @@ namespace MobileBank.Forms
 
         }
 
-        void txB_monthsCredit_TextChanged(object sender, EventArgs e)
+        void TxB_monthsCredit_TextChanged(object sender, EventArgs e)
         {
             if (txB_monthsCredit.Text != "0" && !String.IsNullOrEmpty(txB_sumCredit.Text) && !String.IsNullOrEmpty(txB_monthsCredit.Text)
                  && Convert.ToInt32(txB_monthsCredit.Text) < 61)
@@ -309,7 +322,7 @@ namespace MobileBank.Forms
             CalculatorCredit();
         }
 
-        void txB_sumCredit_TextChanged(object sender, EventArgs e)
+        void TxB_sumCredit_TextChanged(object sender, EventArgs e)
         {
             if (txB_sumCredit.Text != "0" && !String.IsNullOrEmpty(txB_sumCredit.Text) && !String.IsNullOrEmpty(txB_monthsCredit.Text)
                 && Convert.ToInt32(txB_sumCredit.Text) < 1000000)

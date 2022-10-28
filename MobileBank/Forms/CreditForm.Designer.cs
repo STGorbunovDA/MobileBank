@@ -101,7 +101,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.pictureBox7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox7.BackgroundImage")));
-            this.pictureBox7.Location = new System.Drawing.Point(12, 10);
+            this.pictureBox7.Location = new System.Drawing.Point(0, 0);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(32, 32);
             this.pictureBox7.TabIndex = 36;
@@ -309,7 +309,7 @@
             this.txB_sumCredit.Size = new System.Drawing.Size(165, 26);
             this.txB_sumCredit.TabIndex = 74;
             this.txB_sumCredit.Click += new System.EventHandler(this.TxB_sumCredit_Click);
-            this.txB_sumCredit.TextChanged += new System.EventHandler(this.txB_sumCredit_TextChanged);
+            this.txB_sumCredit.TextChanged += new System.EventHandler(this.TxB_sumCredit_TextChanged);
             this.txB_sumCredit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxB_sumCredit_KeyPress);
             // 
             // trB_sumCredit
@@ -350,7 +350,7 @@
             this.txB_monthsCredit.Size = new System.Drawing.Size(74, 26);
             this.txB_monthsCredit.TabIndex = 77;
             this.txB_monthsCredit.Click += new System.EventHandler(this.TxB_monthsCredit_Click);
-            this.txB_monthsCredit.TextChanged += new System.EventHandler(this.txB_monthsCredit_TextChanged);
+            this.txB_monthsCredit.TextChanged += new System.EventHandler(this.TxB_monthsCredit_TextChanged);
             this.txB_monthsCredit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxB_monthsCredit_KeyPress);
             // 
             // trB_monthsCredit
@@ -478,7 +478,7 @@
             this.panel_arrangeCredit_2.Controls.Add(this.lbL_sumCredit);
             this.panel_arrangeCredit_2.Controls.Add(this.label14);
             this.panel_arrangeCredit_2.Controls.Add(this.panel2);
-            this.panel_arrangeCredit_2.Location = new System.Drawing.Point(10, 25);
+            this.panel_arrangeCredit_2.Location = new System.Drawing.Point(10, 40);
             this.panel_arrangeCredit_2.Name = "panel_arrangeCredit_2";
             this.panel_arrangeCredit_2.Size = new System.Drawing.Size(520, 195);
             this.panel_arrangeCredit_2.TabIndex = 87;
@@ -490,9 +490,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.ClientSize = new System.Drawing.Size(545, 242);
             this.Controls.Add(this.btn_close);
+            this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.panel_arrangeCredit_2);
             this.Controls.Add(this.panel_arrangeCredit);
-            this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.btn_TransferHelpChildrenPayments);
             this.Controls.Add(this.label16);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
