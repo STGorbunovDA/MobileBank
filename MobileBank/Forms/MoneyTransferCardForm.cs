@@ -24,8 +24,7 @@ namespace MobileBank.Forms
 
         void Btn_close_Click(object sender, EventArgs e)
         {
-            if (!FormClose.GetInstance.FClose())
-                this.Close();
+            this.Close(); ;
         }
 
         void Panel1_MouseDown(object sender, MouseEventArgs e)
@@ -395,38 +394,34 @@ namespace MobileBank.Forms
                                     DataBaseConnection.GetInstance.OpenConnection();
                                     if (commandTransfer1.ExecuteNonQuery() == 1)
                                     {
-                                        DataBaseConnection.GetInstance.CloseConnection();
-                                        this.Close();
+                                        using (MySqlCommand commandTransfer2 = new MySqlCommand(queryTransaction2, DataBaseConnection.GetInstance.GetConnection()))
+                                        {
+                                            if (commandTransfer2.ExecuteNonQuery() == 1)
+                                            {
+                                                using (MySqlCommand commandTransfer3 = new MySqlCommand(queryTransaction3, DataBaseConnection.GetInstance.GetConnection()))
+                                                {
+                                                    if (commandTransfer3.ExecuteNonQuery() == 1)
+                                                    {
+
+                                                        DataBaseConnection.GetInstance.CloseConnection();
+                                                        MessageBox.Show($"Перевод на карту {txB_NumberTransferCardMoney.Text} выполнен", "Успешно", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                                    }
+                                                    else
+                                                    {
+                                                        MessageBox.Show("Перевод не выполнен queryTransaction3", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                    }
+                                                }
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("Перевод не выполнен queryTransaction2", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                            }
+                                        }
                                     }
                                     else
                                     {
                                         MessageBox.Show("Перевод не выполнен queryTransaction1", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    }
-                                }
-                                using (MySqlCommand commandTransfer2 = new MySqlCommand(queryTransaction2, DataBaseConnection.GetInstance.GetConnection()))
-                                {
-                                    DataBaseConnection.GetInstance.OpenConnection();
-                                    if (commandTransfer2.ExecuteNonQuery() == 1)
-                                    {
-                                        DataBaseConnection.GetInstance.CloseConnection();
-                                        this.Close();
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Перевод не выполнен queryTransaction2", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    }
-                                }
-                                using (MySqlCommand commandTransfer3 = new MySqlCommand(queryTransaction3, DataBaseConnection.GetInstance.GetConnection()))
-                                {
-                                    DataBaseConnection.GetInstance.OpenConnection();
-                                    if (commandTransfer3.ExecuteNonQuery() == 1)
-                                    {
-                                        DataBaseConnection.GetInstance.CloseConnection();
-                                        this.Close();
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Перевод не выполнен queryTransaction3", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     }
                                 }
                             }

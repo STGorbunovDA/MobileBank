@@ -19,8 +19,7 @@ namespace MobileBank.Forms
 
         void Btn_close_Click(object sender, EventArgs e)
         {
-            if (!FormClose.GetInstance.FClose())
-                this.Close();
+            this.Close();
         }
 
         void UserForm_Load(object sender, EventArgs e)
