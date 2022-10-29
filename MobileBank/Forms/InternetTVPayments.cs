@@ -223,6 +223,7 @@ namespace MobileBank.Forms
                                     var queryTransaction4 = $"INSERT INTO clientPersonalAccount(personal_account, id_service, id_client) VALUES ('{txB_personallPaymentsInternetTV.Text}', (select id_service from clientServices where serviceName = '{cmb_servicesInternetTVPayments.GetItemText(cmb_servicesInternetTVPayments.SelectedItem)}' AND serviceType = 'Internet'), '{DataStorage.idClient}')";
                                     using (MySqlCommand commandTransfer1 = new MySqlCommand(queryTransaction1, DataBaseConnection.GetInstance.GetConnection()))
                                     {
+                                        var x =0;
                                         DataBaseConnection.GetInstance.OpenConnection();
                                         if (commandTransfer1.ExecuteNonQuery() == 1)
                                         {
