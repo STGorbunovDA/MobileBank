@@ -255,6 +255,7 @@ namespace MobileBank.Forms
                                                 }
                                                 else
                                                 {
+
                                                     MessageBox.Show("Перевод не выполнен queryTransaction2", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                                 }
                                             }
