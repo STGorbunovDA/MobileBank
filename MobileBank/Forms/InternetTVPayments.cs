@@ -1,14 +1,8 @@
 ﻿using MobileBank.Classes;
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MobileBank.Forms
@@ -226,7 +220,7 @@ namespace MobileBank.Forms
                                         $"'{txB_personallPaymentsInternetTV.Text}', '{transactionDateMobile}', '{card_numberUser}', '{totalSum}', " +
                                         $"'{cardCurrencyUser}', (select id_bank_card from bank_card where bank_card_number = '{card_numberUser}'))";
                                     var queryTransaction3 = $"UPDATE clientServices SET serviceBalance = serviceBalance + '{totalSum}' WHERE serviceName = '{cmb_servicesInternetTVPayments.GetItemText(cmb_servicesInternetTVPayments.SelectedItem)}' AND serviceType = 'Internet'";
-                                    var queryTransaction4 = $"INSERT INTO clientPersonalAccount(personal_account, id_service, id_client) VALUES ('{txB_personallPaymentsInternetTV.Text}', (select id_service from clientServices where serviceName = '{cmb_servicesInternetTVPayments.GetItemText(cmb_servicesInternetTVPayments.SelectedItem)}'), '{DataStorage.idClient}')";
+                                    var queryTransaction4 = $"INSERT INTO clientPersonalAccount(personal_account, id_service, id_client) VALUES ('{txB_personallPaymentsInternetTV.Text}', (select id_service from clientServices where serviceName = '{cmb_servicesInternetTVPayments.GetItemText(cmb_servicesInternetTVPayments.SelectedItem)}' AND serviceType = 'Internet'), '{DataStorage.idClient}')";
                                     using (MySqlCommand commandTransfer1 = new MySqlCommand(queryTransaction1, DataBaseConnection.GetInstance.GetConnection()))
                                     {
                                         DataBaseConnection.GetInstance.OpenConnection();
@@ -301,7 +295,7 @@ namespace MobileBank.Forms
             }
             catch (Exception)
             {
-                MessageBox.Show("Ошибка оплаты счёта за Интернет (Btn_TransferCommunalPayments_Click)", "Ошибка метода", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ошибка оплаты счёта за Интернет (Btn_TransferPaymentsInternetTV_Click)", "Ошибка метода", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
