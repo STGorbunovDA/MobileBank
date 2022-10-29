@@ -61,7 +61,8 @@ namespace MobileBank.Forms
 
         void Btn_close_Click(object sender, EventArgs e)
         {
-            System.Environment.Exit(1);
+            if (!FormClose.GetInstance.FClose())
+                System.Environment.Exit(1);
         }
 
         void MainForm_Load(object sender, EventArgs e)
@@ -372,7 +373,7 @@ namespace MobileBank.Forms
                 DataStorage.euro = lbL_сourse_euro.Text.Trim();
                 helpForm.ShowDialog();
                 Btn_udpate_Click(sender, e);
-                
+
             }
         }
 

@@ -25,8 +25,7 @@ namespace MobileBank.Forms
 
         void Btn_close_Click(object sender, EventArgs e)
         {
-            if (!FormClose.GetInstance.FClose())
-                this.Close();
+            this.Close();
         }
 
         void CreditForm_MouseDown(object sender, MouseEventArgs e)
@@ -118,7 +117,7 @@ namespace MobileBank.Forms
                     pictureBox7.Size = new Size(32, 32);
                     pictureBox7.Location = new Point(12, 10);
 
-                    
+
                     var querySelectIdCard = $"SELECT credits.id_bank_card, credits.credit_total_sum, credits.credit_sum, credits.credit_date, " +
                         $"credits.id_credit FROM credits INNER JOIN bank_card on credits.id_bank_card = bank_card.id_bank_card WHERE " +
                         $"bank_card.bank_card_number = '{DataStorage.cardNumberUser}'";
@@ -171,7 +170,7 @@ namespace MobileBank.Forms
             }
             catch (Exception)
             {
-                MessageBox.Show("Ошибка загрузки формы кредита (CreditForm_Load)", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Ошибка загрузки формы кредита (CreditForm_Load)", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -269,74 +268,86 @@ namespace MobileBank.Forms
 
         void Btn_arrangeCredit_Click(object sender, EventArgs e)
         {
-            if (txB_monthsCredit.Text != "0" && !String.IsNullOrEmpty(txB_sumCredit.Text) && !String.IsNullOrEmpty(txB_monthsCredit.Text)
-                && Convert.ToInt32(txB_monthsCredit.Text) < 60 && Convert.ToInt32(txB_sumCredit.Text) < 1000000)
+            try
             {
-                trB_sumCredit.Value = Convert.ToInt32(txB_sumCredit.Text);
-                trB_monthsCredit.Value = Convert.ToInt32(txB_monthsCredit.Text);
-                CalculatorCredit();
-
-                validations.ShowDialog();
-
-                if (DataStorage.attemptsPin < 3)
+                if (txB_monthsCredit.Text != "0" && !String.IsNullOrEmpty(txB_sumCredit.Text) && !String.IsNullOrEmpty(txB_monthsCredit.Text)
+               && Convert.ToInt32(txB_monthsCredit.Text) < 60 && Convert.ToInt32(txB_sumCredit.Text) < 1000000)
                 {
-                    var idCredits = "";
-                    var querySelectId = $"SELECT id_credit FROM credits WHERE id_bank_card =  (SELECT id_bank_card FROM bank_card WHERE bank_card_number = '{DataStorage.cardNumberUser}')";
-                    using (MySqlCommand command = new MySqlCommand(querySelectId, DataBaseConnection.GetInstance.GetConnection()))
+                    trB_sumCredit.Value = Convert.ToInt32(txB_sumCredit.Text);
+                    trB_monthsCredit.Value = Convert.ToInt32(txB_monthsCredit.Text);
+                    CalculatorCredit();
+
+                    validations.ShowDialog();
+
+                    if (DataStorage.attemptsPin < 3)
                     {
-                        DataBaseConnection.GetInstance.OpenConnection();
-                        using (MySqlDataReader reader = command.ExecuteReader())
+                        var idCredits = "";
+                        var querySelectId = $"SELECT id_credit FROM credits WHERE id_bank_card =  (SELECT id_bank_card FROM bank_card WHERE bank_card_number = '{DataStorage.cardNumberUser}')";
+                        using (MySqlCommand command = new MySqlCommand(querySelectId, DataBaseConnection.GetInstance.GetConnection()))
                         {
-                            while (reader.Read())
+                            DataBaseConnection.GetInstance.OpenConnection();
+                            using (MySqlDataReader reader = command.ExecuteReader())
                             {
-                                idCredits = reader[0].ToString();
+                                while (reader.Read())
+                                {
+                                    idCredits = reader[0].ToString();
+                                }
+                                reader.Close();
                             }
-                            reader.Close();
-                        }
-                        DataBaseConnection.GetInstance.CloseConnection();
-                    }
-                    if (String.IsNullOrEmpty(idCredits))
-                    {
-                        var totalSum = Convert.ToDouble(lbL_sumCredit.Text) * Convert.ToDouble(txB_monthsCredit.Text);
-                        
-
-                        DateTime dateTime = DateTime.Now;
-                        var dateTimeNow = dateTime.ToString("yyyy-MM-dd HH:mm:ss");
-
-                        DateTime creditDateTime = dateTime.AddMonths(1);
-                        var repaymentDate = creditDateTime.ToString("yyyy-MM-dd HH:mm:ss");
-                        var repaymentSum = lbL_sumCredit.Text;
-
-                        var queryCredit = $"INSERT INTO credits(credit_total_sum, credit_sum, credit_date, credit_status, repayment_date, repayment_sum, id_bank_card) VALUES ('{totalSum}'," +
-                        $"'0', '{dateTimeNow}', '1', '{repaymentDate}', '{repaymentSum}', (SELECT id_bank_card FROM bank_card WHERE bank_card_number = '{DataStorage.cardNumberUser}'))";
-
-                        using (MySqlCommand command = new MySqlCommand(queryCredit, DataBaseConnection.GetInstance.GetConnection()))
-                        {
-                            DataBaseConnection.GetInstance.OpenConnection();
-                            command.ExecuteNonQuery();
                             DataBaseConnection.GetInstance.CloseConnection();
                         }
-                        var sumCard = txB_sumCredit.Text;
-                        var queryEnrollmentCardCredit = $"UPDATE bank_card SET bank_card_balance = bank_card_balance + '{sumCard}' WHERE bank_card_number = '{DataStorage.cardNumberUser}'";
-                        
-                        using (MySqlCommand command = new MySqlCommand(queryEnrollmentCardCredit, DataBaseConnection.GetInstance.GetConnection()))
+                        if (String.IsNullOrEmpty(idCredits))
                         {
-                            DataBaseConnection.GetInstance.OpenConnection();
-                            command.ExecuteNonQuery();
-                            DataBaseConnection.GetInstance.CloseConnection();
+                            var totalSum = Convert.ToDouble(lbL_sumCredit.Text) * Convert.ToDouble(txB_monthsCredit.Text);
+
+
+                            DateTime dateTime = DateTime.Now;
+                            var dateTimeNow = dateTime.ToString("yyyy-MM-dd HH:mm:ss");
+
+                            DateTime creditDateTime = dateTime.AddMonths(1);
+                            var repaymentDate = creditDateTime.ToString("yyyy-MM-dd HH:mm:ss");
+                            var repaymentSum = lbL_sumCredit.Text;
+                            var sumCard = txB_sumCredit.Text;
+
+                            var queryCredit = $"INSERT INTO credits(credit_total_sum, credit_sum, credit_date, credit_status, repayment_date, repayment_sum, id_bank_card) VALUES ('{totalSum}'," +
+                            $"'0', '{dateTimeNow}', '1', '{repaymentDate}', '{repaymentSum}', (SELECT id_bank_card FROM bank_card WHERE bank_card_number = '{DataStorage.cardNumberUser}'))";
+
+                            var queryEnrollmentCardCredit = $"UPDATE bank_card SET bank_card_balance = bank_card_balance + '{sumCard}' WHERE bank_card_number = '{DataStorage.cardNumberUser}'";
+
+                            using (MySqlCommand command = new MySqlCommand(queryCredit, DataBaseConnection.GetInstance.GetConnection()))
+                            {
+                                DataBaseConnection.GetInstance.OpenConnection();
+                                if (command.ExecuteNonQuery() == 1)
+                                {
+                                    using (MySqlCommand command2 = new MySqlCommand(queryEnrollmentCardCredit, DataBaseConnection.GetInstance.GetConnection()))
+                                    {
+                                        if (command2.ExecuteNonQuery() == 1)
+                                        {
+                                            DataBaseConnection.GetInstance.CloseConnection();
+                                        }
+                                        else MessageBox.Show("Зачисление средст не выполнено (queryEnrollmentCardCredit)", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    }
+                                    MessageBox.Show("Кредит оформлен!", "Успешно", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    this.Close();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Кредит не оформлен (queryCredit)", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                            }
                         }
-                        MessageBox.Show("Кредит оформлен!", "Успешно", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("У вас уже есть кредит", "Отмена", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                        {
+                            MessageBox.Show("У вас уже есть кредит", "Отмена", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
                 }
+                else MessageBox.Show("Некорректный ввод параметров кредитования", "Отмена", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else MessageBox.Show("Некорректный ввод параметров кредитования", "Отмена", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка оплаты кредита (Btn_arrangeCredit_Click)", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         void TxB_monthsCredit_TextChanged(object sender, EventArgs e)
@@ -359,7 +370,7 @@ namespace MobileBank.Forms
         {
             var payment = lbL_repaymentSum.Text;
 
-            if(Convert.ToDouble(DataStorage.balanceCard) > Convert.ToDouble(payment))
+            if (Convert.ToDouble(DataStorage.balanceCard) > Convert.ToDouble(payment))
             {
                 DateTime dateTime = Convert.ToDateTime(lbL_repaymentDate.Text).AddMonths(1);
                 var credit_date = dateTime.ToString("yyyy-MM-dd HH:mm:ss");
